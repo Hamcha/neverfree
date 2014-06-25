@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovementScript : MonoBehaviour 
-{
+public class MovementScript : MonoBehaviour {
     public float maxSpeed;
     public float damping;
     public float threshold;
@@ -21,24 +20,22 @@ public class MovementScript : MonoBehaviour
 
     private Animator baseAnimator;
 
-	void Start () 
-    {
+    void Start() {
         currentDirection = 0f;
         currentDelay = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
-	}
-	
-	void Update () 
-    {
+    }
+
+    void Update() {
         // Get Axis data
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
 
         // Set speed if over start threshold
-        if (Mathf.Abs(Horizontal) > threshold) velocity.x  = maxSpeed * Horizontal;
-        else                                   velocity.x -= velocity.x * damping * Time.deltaTime;
-        if (Mathf.Abs(Vertical) > threshold) velocity.y  = maxSpeed * Vertical;
-        else                                 velocity.y -= velocity.y * damping * Time.deltaTime;
+        if (Mathf.Abs(Horizontal) > threshold) velocity.x = maxSpeed * Horizontal;
+        else velocity.x -= velocity.x * damping * Time.deltaTime;
+        if (Mathf.Abs(Vertical) > threshold) velocity.y = maxSpeed * Vertical;
+        else velocity.y -= velocity.y * damping * Time.deltaTime;
 
         // Reset speed if below stop threshold
         if (Mathf.Abs(velocity.x) < stopThreshold) velocity.x = 0f;
@@ -46,7 +43,7 @@ public class MovementScript : MonoBehaviour
 
         // Softcap speed to min and max limits
         if (velocity.magnitude < stopThreshold) velocity = Vector3.zero;
-        if (velocity.magnitude > maxSpeed)      velocity = Vector3.Normalize(velocity) * maxSpeed;
+        if (velocity.magnitude > maxSpeed) velocity = Vector3.Normalize(velocity) * maxSpeed;
 
         // Set animation
         baseAnimator.SetFloat("Speed", velocity.magnitude);
@@ -54,8 +51,7 @@ public class MovementScript : MonoBehaviour
 
         // Flip Sprite if horizontal direction changed
         float direction = Mathf.Sign(cursorPosition.position.x - transform.position.x);
-        if (currentDirection != direction)
-        {
+        if (currentDirection != direction) {
             Vector3 rScale = transform.localScale;
             rScale.x = currentDirection = direction;
             transform.localScale = rScale;
@@ -76,10 +72,9 @@ public class MovementScript : MonoBehaviour
 
         // Decrease fire delay
         if (currentDelay > 0f) currentDelay -= Time.deltaTime;
-	}
+    }
 
-    void shoot()
-    {
+    void shoot() {
         float deltaX = cursorPosition.position.x - transform.position.x;
         float deltaY = cursorPosition.position.y - transform.position.y;
         angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;

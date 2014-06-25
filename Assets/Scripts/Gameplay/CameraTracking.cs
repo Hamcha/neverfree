@@ -2,10 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CameraTracking : MonoBehaviour
-{
-    public struct CameraObject
-    {
+public class CameraTracking : MonoBehaviour {
+    public struct CameraObject {
         public GameObject Object;
         public float Weight;
     }
@@ -18,13 +16,11 @@ public class CameraTracking : MonoBehaviour
 
     private Vector3 posVelocity;
 
-    CameraTracking()
-    {
+    CameraTracking() {
         Objects = new List<CameraObject>();
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         if (Objects.Count < 1) return;
 
         // Reset variables
@@ -32,8 +28,7 @@ public class CameraTracking : MonoBehaviour
         float totalWeight = 0f;
 
         // Calculate position using Weighted Arithmetic Average
-        foreach (CameraObject c in Objects)
-        {
+        foreach (CameraObject c in Objects) {
             position += c.Object.transform.position * c.Weight;
             totalWeight += c.Weight;
         }
@@ -48,22 +43,16 @@ public class CameraTracking : MonoBehaviour
 
         // Check if screen is bigger than map
         // if not, fit screen to map bounds
-        if (dimensions.x > bot.x*2)
-        {
+        if (dimensions.x > bot.x * 2) {
             position.x = 0;
-        }
-        else
-        {
+        } else {
             if (position.x - dimensions.x / 2 < top.x) position.x = top.x + dimensions.x / 2;
             if (position.x + dimensions.x / 2 > bot.x) position.x = bot.x - dimensions.x / 2;
         }
 
-        if (dimensions.y > bot.y*2)
-        {
+        if (dimensions.y > bot.y * 2) {
             position.y = 0;
-        }
-        else
-        {
+        } else {
             if (position.y - dimensions.y / 2 < top.y) position.y = top.y + dimensions.y / 2;
             if (position.y + dimensions.y / 2 > bot.y) position.y = bot.y - dimensions.y / 2;
         }
@@ -72,25 +61,20 @@ public class CameraTracking : MonoBehaviour
         targetPosition.z = -10f;
     }
 
-    void Update()
-    {
+    void Update() {
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref posVelocity, posTime);
     }
 
-    public void Add(GameObject obj, float weigth)
-    {
+    public void Add(GameObject obj, float weigth) {
         CameraObject camObj;
         camObj.Object = obj;
         camObj.Weight = weigth;
         Objects.Add(camObj);
     }
 
-    public void Remove(GameObject obj)
-    {
-        foreach (CameraObject c in Objects)
-        {
-            if (c.Object == obj)
-            {
+    public void Remove(GameObject obj) {
+        foreach (CameraObject c in Objects) {
+            if (c.Object == obj) {
                 Objects.Remove(c);
                 return;
             }
@@ -98,15 +82,15 @@ public class CameraTracking : MonoBehaviour
     }
 
     static public Vector2 CalculateScreenSizeInWorldCoords(Camera cam) {
-        Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0,0,cam.nearClipPlane));  
-        Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1,0,cam.nearClipPlane));
-        Vector3 p3 = cam.ViewportToWorldPoint(new Vector3(1,1,cam.nearClipPlane));
-     
-        float width  = (p2 - p1).magnitude;
+        Vector3 p1 = cam.ViewportToWorldPoint(new Vector3(0, 0, cam.nearClipPlane));
+        Vector3 p2 = cam.ViewportToWorldPoint(new Vector3(1, 0, cam.nearClipPlane));
+        Vector3 p3 = cam.ViewportToWorldPoint(new Vector3(1, 1, cam.nearClipPlane));
+
+        float width = (p2 - p1).magnitude;
         float height = (p3 - p2).magnitude;
-     
-        Vector2 dimensions = new Vector2(width,height);
-     
+
+        Vector2 dimensions = new Vector2(width, height);
+
         return dimensions;
     }
 }
