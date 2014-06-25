@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour {
     void Update() {
         velocity -= velocity.normalized * deceleration * Time.deltaTime;
         Color color = sprite.color;
-        color.a = velocity.magnitude;
+        color.a = velocity.magnitude/2;
         sprite.color = color;
         if (velocity.magnitude < threshold) Destroy(gameObject);
         transform.Translate(velocity * Time.deltaTime);
