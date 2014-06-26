@@ -4,6 +4,9 @@ public class Player : Singleton<Player> {
     public delegate void HealthChangedHandler(Player instance, int newHealth);
     public event HealthChangedHandler HealthChanged;
 
+    public delegate void DeathHandler(Player instance);
+    public event DeathHandler Died;
+
     public enum Stance {
         STANCE_VIEW = 0,
         STANCE_BASE_SHOT = 1
@@ -17,6 +20,10 @@ public class Player : Singleton<Player> {
         get { return _health; }
         set {
             _health = value;
+            if (_health <= 0) {
+                _health = 0;
+                if (Died != null) Died(this);
+            }
             if (HealthChanged != null) HealthChanged(this, _health);
         }
     }
@@ -48,7 +55,7 @@ public class PlayerData {
         stances = PlayerPrefs.GetString("playerStances").Split(',');
       */
         name = "Unnamed pony";
-        hearts = 3;
+        hearts = 6;
         stances = new string[] { "look", "ray" };
     }
 }

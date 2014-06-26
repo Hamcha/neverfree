@@ -99,6 +99,7 @@ public class PlayerScript : MonoBehaviour {
             // Not invulnerable? Get hit!
             if (!isProtected) {
                 currentProtectDelay = protectDelay;
+                Player.Instance.health -= 1;
             }
         }
     }
