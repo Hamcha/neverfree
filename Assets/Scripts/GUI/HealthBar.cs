@@ -13,7 +13,6 @@ public class HealthBar : MonoBehaviour {
             GameObject heart = (GameObject)Instantiate(Heart);
             heart.transform.parent = transform;
             DockUI dock = heart.GetComponent<DockUI>();
-            dock.UICamera = UICamera;
             dock.offset.x = 2 + 7 * i;
         }
 

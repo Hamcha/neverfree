@@ -11,13 +11,18 @@ public class CameraTracking : MonoBehaviour {
     public List<CameraObject> Objects;
     public Vector3 targetPosition;
 
-    public GameObject terrain;
     public float posTime;
 
     private Vector3 posVelocity;
+    private SpriteRenderer terrain;
 
     CameraTracking() {
         Objects = new List<CameraObject>();
+    }
+
+    void Start() {
+        //todo manage terrain change on scene change
+        terrain = Scene.instance.terrain.GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate() {
@@ -37,7 +42,7 @@ public class CameraTracking : MonoBehaviour {
 
         // Calculate Screen size and Map size
         Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(camera);
-        Bounds limits = terrain.GetComponent<SpriteRenderer>().sprite.bounds;
+        Bounds limits = terrain.sprite.bounds;
         Vector3 top = limits.min;
         Vector3 bot = limits.max;
 

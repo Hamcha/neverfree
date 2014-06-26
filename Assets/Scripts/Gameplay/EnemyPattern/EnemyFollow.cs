@@ -15,9 +15,13 @@ public class EnemyFollow : MonoBehaviour {
         currentDirection = 0f;
         ani = GetComponent<Animator>();
         tracking = false;
+        target = Scene.instance.player.transform;
     }
 
     void Update() {
+        // Don't bother if we don't have a target
+        if (target == null) return;
+
         // Reset speed
         ani.SetFloat("Speed", 0);
 

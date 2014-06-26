@@ -2,10 +2,15 @@
 using System.Collections;
 
 public class DockUI : MonoBehaviour {
-    public Camera UICamera;
     public Vector2 position;
     public Vector2 offset;
     public float pixelSize;
+
+    private Camera UICamera;
+
+    void Start() {
+        UICamera = Scene.instance.GUI.UICamera;
+    }
 
     void Update() {
         Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(UICamera) / 2;

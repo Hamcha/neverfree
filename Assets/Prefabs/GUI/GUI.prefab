@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400006}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Health head
   m_TagString: GUI
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200004}
   - 114: {fileID: 11400016}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Stance SelectBox
   m_TagString: GUI
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 32
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -399,7 +399,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: -10}
-  terrain: {fileID: 0}
   posTime: .300000012
 --- !u!114 &11400002
 MonoBehaviour:
@@ -441,7 +440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab826004e2f125d49a786acf4e66a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICamera: {fileID: 2000002}
   position: {x: -1, y: 1}
   offset: {x: 12, y: 6}
   pixelSize: 30
@@ -508,7 +506,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab826004e2f125d49a786acf4e66a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICamera: {fileID: 2000002}
   position: {x: -1, y: -1}
   offset: {x: 10, y: 20}
   pixelSize: 30

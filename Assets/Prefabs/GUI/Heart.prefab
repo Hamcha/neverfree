@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Heart
   m_TagString: GUI
   m_Icon: {fileID: 0}
@@ -55,7 +55,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab826004e2f125d49a786acf4e66a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UICamera: {fileID: 0}
   position: {x: -1, y: 1}
   offset: {x: 2, y: -3}
   pixelSize: 30

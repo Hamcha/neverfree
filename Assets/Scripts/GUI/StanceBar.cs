@@ -24,7 +24,6 @@ public class StanceBar : MonoBehaviour {
             GameObject stance = (GameObject)Instantiate(Stance);
             stance.transform.parent = transform;
             DockUI dock = stance.GetComponent<DockUI>();
-            dock.UICamera = UICamera;
             dock.offset.x = 5 + 13 * i;
             dock.offset.y = 21;
             stance.GetComponent<Animator>().SetTrigger(Player.Instance.data.stances[i]);
