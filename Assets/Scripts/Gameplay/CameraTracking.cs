@@ -73,12 +73,11 @@ public class CameraTracking : MonoBehaviour {
     }
 
     public void Remove(GameObject obj) {
-        foreach (CameraObject c in Objects) {
-            if (c.Object == obj) {
-                Objects.Remove(c);
-                return;
-            }
-        }
+        Objects.RemoveAll(x => x.Object == obj);
+    }
+
+    public void Clear() {
+        Objects.Clear();
     }
 
     static public Vector2 CalculateScreenSizeInWorldCoords(Camera cam) {

@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour {
         currentDirection = 0f;
         currentDelay = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
+        scene = Scene.instance;
+        cursorPosition = scene.GUI.cursor.transform;
     }
 
     void Update() {
@@ -73,9 +75,9 @@ public class PlayerScript : MonoBehaviour {
         // Change stance if we're USING OMG THE MOUSE WHEEL HAMCHA WHAT WERE YOU THINKING
         // 0/0 would not let design kbm controls again
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            scene.stanceBar.Next();
+            scene.GUI.stanceBar.Next();
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            scene.stanceBar.Back();
+            scene.GUI.stanceBar.Back();
 
         // Decrease fire delay
         if (currentDelay > 0f) currentDelay -= Time.deltaTime;
@@ -97,7 +99,6 @@ public class PlayerScript : MonoBehaviour {
             // Not invulnerable? Get hit!
             if (!isProtected) {
                 currentProtectDelay = protectDelay;
-                
             }
         }
     }

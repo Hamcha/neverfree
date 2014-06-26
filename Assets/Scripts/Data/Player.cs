@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 public class Player : Singleton<Player> {
+
+    public delegate void HealthChangedHandler(Player instance, int newHealth);
+    public event HealthChangedHandler HealthChanged;
+
     public enum Stance {
         STANCE_VIEW = 0,
         STANCE_BASE_SHOT = 1
@@ -7,7 +11,15 @@ public class Player : Singleton<Player> {
 
     protected Player() { }
 
-    public int health = 0;
+
+    private int _health;
+    public int health {
+        get { return _health; }
+        set {
+            _health = value;
+            if (HealthChanged != null) HealthChanged(this, _health);
+        }
+    }
     public Stance stance = Stance.STANCE_VIEW;
     public PlayerData data = new PlayerData();
 

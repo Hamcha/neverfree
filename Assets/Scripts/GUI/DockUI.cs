@@ -9,6 +9,8 @@ public class DockUI : MonoBehaviour {
 
     void Update() {
         Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(UICamera) / 2;
-        transform.position = new Vector3(dimensions.x * position.x + offset.x / pixelSize, dimensions.y * position.y + offset.y / pixelSize, UICamera.transform.position.z + 1);
+        transform.position = new Vector3(dimensions.x * position.x + offset.x / pixelSize,
+                                         dimensions.y * position.y + offset.y / pixelSize,
+                                         UICamera.transform.position.z + 1);
     }
 }

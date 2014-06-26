@@ -8,7 +8,7 @@ public class HealthBar : MonoBehaviour {
     private int heartCount;
 
     void Start() {
-        heartCount = Player.Instance.data.hearts;
+        heartCount = Player.Instance.health;
         for (int i = 0; i < heartCount; i++) {
             GameObject heart = (GameObject)Instantiate(Heart);
             heart.transform.parent = transform;
@@ -16,5 +16,9 @@ public class HealthBar : MonoBehaviour {
             dock.UICamera = UICamera;
             dock.offset.x = 2 + 7 * i;
         }
+
+        Player.Instance.HealthChanged += (instance, newHealth) => {
+            heartCount = newHealth;
+        };
     }
 }
