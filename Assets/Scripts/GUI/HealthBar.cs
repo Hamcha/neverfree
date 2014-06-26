@@ -6,7 +6,7 @@ public class HealthBar : MonoBehaviour {
     public GameObject Heart;
     public Camera UICamera;
 
-    private int heartCount;
+    private int health;
     private List<GameObject> hearts;
 
     HealthBar() {
@@ -14,20 +14,22 @@ public class HealthBar : MonoBehaviour {
     }
 
     void Start() {
-        heartCount = Player.Instance.health;
-        for (int i = 0; i < heartCount / 2; i++) {
+        health = Player.Instance.health;
+        for (int i = 0; i < health / 2; i++) {
             GameObject heart = (GameObject)Instantiate(Heart);
             heart.transform.parent = transform;
             DockUI dock = heart.GetComponent<DockUI>();
-            dock.offset.x = 2 + 7 * i;
+            float x = i % 10;
+            float y = Mathf.Floor(i / 10);
+            dock.offset = new Vector2(2 + 7 * x, -2 - 7 * y);
             hearts.Add(heart);
         }
 
         Player.Instance.HealthChanged += (instance, newHealth) => {
-            heartCount = newHealth;
+            health = newHealth;
             for (int i = 0; i < hearts.Count; i++) {
-                int status = heartCount / 2 > i ? 0 :
-                    heartCount / 2 == i && heartCount % 2 != 0 ? 1 : 2;
+                int status = health / 2 > i ? 0 :
+                    health / 2 == i && health % 2 != 0 ? 1 : 2;
                 hearts[i].GetComponent<Animator>().SetInteger("status", status);
             }
         };

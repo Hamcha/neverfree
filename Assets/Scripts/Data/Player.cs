@@ -32,7 +32,7 @@ public class Player : Singleton<Player> {
 
     void Awake() {
         data.Load();
-        health = data.hearts;
+        health = data.hearts * 2;
     }
 }
 
@@ -55,7 +55,7 @@ public class PlayerData {
         stances = PlayerPrefs.GetString("playerStances").Split(',');
       */
         name = "Unnamed pony";
-        hearts = 6;
+        hearts = 3;
         stances = new string[] { "look", "ray" };
     }
 }
