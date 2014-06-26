@@ -1,22 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovementScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour {
     public float maxSpeed;
     public float damping;
     public float threshold;
     public float stopThreshold;
+    public float damageBounceDistance;
     public Transform cursorPosition;
+    public float protectDelay;
 
     public GameObject projectile;
     public float fireDelay;
 
     public Scene scene;
 
+    public bool isProtected { get { return currentProtectDelay > 0; } }
+
+    public GameObject baseSprite, hairSprite;
+
     private Vector3 velocity;
     private float angle;
     private float currentDirection;
     private float currentDelay;
+    private float currentProtectDelay;
 
     private Animator baseAnimator;
 
@@ -72,6 +79,27 @@ public class MovementScript : MonoBehaviour {
 
         // Decrease fire delay
         if (currentDelay > 0f) currentDelay -= Time.deltaTime;
+
+        // Invulnerable semi-transparency
+        if (currentProtectDelay > 0f) {
+            Color baseColor = baseSprite.renderer.material.color;
+            baseColor.a = Mathf.Floor(currentProtectDelay * 10f) % 2 == 1 ? 0.5f : 1f;
+            baseSprite.renderer.material.color = baseColor;
+            hairSprite.renderer.material.color = baseColor;
+            currentProtectDelay -= Time.deltaTime;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        // Bouncing when hit
+        if (collision.gameObject.tag == "Enemy") {
+            rigidbody2D.AddForce(collision.contacts[0].normal * damageBounceDistance, ForceMode2D.Impulse);
+            // Not invulnerable? Get hit!
+            if (!isProtected) {
+                currentProtectDelay = protectDelay;
+                
+            }
+        }
     }
 
     void shoot() {
