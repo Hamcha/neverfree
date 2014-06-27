@@ -51,6 +51,7 @@ class BaseShotStance : OffensiveStance {
     }
 
     public override void Shoot(Vector2 origin, float angle) {
+        if (!CanShoot()) return;
         GameObject proj = (GameObject)GameObject.Instantiate(projectile, origin, Quaternion.AngleAxis(angle, Vector3.forward));
         proj.GetComponent<Projectile>().angle = angle;
         base.Shoot(origin, angle);

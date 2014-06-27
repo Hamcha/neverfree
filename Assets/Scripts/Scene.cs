@@ -6,16 +6,20 @@ public class Scene : MonoBehaviour {
 
     public GameObject GUIPrefab;
     public GameObject playerPrefab;
+    public GameObject storagePrefab;
 
     public GameObject player;
     public GameObject terrain;
 
     public GUIScript GUI;
-
+    public Prefabs storage;
     public static GUIScript gui { get { return instance.GUI; } }
     public static CameraTracking tracker { get { return gui.tracker; } }
 
     void Awake() {
+        // Create and setup Storage
+        storage = ((GameObject)Instantiate(storagePrefab)).GetComponent<Prefabs>();
+
         // Create and setup Player
         player = (GameObject)Instantiate(playerPrefab);
 

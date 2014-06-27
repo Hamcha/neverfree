@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Scene
+  m_Name: Storage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,16 +36,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 438d85d2fe4372745b3015542453f228, type: 3}
+  m_Script: {fileID: 11500000, guid: c32e7d6dd5e6b4f45ba66f3dfc5c7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GUIPrefab: {fileID: 100014, guid: d6a38e5540e0e2c47bb3e3f923e43ad9, type: 2}
-  playerPrefab: {fileID: 100002, guid: bb5889b11ea15a647b8f0ea5e6f4d860, type: 2}
-  storagePrefab: {fileID: 100000, guid: 5b34c9d4ae22b4540866c88ac53bdd05, type: 2}
-  player: {fileID: 0}
-  terrain: {fileID: 0}
-  GUI: {fileID: 0}
-  storage: {fileID: 0}
+  baseShotProjectile: {fileID: 100000, guid: 7fdadbe10b3dfa5448c8c1a108d86aff, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
