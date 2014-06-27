@@ -7,13 +7,15 @@ public class StanceBar : MonoBehaviour {
     public GameObject Stance_SelectBox;
     private List<GameObject> stances;
 
-    // Get current stance as int
+    // Get current stance
+    private int _selected;
     public int selected {
-        get { return (int)Player.Instance.stance; }
-        set { Player.Instance.stance = (Player.Stance)value; }
+        get { return _selected; }
+        set {
+            _selected = value;
+            Player.Instance.stance = Player.Instance.data.stances[_selected];
+        }
     }
-
-    public Player.Stance[] stanceList = new Player.Stance[] { Player.Stance.Inspect, Player.Stance.BaseShot };
 
     void Start() {
         // Create local stance list
@@ -24,21 +26,29 @@ public class StanceBar : MonoBehaviour {
             GameObject stance = (GameObject)Instantiate(Stance);
             stance.transform.parent = transform;
             DockUI dock = stance.GetComponent<DockUI>();
-            dock.offset.x = 5 + 13 * i;
             dock.offset.y = 21;
             stance.GetComponent<Animator>().SetTrigger(Player.Instance.data.stances[i].ToString());
             stances.Add(stance);
         }
 
         // Raise selected stance
-        Raise((int)Player.Instance.stance);
+        Raise(0);
     }
 
     void Raise(int id) {
         // Put SelectBox over stance
         DockUI dock = Stance_SelectBox.GetComponent<DockUI>();
-        dock.offset.x = 5 + 13 * id;
+        dock.offset.x = 6 + 11 * id;
         dock.offset.y = 21;
+
+        // Move stances to make space for SelectBox
+        int offset = 4;
+        for (int i = 0; i < stances.Count; i++) {
+            if (i == id) offset += 2;
+            stances[i].GetComponent<DockUI>().offset.x = offset;
+            if (i == id) offset += 2;
+            offset += 11;
+        }
 
         // Make cursor check for changes
         Cursor.setCursorType(Player.Instance.data.stances[id].ToString());
