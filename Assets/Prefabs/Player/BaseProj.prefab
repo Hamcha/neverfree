@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: BaseProj
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Radius: .0500000007
   m_Center: {x: .100000001, y: .00999999978}
 --- !u!95 &9500000

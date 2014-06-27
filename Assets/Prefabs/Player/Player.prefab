@@ -177,8 +177,7 @@ MonoBehaviour:
   cursorPosition: {fileID: 0}
   protectDelay: 1
   projectile: {fileID: 100000, guid: 7fdadbe10b3dfa5448c8c1a108d86aff, type: 2}
-  fireDelay: .400000006
-  scene: {fileID: 0}
+  fireDelay: .600000024
   baseSprite: {fileID: 100006}
   hairSprite: {fileID: 100000}
 --- !u!212 &21200000

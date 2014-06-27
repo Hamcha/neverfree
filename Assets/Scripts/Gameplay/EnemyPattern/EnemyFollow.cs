@@ -28,13 +28,13 @@ public class EnemyFollow : MonoBehaviour {
         // Are we too distant from our target to see it?
         if (Vector3.Distance(transform.position, target.position) > farDistance) {
             // Remove from tracker if it is active
-            if (tracking) { Scene.instance.GUI.tracker.Remove(gameObject); tracking = false; }
+            if (tracking) { Scene.tracker.Remove(gameObject); tracking = false; }
             return;
         }
 
         // Add to tracking if it isn't
         if (!tracking) {
-            Scene.instance.GUI.tracker.Add(gameObject, 20f);
+            Scene.tracker.Add(gameObject, 20f);
             tracking = true;
         }
 

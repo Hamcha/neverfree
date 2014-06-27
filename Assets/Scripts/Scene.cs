@@ -12,6 +12,9 @@ public class Scene : MonoBehaviour {
 
     public GUIScript GUI;
 
+    public static GUIScript gui { get { return instance.GUI; } }
+    public static CameraTracking tracker { get { return gui.tracker; } }
+
     void Awake() {
         // Create and setup Player
         player = (GameObject)Instantiate(playerPrefab);

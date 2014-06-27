@@ -8,8 +8,8 @@ public class Player : Singleton<Player> {
     public event DeathHandler Died;
 
     public enum Stance {
-        STANCE_VIEW = 0,
-        STANCE_BASE_SHOT = 1
+        Inspect = 0,
+        BaseShot = 1
     };
 
     protected Player() { }
@@ -27,7 +27,7 @@ public class Player : Singleton<Player> {
             if (HealthChanged != null) HealthChanged(this, _health);
         }
     }
-    public Stance stance = Stance.STANCE_VIEW;
+    public Stance stance = Stance.Inspect;
     public PlayerData data = new PlayerData();
 
     void Awake() {

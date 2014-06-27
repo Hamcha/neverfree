@@ -13,7 +13,7 @@ public class StanceBar : MonoBehaviour {
         set { Player.Instance.stance = (Player.Stance)value; }
     }
 
-    public Player.Stance[] stanceList = new Player.Stance[] { Player.Stance.STANCE_VIEW, Player.Stance.STANCE_BASE_SHOT };
+    public Player.Stance[] stanceList = new Player.Stance[] { Player.Stance.Inspect, Player.Stance.BaseShot };
 
     void Start() {
         // Create local stance list

@@ -13,8 +13,6 @@ public class PlayerScript : MonoBehaviour {
     public GameObject projectile;
     public float fireDelay;
 
-    public Scene scene;
-
     public bool isProtected { get { return currentProtectDelay > 0; } }
 
     public GameObject baseSprite, hairSprite;
@@ -28,11 +26,11 @@ public class PlayerScript : MonoBehaviour {
     private Animator baseAnimator;
 
     void Start() {
+        DontDestroyOnLoad(gameObject);
         currentDirection = 0f;
         currentDelay = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
-        scene = Scene.instance;
-        cursorPosition = scene.GUI.cursor.transform;
+        cursorPosition = Scene.gui.cursor.transform;
     }
 
     void Update() {
@@ -69,15 +67,15 @@ public class PlayerScript : MonoBehaviour {
         // TODO: Move global delays to Stance-specific ones
 
         // Shoot if we can and want to
-        if (Input.GetMouseButton(0) && Player.Instance.stance == Player.Stance.STANCE_BASE_SHOT)
+        if (Input.GetMouseButton(0) && Player.Instance.stance == Player.Stance.BaseShot)
             if (currentDelay <= 0f) shoot();
 
         // Change stance if we're USING OMG THE MOUSE WHEEL HAMCHA WHAT WERE YOU THINKING
         // 0/0 would not let design kbm controls again
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            scene.GUI.stanceBar.Next();
+            Scene.gui.stanceBar.Next();
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            scene.GUI.stanceBar.Back();
+            Scene.gui.stanceBar.Back();
 
         // Decrease fire delay
         if (currentDelay > 0f) currentDelay -= Time.deltaTime;
