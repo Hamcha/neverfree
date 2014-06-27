@@ -71,7 +71,6 @@ MonoBehaviour:
   deceleration: 6
   threshold: .100000001
   angle: 0
-  initialVelocity: {x: 0, y: 0, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
