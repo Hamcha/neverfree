@@ -19,9 +19,12 @@ public class HealthBar : MonoBehaviour {
             GameObject heart = (GameObject)Instantiate(Heart);
             heart.transform.parent = transform;
             DockUI dock = heart.GetComponent<DockUI>();
+            // Divide into rows
             float x = i % 10;
             float y = Mathf.Floor(i / 10);
-            dock.offset = new Vector2(2 + 7 * x, -2 - 7 * y);
+            // Hex-style positioning
+            float yoff = x % 2;
+            dock.offset = new Vector2(2 + 5 * x, -2 - 4 * yoff - 8 * y);
             hearts.Add(heart);
         }
 

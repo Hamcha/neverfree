@@ -51,7 +51,7 @@ public class PlayerData {
 
     public void Load() {
         name = Get("playerName", "Unnamed pony");
-        hearts = Get("playerHearts", 3);
+        hearts = Get("playerHearts", 5);
         string[] stancesStr = Get("playerStances", "Inspect,BaseShot").Split(',');
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
     }
