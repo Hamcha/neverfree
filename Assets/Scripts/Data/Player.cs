@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 public class Player : Singleton<Player> {
 
     public delegate void HealthChangedHandler(Player instance, int newHealth);
@@ -8,12 +10,10 @@ public class Player : Singleton<Player> {
     public event DeathHandler Died;
 
     public enum Stance {
-        Inspect = 0,
-        BaseShot = 1
+        Inspect, BaseShot
     };
 
     protected Player() { }
-
 
     private int _health;
     public int health {
@@ -36,26 +36,35 @@ public class Player : Singleton<Player> {
     }
 }
 
-[System.Serializable]
 public class PlayerData {
     public string name;
     public int hearts;
-    public string[] stances;
+    public List<Player.Stance> stances;
 
     public void Save() {
         PlayerPrefs.SetString("playerName", name);
         PlayerPrefs.SetInt("playerHearts", hearts);
-        PlayerPrefs.SetString("playerStances", string.Join(",", stances));
+        string[] stancesStr = stances.ConvertAll((x) => x.ToString()).ToArray();
+        PlayerPrefs.SetString("playerStances", string.Join(",", stancesStr));
         PlayerPrefs.Save();
     }
 
-    public void Load() {/*
-        name    = PlayerPrefs.GetString("playerName");
-        hearts  = PlayerPrefs.GetInt("playerHearts");
-        stances = PlayerPrefs.GetString("playerStances").Split(',');
-      */
-        name = "Unnamed pony";
-        hearts = 3;
-        stances = new string[] { "look", "ray" };
+    public void Load() {
+        name = Get("playerName", "Unnamed pony");
+        hearts = Get("playerHearts", 3);
+        string[] stancesStr = Get("playerStances", "Inspect,BaseShot").Split(',');
+        stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
+    }
+
+    private string Get(string key, string fallback) {
+        return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetString(key) : fallback;
+    }
+
+    private int Get(string key, int fallback) {
+        return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetInt(key) : fallback;
+    }
+
+    private float Get(string key, float fallback) {
+        return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetFloat(key) : fallback;
     }
 }

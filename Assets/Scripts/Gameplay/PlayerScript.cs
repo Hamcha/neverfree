@@ -10,9 +10,6 @@ public class PlayerScript : MonoBehaviour {
     public Transform cursorPosition;
     public float protectDelay;
 
-    public GameObject projectile;
-    public float fireDelay;
-
     public bool isProtected { get { return currentProtectDelay > 0; } }
 
     public GameObject baseSprite, hairSprite;
@@ -20,7 +17,6 @@ public class PlayerScript : MonoBehaviour {
     private Vector3 velocity;
     private float angle;
     private float currentDirection;
-    private float currentDelay;
     private float currentProtectDelay;
 
     private Animator baseAnimator;
@@ -28,7 +24,6 @@ public class PlayerScript : MonoBehaviour {
     void Start() {
         DontDestroyOnLoad(gameObject);
         currentDirection = 0f;
-        currentDelay = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;
     }
@@ -64,11 +59,9 @@ public class PlayerScript : MonoBehaviour {
             transform.localScale = rScale;
         }
 
-        // TODO: Move global delays to Stance-specific ones
-
         // Shoot if we can and want to
-        if (Input.GetMouseButton(0) && Player.Instance.stance == Player.Stance.BaseShot)
-            if (currentDelay <= 0f) shoot();
+        if (Input.GetMouseButton(0) && Stance.all[Player.Instance.stance].canShoot)
+            shoot();
 
         // Change stance if we're USING OMG THE MOUSE WHEEL HAMCHA WHAT WERE YOU THINKING
         // 0/0 would not let design kbm controls again
@@ -76,9 +69,6 @@ public class PlayerScript : MonoBehaviour {
             Scene.gui.stanceBar.Next();
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
             Scene.gui.stanceBar.Back();
-
-        // Decrease fire delay
-        if (currentDelay > 0f) currentDelay -= Time.deltaTime;
 
         // Invulnerable semi-transparency
         if (currentProtectDelay > 0f) {
@@ -106,9 +96,6 @@ public class PlayerScript : MonoBehaviour {
         float deltaX = cursorPosition.position.x - transform.position.x;
         float deltaY = cursorPosition.position.y - transform.position.y;
         angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;
-        GameObject proj = (GameObject)Instantiate(projectile, transform.position, Quaternion.AngleAxis(angle, Vector3.forward));
-        proj.GetComponent<Projectile>().angle = angle;
-        proj.GetComponent<Projectile>().initialVelocity = velocity;
-        currentDelay = fireDelay;
+        ((OffensiveStance)Stance.all[Player.Instance.stance]).Shoot(transform.position, angle);
     }
 }

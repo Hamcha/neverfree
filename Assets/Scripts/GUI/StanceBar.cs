@@ -20,13 +20,13 @@ public class StanceBar : MonoBehaviour {
         stances = new List<GameObject>();
 
         // Create stance UI objects
-        for (int i = 0; i < Player.Instance.data.stances.Length; i++) {
+        for (int i = 0; i < Player.Instance.data.stances.Count; i++) {
             GameObject stance = (GameObject)Instantiate(Stance);
             stance.transform.parent = transform;
             DockUI dock = stance.GetComponent<DockUI>();
             dock.offset.x = 5 + 13 * i;
             dock.offset.y = 21;
-            stance.GetComponent<Animator>().SetTrigger(Player.Instance.data.stances[i]);
+            stance.GetComponent<Animator>().SetTrigger(Player.Instance.data.stances[i].ToString());
             stances.Add(stance);
         }
 
@@ -41,7 +41,7 @@ public class StanceBar : MonoBehaviour {
         dock.offset.y = 21;
 
         // Make cursor check for changes
-        Cursor.setCursorType(Player.Instance.data.stances[id]);
+        Cursor.setCursorType(Player.Instance.data.stances[id].ToString());
 
         selected = id;
     }

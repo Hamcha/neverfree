@@ -30,7 +30,7 @@ public class Cursor : MonoBehaviour {
         if (type == cursorInstance.currentType) return;
         cursorInstance.currentType = type;
 
-        if (type == "ray") {
+        if (type == "BaseShot") {
             cursorInstance.animator.SetBool("Aiming", true);
         } else {
             cursorInstance.animator.SetBool("Aiming", false);

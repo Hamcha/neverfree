@@ -7,7 +7,6 @@ public class Projectile : MonoBehaviour {
     public float threshold;
     public float angle;
 
-    public Vector3 initialVelocity = Vector3.zero;
     private Vector3 velocity;
     private SpriteRenderer sprite;
 
