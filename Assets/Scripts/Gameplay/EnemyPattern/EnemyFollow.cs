@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class EnemyFollow : MonoBehaviour {
     public Transform target;

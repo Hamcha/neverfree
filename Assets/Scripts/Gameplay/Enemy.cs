@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Enemy : MonoBehaviour {
     public delegate void DeathHandler(Enemy instance);
@@ -47,6 +46,7 @@ public class Enemy : MonoBehaviour {
     }
 
     void OnDestroy() {
-        Scene.tracker.Remove(gameObject);
+        if (Scene.tracker != null)
+            Scene.tracker.Remove(gameObject);
     }
 }

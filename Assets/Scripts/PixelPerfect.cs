@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PixelPerfect : MonoBehaviour {
     public float scale = 2f;

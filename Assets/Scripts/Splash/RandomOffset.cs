@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class RandomOffset : MonoBehaviour {
     public float magnitude;
@@ -28,7 +27,7 @@ public class RandomOffset : MonoBehaviour {
             renderer.material.SetTextureOffset("_MainTex", new Vector2(x, y));
         } else {
             waitDelay = repeatDelay;
-            renderer.material.SetTextureOffset("_MainTex", Vector2.zero); 
+            renderer.material.SetTextureOffset("_MainTex", Vector2.zero);
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Prefabs : MonoBehaviour {
     public static Prefabs instance { get; private set; }
