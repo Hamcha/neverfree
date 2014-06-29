@@ -2,7 +2,14 @@ fileFormatVersion: 2
 guid: 438d85d2fe4372745b3015542453f228
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - GUIPrefab: {fileID: 100014, guid: d6a38e5540e0e2c47bb3e3f923e43ad9, type: 2}
+  - playerPrefab: {fileID: 100002, guid: bb5889b11ea15a647b8f0ea5e6f4d860, type: 2}
+  - storagePrefab: {fileID: 100000, guid: 5b34c9d4ae22b4540866c88ac53bdd05, type: 2}
+  - player: {instanceID: 0}
+  - terrain: {instanceID: 0}
+  - GUI: {instanceID: 0}
+  - storage: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

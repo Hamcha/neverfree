@@ -65,7 +65,7 @@ GameObject:
   - 212: {fileID: 21200002}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400008}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Cursor
   m_TagString: GUI
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967263
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -428,7 +428,6 @@ MonoBehaviour:
   Stance: {fileID: 100000, guid: 50d0b5c22b3a41b458b9e5a7b8115338, type: 2}
   UICamera: {fileID: 2000002}
   Stance_SelectBox: {fileID: 100016}
-  stanceList: 
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,6 +524,7 @@ MonoBehaviour:
   tracker: {fileID: 11400000}
   stanceBar: {fileID: 11400004}
   cursor: {fileID: 11400008}
+  zoneName: {fileID: 13200000}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
@@ -547,7 +547,7 @@ GUIText:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: Forest entrance
+  m_Text: 
   m_Anchor: 4
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}

@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.80229163, y: -10.6096478, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400006}
@@ -176,8 +176,6 @@ MonoBehaviour:
   damageBounceDistance: 8
   cursorPosition: {fileID: 0}
   protectDelay: 1
-  projectile: {fileID: 100000, guid: 7fdadbe10b3dfa5448c8c1a108d86aff, type: 2}
-  fireDelay: .600000024
   baseSprite: {fileID: 100006}
   hairSprite: {fileID: 100000}
 --- !u!212 &21200000

@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 public class Player : Singleton<Player> {
-
+    #region Events
     public delegate void HealthChangedHandler(Player instance, int newHealth);
     public event HealthChangedHandler HealthChanged;
 
     public delegate void DeathHandler(Player instance);
     public event DeathHandler Died;
+    #endregion
 
+    #region Enums
     public enum Stance {
         Inspect, BaseShot
     };
+    #endregion
 
+    #region Properties
     protected Player() { }
 
     private int _health;
@@ -29,11 +33,14 @@ public class Player : Singleton<Player> {
     }
     public Stance stance = Stance.Inspect;
     public PlayerData data = new PlayerData();
+    #endregion
 
+    #region Unity callbacks
     void Awake() {
         data.Load();
         health = data.hearts * 2;
     }
+    #endregion
 }
 
 public class PlayerData {

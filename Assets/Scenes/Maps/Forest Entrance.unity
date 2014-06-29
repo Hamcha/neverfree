@@ -303,6 +303,62 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 1
   farDistance: 2.5
+--- !u!1001 &456289247
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_RootMapOrder
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: terrain
+      value: 
+      objectReference: {fileID: 1371881078}
+    - target: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: zoneName
+      value: Forest entrance
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+  m_RootGameObject: {fileID: 1809592065}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &471703371
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,58 +700,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 127886456}
   m_RootOrder: 0
---- !u!1001 &1090015592
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_RootMapOrder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-      propertyPath: terrain
-      value: 
-      objectReference: {fileID: 1371881078}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-  m_RootGameObject: {fileID: 1809592065}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1371881078
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +754,7 @@ Transform:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-  m_PrefabInternal: {fileID: 1090015592}
+  m_PrefabInternal: {fileID: 456289247}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1809592067}
@@ -767,13 +771,14 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d,
     type: 2}
-  m_PrefabInternal: {fileID: 1090015592}
+  m_PrefabInternal: {fileID: 456289247}
   m_GameObject: {fileID: 1809592065}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 438d85d2fe4372745b3015542453f228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneName: Forest entrance
   GUIPrefab: {fileID: 100014, guid: d6a38e5540e0e2c47bb3e3f923e43ad9, type: 2}
   playerPrefab: {fileID: 100002, guid: bb5889b11ea15a647b8f0ea5e6f4d860, type: 2}
   storagePrefab: {fileID: 100000, guid: 5b34c9d4ae22b4540866c88ac53bdd05, type: 2}
@@ -785,7 +790,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
-  m_PrefabInternal: {fileID: 1090015592}
+  m_PrefabInternal: {fileID: 456289247}
   m_GameObject: {fileID: 1809592065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}

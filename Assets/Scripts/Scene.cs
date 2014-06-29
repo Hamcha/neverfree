@@ -3,6 +3,8 @@
 public class Scene : MonoBehaviour {
     public static Scene instance { get; private set; }
 
+    public string zoneName;
+
     public GameObject GUIPrefab;
     public GameObject playerPrefab;
     public GameObject storagePrefab;
@@ -32,6 +34,9 @@ public class Scene : MonoBehaviour {
         // Setup tracking camera
         GUI.tracker.Clear();
         GUI.tracker.Add(player, 100f);
+
+        // Setup zone name
+        GUI.zoneName.text = zoneName;
 
         instance = this;
     }
