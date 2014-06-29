@@ -21,6 +21,10 @@ public class PlayerScript : MonoBehaviour {
 
     private Animator baseAnimator;
 
+    private static KeyCode[] keys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, 
+                                                    KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, 
+                                                    KeyCode.Alpha9, KeyCode.Alpha0 };
+
     void Start() {
         DontDestroyOnLoad(gameObject);
         player = gameObject;
@@ -64,12 +68,17 @@ public class PlayerScript : MonoBehaviour {
         if (Input.GetMouseButton(0) && Stance.all[Player.Instance.stance].canShoot)
             shoot();
 
-        // Change stance if we're USING OMG THE MOUSE WHEEL HAMCHA WHAT WERE YOU THINKING
-        // 0/0 would not let design kbm controls again
+        // Change stance using the Mouse wheel
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
             Scene.gui.stanceBar.Next();
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
             Scene.gui.stanceBar.Back();
+        // Change stance using the numeric keys (0,1,2,3,4..)
+        for (int i = 0; i < keys.Length && i < Scene.gui.stanceBar.stances.Count; i++) {
+            if (Input.GetKey(keys[i])) {
+                Scene.gui.stanceBar.Raise(i);
+            }
+        }
 
         // Invulnerable semi-transparency
         if (currentProtectDelay > 0f) {

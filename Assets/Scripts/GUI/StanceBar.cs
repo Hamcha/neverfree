@@ -5,7 +5,7 @@ public class StanceBar : MonoBehaviour {
     public GameObject Stance;
     public Camera UICamera;
     public GameObject Stance_SelectBox;
-    private List<GameObject> stances;
+    public List<GameObject> stances;
 
     // Get current stance
     private int _selected;
@@ -35,7 +35,7 @@ public class StanceBar : MonoBehaviour {
         Raise(0);
     }
 
-    void Raise(int id) {
+    public void Raise(int id) {
         // Put SelectBox over stance
         DockUI dock = Stance_SelectBox.GetComponent<DockUI>();
         dock.offset.x = 6 + 11 * id;
