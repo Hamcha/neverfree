@@ -10,9 +10,12 @@ public class PlayerScript : MonoBehaviour {
     public float protectDelay;
 
     public bool isProtected { get { return currentProtectDelay > 0; } }
-    public static GameObject player { get; private set; }
+    public static PlayerScript instance { get; private set; }
+    public static GameObject player { get { return instance != null ? instance.gameObject : null; } }
 
     public GameObject baseSprite, hairSprite;
+
+    public bool disabled = false;
 
     private Vector3 velocity;
     private float angle;
@@ -27,13 +30,15 @@ public class PlayerScript : MonoBehaviour {
 
     void Start() {
         DontDestroyOnLoad(gameObject);
-        player = gameObject;
+        instance = this;
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;
     }
 
     void Update() {
+        if (disabled) return;
+
         // Get Axis data
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
@@ -110,6 +115,6 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void OnDestroy() {
-        if (player == gameObject) player = null;
+        if (instance == this) instance = null;
     }
 }

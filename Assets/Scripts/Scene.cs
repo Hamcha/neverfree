@@ -12,6 +12,7 @@ public class Scene : MonoBehaviour {
     public GameObject player;
     public GameObject terrain;
     public GameObject borders;
+    public bool showZoneName = true;
 
     public GUIScript GUI;
     public Prefabs storage;
@@ -45,7 +46,8 @@ public class Scene : MonoBehaviour {
 
         // Setup zone name
         GUI.zoneName.text = zoneName;
-        GUI.zoneName.animation.Play();
+        if (showZoneName)
+            GUI.zoneName.animation.Play();
 
         instance = this;
     }
