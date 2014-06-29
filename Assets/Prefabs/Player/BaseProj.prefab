@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 212: {fileID: 21200000}
-  - 95: {fileID: 9500000}
   - 58: {fileID: 5800000}
+  - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: BaseProj
@@ -51,7 +51,7 @@ Animator:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b9eb2254b3be4dc4592df5998bc1771e, type: 2}
+  m_Controller: {fileID: 9100000, guid: dd4a4d8b47075d0408c40fc44ad5baab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1

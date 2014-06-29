@@ -33,6 +33,8 @@ public class Player : Singleton<Player> {
     }
     public Stance stance = Stance.Inspect;
     public PlayerData data = new PlayerData();
+    public string transitionBorder = string.Empty;
+    public string lastMap = string.Empty;
     #endregion
 
     #region Unity callbacks

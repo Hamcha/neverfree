@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour {
     public float protectDelay;
 
     public bool isProtected { get { return currentProtectDelay > 0; } }
+    public static GameObject player { get; private set; }
 
     public GameObject baseSprite, hairSprite;
 
@@ -22,6 +23,7 @@ public class PlayerScript : MonoBehaviour {
 
     void Start() {
         DontDestroyOnLoad(gameObject);
+        player = gameObject;
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;
@@ -96,5 +98,9 @@ public class PlayerScript : MonoBehaviour {
         float deltaY = cursorPosition.position.y - transform.position.y;
         angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;
         ((OffensiveStance)Stance.all[Player.Instance.stance]).Shoot(transform.position, angle);
+    }
+
+    void OnDestroy() {
+        if (player == gameObject) player = null;
     }
 }

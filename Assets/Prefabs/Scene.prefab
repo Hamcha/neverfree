@@ -39,12 +39,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438d85d2fe4372745b3015542453f228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneName: Save point
+  zoneName: 
   GUIPrefab: {fileID: 100014, guid: d6a38e5540e0e2c47bb3e3f923e43ad9, type: 2}
   playerPrefab: {fileID: 100002, guid: bb5889b11ea15a647b8f0ea5e6f4d860, type: 2}
   storagePrefab: {fileID: 100000, guid: 5b34c9d4ae22b4540866c88ac53bdd05, type: 2}
   player: {fileID: 0}
   terrain: {fileID: 0}
+  borders: {fileID: 0}
   GUI: {fileID: 0}
   storage: {fileID: 0}
 --- !u!1001 &100100000
