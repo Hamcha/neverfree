@@ -94,5 +94,10 @@ public class CameraTracking : MonoBehaviour {
 
         return dimensions;
     }
+
+    public void InstantMove() {
+        FixedUpdate();
+        transform.position = targetPosition;
+    }
 }
 

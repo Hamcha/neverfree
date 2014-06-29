@@ -41,7 +41,7 @@ public class Scene : MonoBehaviour {
         GUI.tracker.terrain = terrain.GetComponent<SpriteRenderer>();
         GUI.tracker.Clear();
         GUI.tracker.Add(player, 100f);
-        GUI.tracker.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        GUI.tracker.InstantMove();
 
         // Setup zone name
         GUI.zoneName.text = zoneName;
