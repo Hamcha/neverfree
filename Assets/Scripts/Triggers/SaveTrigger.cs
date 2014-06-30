@@ -3,21 +3,25 @@ using System.Collections;
 
 public class SaveTrigger : MonoBehaviour {
     public Animator[] beams;
-    public Light light;
+    public SpriteRenderer highlight;
+    public ScrollText scroller;
     private bool playerInTrigger = false;
     private bool saving = false;
     private bool saved = false;
     private float lightVelocity = 0f;
 
     void Update() {
+        Color c = highlight.color;
         // We don't need this is the player is outside the platform
         if (!playerInTrigger || saved) {
-            light.intensity = Mathf.SmoothDamp(light.intensity, 0, ref lightVelocity, 0.5f);
+            c.a = Mathf.SmoothDamp(c.a, 0, ref lightVelocity, 0.5f);
+            highlight.color = c;
             return;
         }
 
         // Increase to half tone when on the platform
-        light.intensity = Mathf.SmoothDamp(light.intensity, 0.7f, ref lightVelocity, 0.5f);
+        c.a = Mathf.SmoothDamp(c.a, 1, ref lightVelocity, 0.5f);
+        highlight.color = c;
 
         // Save when player in trigger AND pressed E
         if (Input.GetKey(KeyCode.E) && !saving) {
@@ -34,6 +38,7 @@ public class SaveTrigger : MonoBehaviour {
             foreach (Animator beam in beams) {
                 beam.SetTrigger("Done");
             }
+            scroller.setText("Save complete!", 0.05f);
             PlayerScript.instance.disabled = false;
             saving = false;
             saved = true;
@@ -41,14 +46,16 @@ public class SaveTrigger : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.tag == "Player") {
+        if (collider.tag == "Player" && !playerInTrigger) {
             playerInTrigger = true;
+            scroller.setText("Press E to save..", 0.05f);
         }
     }
 
     void OnTriggerExit2D(Collider2D collider) {
-        if (collider.tag == "Player") {
+        if (collider.tag == "Player" && playerInTrigger) {
             playerInTrigger = false;
+            scroller.delText(0.03f);
         }
     }
 }

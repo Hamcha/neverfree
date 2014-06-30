@@ -444,6 +444,7 @@ MonoBehaviour:
   Stance: {fileID: 100000, guid: 50d0b5c22b3a41b458b9e5a7b8115338, type: 2}
   UICamera: {fileID: 2000002}
   Stance_SelectBox: {fileID: 100016}
+  stances: []
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
