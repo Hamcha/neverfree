@@ -170,6 +170,11 @@ Prefab:
       propertyPath: farDistance
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 21200002, guid: adc320eeb8f9fce48b623574dd8c20ed, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1253693ff4b1e0444a265867e6826c4a,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: adc320eeb8f9fce48b623574dd8c20ed, type: 2}
   m_RootGameObject: {fileID: 415080709}
@@ -723,7 +728,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 71a7242992ccdcf489f9191171d1ec4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1253693ff4b1e0444a265867e6826c4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: .325490206}
 --- !u!4 &829841672
 Transform:

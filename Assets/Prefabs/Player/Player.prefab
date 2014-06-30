@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .0199999996, z: -.100000001}
+  m_LocalPosition: {x: 0, y: 0, z: -.100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -178,6 +178,7 @@ MonoBehaviour:
   protectDelay: 1
   baseSprite: {fileID: 100006}
   hairSprite: {fileID: 100000}
+  disabled: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -220,7 +221,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 71a7242992ccdcf489f9191171d1ec4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1253693ff4b1e0444a265867e6826c4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: .196078435}
 --- !u!212 &21200004
 SpriteRenderer:
