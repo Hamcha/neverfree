@@ -6,9 +6,17 @@ public class UIButton : MonoBehaviour {
     public event ClickedHandler Clicked;
     public event ClickedHandler OnFocus, OnBlur;
 
+    public delegate void StatusChangedHandler(UIButton instance, ButtonStatus status);
+    public event StatusChangedHandler StatusChanged;
+
     public bool enabled = true;
     public bool hold = false;
-    public ButtonStatus status = ButtonStatus.Idle;
+
+    private ButtonStatus _status = ButtonStatus.Idle;
+    public ButtonStatus status {
+        get { return _status; }
+        set { _status = value; if (StatusChanged != null) StatusChanged(this, value); }
+    }
 
     public enum ButtonStatus {
         Idle,
@@ -21,26 +29,32 @@ public class UIButton : MonoBehaviour {
 
         if (status != ButtonStatus.Pressed) {
             status = ButtonStatus.Pressed;
-            if (Clicked != null) Clicked(this);
         } else if (hold) {
             status = ButtonStatus.Idle;
             if (Clicked != null) Clicked(this);
         }
     }
 
-    void OnMouseUp() {
+    void OnMouseUpAsButton() {
         if (!enabled) return;
 
         if (status == ButtonStatus.Pressed && !hold) {
             status = ButtonStatus.Idle;
+            if (Clicked != null) Clicked(this);
         }
     }
 
     void OnMouseEnter() {
-        if (OnFocus != null) OnFocus(this);
+        if (status != ButtonStatus.Pressed) {
+            status = ButtonStatus.Focused;
+            if (OnFocus != null) OnFocus(this);
+        }
     }
 
-    void OnMouseLeave() {
-        if (OnBlur != null) OnBlur(this);
+    void OnMouseExit() {
+        if (!hold && status != ButtonStatus.Focused) {
+            status = ButtonStatus.Idle;
+            if (OnBlur != null) OnBlur(this);
+        }
     }
 }

@@ -7,21 +7,20 @@ public class UIButtonSprite : MonoBehaviour {
     private UIButton button;
     private SpriteRenderer render;
 
-	void Awake() {
+    void Awake() {
         button = GetComponent<UIButton>();
-        button.OnFocus += (_) => {
-            if (focus != null) render.sprite = focus;
-        };
-        button.OnBlur += (_) => {
-            render.sprite = idle;
-        };
-        button.Clicked += (_) => {
-            if (button.hold && hold != null) {
-                render.sprite = button.status == UIButton.ButtonStatus.Pressed ? hold : idle;
-            } else {
-                if (active != null) render.sprite = active;
+        render = GetComponent<SpriteRenderer>();
+        button.StatusChanged += (_, status) => {
+            if (status == UIButton.ButtonStatus.Idle) {
+                render.sprite = idle;
+            } else if (status == UIButton.ButtonStatus.Focused && focus != null) {
+                render.sprite = focus;
+            } else if (status == UIButton.ButtonStatus.Pressed && button.hold && hold != null) {
+                render.sprite = hold;
+            } else if (status == UIButton.ButtonStatus.Pressed && !button.hold && active != null) {
+                render.sprite = active;
             }
         };
         render.sprite = idle;
-	}
+    }
 }
