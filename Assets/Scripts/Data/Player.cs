@@ -62,7 +62,7 @@ public class PlayerData {
         PlayerPrefs.SetString("playerStances", string.Join(",", stancesStr));
         PlayerPrefs.SetInt("playerManeStyle", maneStyle);
         PlayerPrefs.SetString("playerBodyColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
-        PlayerPrefs.SetString("playerManeColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
+        PlayerPrefs.SetString("playerManeColor", maneColor.r + "," + maneColor.g + "," + maneColor.b);
         PlayerPrefs.Save();
     }
 
@@ -70,7 +70,7 @@ public class PlayerData {
         name = Get("playerName", "Unnamed pony");
         hearts = Get("playerHearts", 5);
         maneStyle = Get("playerManeStyle", 0);
-        string[] stancesStr = Get("playerStances", "Inspect").Split(',');
+        string[] stancesStr = Get("playerStances", "Inspect,BaseShot").Split(',');
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
         List<float> bodyColorVals = new List<string>(Get("playerBodyColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
         bodyColor = new Color(bodyColorVals[0], bodyColorVals[1], bodyColorVals[2]);

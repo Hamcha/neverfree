@@ -34,6 +34,13 @@ public class PlayerScript : MonoBehaviour {
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;
+
+        // Load customized pony
+        SpriteRenderer mane = maneSprite.GetComponent<SpriteRenderer>();
+        mane.sprite = Scene.instance.storage.maneStyles[Player.Instance.data.maneStyle];
+        mane.color = Player.Instance.data.maneColor;
+        SpriteRenderer body = baseSprite.GetComponent<SpriteRenderer>();
+        body.color = Player.Instance.data.bodyColor;
     }
 
     void Update() {

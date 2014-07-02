@@ -44,20 +44,18 @@ public class Editor : MonoBehaviour {
                                            : Prefabs.instance;
 
         instance = this;
-        UpdateCharacter();
-    }
 
-    void Update() {
-        if (bodySelector.dragController.isDragging)
-            bodyColor = bodySelector.currentColor;
-        if (maneSelector.dragController.isDragging)
-            maneColor = maneSelector.currentColor;
+        bodySelector.ColorChanged += (_, color) => bodyColor = color;
+        maneSelector.ColorChanged += (_, color) => maneColor = color;
+        Player.Instance.data.Load();
+        UpdateCharacter();
     }
 
     void UpdateCharacter() {
         playerMane.sprite = storage.maneStyles[maneStyle];
         playerMane.color = maneColor;
         playerBase.color = bodyColor;
+        Player.Instance.data.Save();
     }
 
     void OnDestroy() {

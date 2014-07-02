@@ -177,7 +177,7 @@ MonoBehaviour:
   cursorPosition: {fileID: 0}
   protectDelay: 1
   baseSprite: {fileID: 100006}
-  hairSprite: {fileID: 100000}
+  maneSprite: {fileID: 100000}
   disabled: 0
 --- !u!212 &21200000
 SpriteRenderer:

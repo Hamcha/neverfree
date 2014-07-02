@@ -1146,6 +1146,7 @@ MonoBehaviour:
   radius: .853333414
   currentColor: {r: 0, g: 0, b: 0, a: 0}
   dragController: {fileID: 0}
+  brightnessHandle: {fileID: 1024522056}
 --- !u!1 &617099895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2615,7 @@ MonoBehaviour:
   radius: .853333414
   currentColor: {r: 0, g: 0, b: 0, a: 0}
   dragController: {fileID: 0}
+  brightnessHandle: {fileID: 1605489231}
 --- !u!1 &1799465407
 GameObject:
   m_ObjectHideFlags: 0
