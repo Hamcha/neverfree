@@ -74,7 +74,7 @@ public class PlayerData {
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
         List<float> bodyColorVals = new List<string>(Get("playerBodyColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
         bodyColor = new Color(bodyColorVals[0], bodyColorVals[1], bodyColorVals[2]);
-        List<float> maneColorVals = new List<string>(Get("playerManeColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
+        List<float> maneColorVals = new List<string>(Get("playerManeColor", "0.8,0.4,0.3").Split(',')).ConvertAll((x) => float.Parse(x));
         maneColor = new Color(maneColorVals[0], maneColorVals[1], maneColorVals[2]);
     }
     #endregion

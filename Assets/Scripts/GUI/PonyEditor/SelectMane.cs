@@ -3,6 +3,8 @@
 public class SelectMane : MonoBehaviour {
     public int maneStyleId = 0;
 
+    public SpriteRenderer body, mane;
+
     private Editor editor;
     private UIButton button;
 
@@ -13,5 +15,15 @@ public class SelectMane : MonoBehaviour {
         button.Clicked += (_) => {
             editor.maneStyle = maneStyleId;
         };
+
+        mane.sprite = editor.storage.maneStyles[maneStyleId];
+
+        editor.ColorChanged += ColorChanged;
+        ColorChanged(editor.bodyColor, editor.maneColor);
+    }
+
+    private void ColorChanged(Color bodyColor, Color maneColor) {
+        body.color = bodyColor;
+        mane.color = maneColor;
     }
 }

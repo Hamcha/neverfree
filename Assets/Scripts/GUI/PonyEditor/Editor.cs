@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
 public class Editor : MonoBehaviour {
+    public delegate void ColorChangedHandler(Color bodyColor, Color maneColor);
+    public event ColorChangedHandler ColorChanged;
+
     public static Editor instance { get; private set; }
 
     public GameObject storagePrefab;
@@ -9,15 +12,28 @@ public class Editor : MonoBehaviour {
 
     public int maneStyle {
         get { return Player.Instance.data.maneStyle; }
-        set {
-            Player.Instance.data.maneStyle = value;
-            UpdateCharacter();
+        set { 
+            Player.Instance.data.maneStyle = value; 
+            UpdateCharacter(); 
         }
     }
 
-    /*public Color bodyColor {
-        get { }
-    }*/
+    public Color bodyColor {
+        get { return Player.Instance.data.bodyColor; }
+        set { 
+            Player.Instance.data.bodyColor = value;
+            UpdateCharacter();
+            if (ColorChanged != null) ColorChanged(value, maneColor);
+        }
+    }
+    public Color maneColor {
+        get { return Player.Instance.data.maneColor; }
+        set { 
+            Player.Instance.data.maneColor = value; 
+            UpdateCharacter();
+            if (ColorChanged != null) ColorChanged(bodyColor, value);
+        }
+    }
 
     public Prefabs storage;
 
@@ -27,10 +43,13 @@ public class Editor : MonoBehaviour {
                                            : Prefabs.instance;
 
         instance = this;
+        UpdateCharacter();
     }
 
     void UpdateCharacter() {
         playerMane.sprite = storage.maneStyles[maneStyle];
+        playerMane.color = maneColor;
+        playerBase.color = bodyColor;
     }
 
     void OnDestroy() {
