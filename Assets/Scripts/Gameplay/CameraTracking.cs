@@ -34,29 +34,30 @@ public class CameraTracking : MonoBehaviour {
 
         position /= totalWeight;
 
-        // No terrain set? Ignore bound calculations
-        if (terrain == null) return;
+        // Calculate bound calculations if we have a terrain
+        if (terrain != null) {
 
-        // Calculate Screen size and Map size
-        Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(camera);
-        Bounds limits = terrain.sprite.bounds;
-        Vector3 top = limits.min;
-        Vector3 bot = limits.max;
+            // Calculate Screen size and Map size
+            Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(camera);
+            Bounds limits = terrain.sprite.bounds;
+            Vector3 top = limits.min;
+            Vector3 bot = limits.max;
 
-        // Check if screen is bigger than map
-        // if not, fit screen to map bounds
-        if (dimensions.x > bot.x * 2) {
-            position.x = 0;
-        } else {
-            if (position.x - dimensions.x / 2 < top.x) position.x = top.x + dimensions.x / 2;
-            if (position.x + dimensions.x / 2 > bot.x) position.x = bot.x - dimensions.x / 2;
-        }
+            // Check if screen is bigger than map
+            // if not, fit screen to map bounds
+            if (dimensions.x > bot.x * 2) {
+                position.x = 0;
+            } else {
+                if (position.x - dimensions.x / 2 < top.x) position.x = top.x + dimensions.x / 2;
+                if (position.x + dimensions.x / 2 > bot.x) position.x = bot.x - dimensions.x / 2;
+            }
 
-        if (dimensions.y > bot.y * 2) {
-            position.y = 0;
-        } else {
-            if (position.y - dimensions.y / 2 < top.y) position.y = top.y + dimensions.y / 2;
-            if (position.y + dimensions.y / 2 > bot.y) position.y = bot.y - dimensions.y / 2;
+            if (dimensions.y > bot.y * 2) {
+                position.y = 0;
+            } else {
+                if (position.y - dimensions.y / 2 < top.y) position.y = top.y + dimensions.y / 2;
+                if (position.y + dimensions.y / 2 > bot.y) position.y = bot.y - dimensions.y / 2;
+            }
         }
 
         targetPosition = position;

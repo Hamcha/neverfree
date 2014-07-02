@@ -24,8 +24,7 @@ public class Projectile : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Enemy" ||
-            collision.gameObject.tag == "Walls")
+        if (collision.gameObject.tag == "Walls")
             Destroy(gameObject);
     }
 }

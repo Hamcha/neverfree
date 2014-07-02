@@ -39,7 +39,7 @@ public class Scene : MonoBehaviour {
                                          : GUIScript.instance;
 
         // Setup tracking camera
-        GUI.tracker.terrain = terrain.GetComponent<SpriteRenderer>();
+        if (terrain != null) GUI.tracker.terrain = terrain.GetComponent<SpriteRenderer>();
         GUI.tracker.Clear();
         GUI.tracker.Add(player, 100f);
         GUI.tracker.InstantMove();

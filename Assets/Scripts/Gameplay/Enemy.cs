@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour {
                 currentProtectDelay = protectDelay;
                 health--;
             }
+            Destroy(collision.gameObject);
         }
     }
 
