@@ -126,7 +126,7 @@ Transform:
   - {fileID: 873789367}
   - {fileID: 2140858643}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1001 &182390202
 Prefab:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!60 &471703374
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -919,7 +919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1857126271
 GameObject:
   m_ObjectHideFlags: 0

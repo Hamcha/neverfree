@@ -46,8 +46,8 @@ public class Scene : MonoBehaviour {
 
         // Setup zone name
         GUI.zoneName.text = zoneName;
-        if (showZoneName)
-            GUI.zoneName.animation.Play();
+        if (showZoneName) GUI.zoneName.animation.Play();
+        else GUI.zoneName.text = "";
 
         instance = this;
     }
