@@ -22,4 +22,10 @@ public class Projectile : MonoBehaviour {
         if (velocity.magnitude < threshold) Destroy(gameObject);
         transform.Translate(velocity * Time.deltaTime);
     }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Enemy" ||
+            collision.gameObject.tag == "Walls")
+            Destroy(gameObject);
+    }
 }
