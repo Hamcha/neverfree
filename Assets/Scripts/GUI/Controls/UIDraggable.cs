@@ -6,6 +6,9 @@ public class UIDraggable : MonoBehaviour {
 
     public bool isDragging { get; private set; }
 
+    public bool limitedRange = false;
+    public Rect dragRange;
+
     private Vector3 mouseOffset;
 
     void OnMouseDrag() {
@@ -16,6 +19,14 @@ public class UIDraggable : MonoBehaviour {
         }
 
         transform.position = GetMousePos() - mouseOffset;
+        if (limitedRange) {
+            Vector3 limitedPos = transform.position;
+            if (limitedPos.x < dragRange.xMin) limitedPos.x = dragRange.xMin;
+            if (limitedPos.x > dragRange.xMax) limitedPos.x = dragRange.xMax;
+            if (limitedPos.y < dragRange.yMin) limitedPos.y = dragRange.yMin;
+            if (limitedPos.y > dragRange.yMax) limitedPos.y = dragRange.yMax;
+            transform.position = limitedPos;
+        }
     }
 
     void OnMouseUp() {
@@ -29,5 +40,12 @@ public class UIDraggable : MonoBehaviour {
         return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
                                                           Input.mousePosition.y,
                                                           transform.position.z));
+    }
+
+    void OnDrawGizmosSelected() {
+        if (limitedRange) {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(dragRange.center,dragRange.size);
+        }
     }
 }
