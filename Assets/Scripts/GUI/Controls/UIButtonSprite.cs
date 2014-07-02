@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class UIButtonSprite : MonoBehaviour {
 
-    public Sprite idle, focus, active, hold;
+    public Sprite idle, focus, pressed, hold;
     private UIButton button;
     private SpriteRenderer render;
 
@@ -17,8 +16,8 @@ public class UIButtonSprite : MonoBehaviour {
                 render.sprite = focus;
             } else if (status == UIButton.ButtonStatus.Pressed && button.hold && hold != null) {
                 render.sprite = hold;
-            } else if (status == UIButton.ButtonStatus.Pressed && !button.hold && active != null) {
-                render.sprite = active;
+            } else if (status == UIButton.ButtonStatus.Pressed && !button.hold && pressed != null) {
+                render.sprite = pressed;
             }
         };
         render.sprite = idle;

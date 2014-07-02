@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class UIButton : MonoBehaviour {
     public delegate void ClickedHandler(UIButton instance);
