@@ -253,6 +253,7 @@ GameObject:
   - 4: {fileID: 114926524}
   - 58: {fileID: 114926526}
   - 114: {fileID: 114926525}
+  - 114: {fileID: 114926527}
   m_Layer: 5
   m_Name: Hair Icon (ELEGANT)
   m_TagString: Player
@@ -274,7 +275,7 @@ Transform:
   - {fileID: 661667698}
   - {fileID: 88141527}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
 --- !u!114 &114926525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &114926526
 CircleCollider2D:
@@ -300,6 +301,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.0199999996}
+--- !u!114 &114926527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 114926523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bdbef0de0981d44803dd085490c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairStyleId: 5
 --- !u!1 &123609002
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +323,7 @@ GameObject:
   - 4: {fileID: 123609003}
   - 58: {fileID: 123609005}
   - 114: {fileID: 123609004}
+  - 114: {fileID: 123609006}
   m_Layer: 5
   m_Name: Hair Icon (FLAT)
   m_TagString: Player
@@ -331,7 +345,7 @@ Transform:
   - {fileID: 1933690501}
   - {fileID: 850010090}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!114 &123609004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &123609005
 CircleCollider2D:
@@ -357,6 +371,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.0199999996}
+--- !u!114 &123609006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 123609002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bdbef0de0981d44803dd085490c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairStyleId: 3
 --- !u!1 &196234378
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,7 +445,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &228890683
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &461489129
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +895,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &594667253
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,6 +957,7 @@ GameObject:
   - 4: {fileID: 617099896}
   - 58: {fileID: 617099898}
   - 114: {fileID: 617099897}
+  - 114: {fileID: 617099899}
   m_Layer: 5
   m_Name: Hair Icon (FUNKY)
   m_TagString: Player
@@ -952,7 +979,7 @@ Transform:
   - {fileID: 515903752}
   - {fileID: 461489131}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!114 &617099897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &617099898
 CircleCollider2D:
@@ -978,6 +1005,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.0199999996}
+--- !u!114 &617099899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617099895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bdbef0de0981d44803dd085490c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairStyleId: 4
 --- !u!1 &654120460
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1027,7 @@ GameObject:
   - 4: {fileID: 654120461}
   - 58: {fileID: 654120463}
   - 114: {fileID: 654120462}
+  - 114: {fileID: 654120464}
   m_Layer: 5
   m_Name: Hair Icon (CURLY)
   m_TagString: Player
@@ -1009,7 +1049,7 @@ Transform:
   - {fileID: 818894899}
   - {fileID: 248930679}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!114 &654120462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1021,7 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &654120463
 CircleCollider2D:
@@ -1035,6 +1075,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.0199999996}
+--- !u!114 &654120464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 654120460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bdbef0de0981d44803dd085490c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairStyleId: 1
 --- !u!1 &661667697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1255,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &818894897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,7 +1475,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1038974727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1579,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &1154317298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,7 +1626,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &1182451340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1673,7 @@ Transform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1187987409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1735,7 @@ GameObject:
   - 4: {fileID: 1222285341}
   - 58: {fileID: 1222285340}
   - 114: {fileID: 1222285339}
+  - 114: {fileID: 1222285342}
   m_Layer: 5
   m_Name: Hair Icon (SHORT)
   m_TagString: Player
@@ -1701,7 +1754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &1222285340
 CircleCollider2D:
@@ -1729,7 +1782,19 @@ Transform:
   - {fileID: 1402787042}
   - {fileID: 594667254}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
+--- !u!114 &1222285342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1222285338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bdbef0de0981d44803dd085490c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairStyleId: 2
 --- !u!1 &1301993720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,6 +1805,7 @@ GameObject:
   - 4: {fileID: 1301993721}
   - 58: {fileID: 1301993723}
   - 114: {fileID: 1301993722}
+  - 114: {fileID: 1301993724}
   m_Layer: 5
   m_Name: Hair Icon (STUDENT)
   m_TagString: Player
@@ -1761,7 +1827,7 @@ Transform:
   - {fileID: 1187987410}
   - {fileID: 5257922}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &1301993722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,7 +1839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &1301993723
 CircleCollider2D:
@@ -1787,6 +1853,18 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_Radius: .200000003
   m_Center: {x: 0, y: -.0199999996}
+--- !u!114 &1301993724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301993720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bdbef0de0981d44803dd085490c253, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hairStyleId: 0
 --- !u!1 &1402787041
 GameObject:
   m_ObjectHideFlags: 0
@@ -1838,6 +1916,49 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1253693ff4b1e0444a265867e6826c4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: .196078435}
+--- !u!1 &1411847654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1411847656}
+  - 114: {fileID: 1411847655}
+  m_Layer: 0
+  m_Name: Editor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1411847655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411847654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd126641e1aea5149940120dc9c19e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storagePrefab: {fileID: 100000, guid: 5b34c9d4ae22b4540866c88ac53bdd05, type: 2}
+  playerBase: {fileID: 497618061}
+  playerMane: {fileID: 1799465408}
+  storage: {fileID: 0}
+--- !u!4 &1411847656
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1411847654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: -1.6163826, z: -.0146344155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &1516257324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,7 +2104,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1799465407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,7 +2372,7 @@ Transform:
   - {fileID: 1799465409}
   - {fileID: 1516257325}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &2076394195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,7 +2384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 1
+  disabled: 0
   hold: 0
 --- !u!58 &2076394197
 CircleCollider2D:

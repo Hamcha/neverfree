@@ -1,13 +1,17 @@
 ﻿using UnityEngine;
 
 public class SelectHair : MonoBehaviour {
-    public Editor editor;
+    public int hairStyleId = 0;
+
+    private Editor editor;
     private UIButton button;
 
     void Start() {
         button = GetComponent<UIButton>();
-        button.Clicked += (_) => {
+        editor = Editor.instance;
 
+        button.Clicked += (_) => {
+            editor.hairStyle = hairStyleId;
         };
     }
 }

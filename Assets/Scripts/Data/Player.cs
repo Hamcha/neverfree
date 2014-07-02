@@ -46,25 +46,33 @@ public class Player : Singleton<Player> {
 }
 
 public class PlayerData {
+    #region Saved properties
     public string name;
     public int hearts;
+    public int hairStyle;
     public List<Player.Stance> stances;
+    #endregion
 
+    #region Save/Load
     public void Save() {
         PlayerPrefs.SetString("playerName", name);
         PlayerPrefs.SetInt("playerHearts", hearts);
         string[] stancesStr = stances.ConvertAll((x) => x.ToString()).ToArray();
         PlayerPrefs.SetString("playerStances", string.Join(",", stancesStr));
+        PlayerPrefs.SetInt("playerHairStyle", hairStyle);
         PlayerPrefs.Save();
     }
 
     public void Load() {
         name = Get("playerName", "Unnamed pony");
         hearts = Get("playerHearts", 5);
-        string[] stancesStr = Get("playerStances", "Inspect,BaseShot").Split(',');
+        hairStyle = Get("playerHairStyle", 0);
+        string[] stancesStr = Get("playerStances", "Inspect").Split(',');
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
     }
+    #endregion
 
+    #region Utils
     private string Get(string key, string fallback) {
         return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetString(key) : fallback;
     }
@@ -76,4 +84,5 @@ public class PlayerData {
     private float Get(string key, float fallback) {
         return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetFloat(key) : fallback;
     }
+    #endregion
 }

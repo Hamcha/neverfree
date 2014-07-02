@@ -8,7 +8,7 @@ public class UIButton : MonoBehaviour {
     public delegate void StatusChangedHandler(UIButton instance, ButtonStatus status);
     public event StatusChangedHandler StatusChanged;
 
-    public bool enabled = true;
+    public bool disabled = false;
     public bool hold = false;
 
     private ButtonStatus _status = ButtonStatus.Idle;
@@ -24,7 +24,7 @@ public class UIButton : MonoBehaviour {
     };
 
     void OnMouseDown() {
-        if (!enabled) return;
+        if (disabled) return;
 
         if (status != ButtonStatus.Pressed) {
             status = ButtonStatus.Pressed;
@@ -35,7 +35,7 @@ public class UIButton : MonoBehaviour {
     }
 
     void OnMouseUpAsButton() {
-        if (!enabled) return;
+        if (disabled) return;
 
         if (status == ButtonStatus.Pressed && !hold) {
             status = ButtonStatus.Idle;
