@@ -124,7 +124,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1301993721}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &45499187
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +313,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maneStyleId: 5
+  body: {fileID: 1875351857}
+  mane: {fileID: 88141526}
 --- !u!1 &123609002
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maneStyleId: 3
+  body: {fileID: 45499189}
+  mane: {fileID: 850010091}
 --- !u!1 &196234378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,6 +1021,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maneStyleId: 4
+  body: {fileID: 855326464}
+  mane: {fileID: 461489130}
 --- !u!1 &654120460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1093,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maneStyleId: 1
+  body: {fileID: 1881937247}
+  mane: {fileID: 248930680}
 --- !u!1 &661667697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,7 +1709,7 @@ Transform:
   m_LocalScale: {x: 1.29562986, y: .762135267, z: .707311749}
   m_Children: []
   m_Father: {fileID: 1301993721}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!212 &1187987411
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1795,6 +1803,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maneStyleId: 2
+  body: {fileID: 228890686}
+  mane: {fileID: 594667255}
 --- !u!1 &1301993720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,8 +1834,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 664425944}
-  - {fileID: 1187987410}
   - {fileID: 5257922}
+  - {fileID: 1187987410}
   m_Father: {fileID: 0}
   m_RootOrder: 11
 --- !u!114 &1301993722
@@ -1865,6 +1875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maneStyleId: 0
+  body: {fileID: 664425946}
+  mane: {fileID: 5257921}
 --- !u!1 &1402787041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,7 +2362,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2076394194}
   - 58: {fileID: 2076394197}
-  - 114: {fileID: 2076394195}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2373,19 +2384,6 @@ Transform:
   - {fileID: 1516257325}
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!114 &2076394195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2076394193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4602d9460a2664fb3475d64d900875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabled: 0
-  hold: 0
 --- !u!58 &2076394197
 CircleCollider2D:
   m_ObjectHideFlags: 0
