@@ -9,6 +9,7 @@ public class Editor : MonoBehaviour {
     public GameObject storagePrefab;
 
     public SpriteRenderer playerBase, playerMane;
+    public ColorPicker bodySelector, maneSelector;
 
     public int maneStyle {
         get { return Player.Instance.data.maneStyle; }
@@ -44,6 +45,13 @@ public class Editor : MonoBehaviour {
 
         instance = this;
         UpdateCharacter();
+    }
+
+    void Update() {
+        if (bodySelector.dragController.isDragging)
+            bodyColor = bodySelector.currentColor;
+        if (maneSelector.dragController.isDragging)
+            maneColor = maneSelector.currentColor;
     }
 
     void UpdateCharacter() {

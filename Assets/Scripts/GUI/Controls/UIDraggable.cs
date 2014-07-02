@@ -5,7 +5,7 @@ public class UIDraggable : MonoBehaviour {
     public event DragHandler DragStarted, DragFinished;
 
     public bool isDragging { get; private set; }
-
+    public Camera UICamera;
     public bool limitedRange = false;
     public Rect dragRange;
 
@@ -35,9 +35,9 @@ public class UIDraggable : MonoBehaviour {
     }
 
     Vector3 GetMousePos() {
-        return Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
-                                                          Input.mousePosition.y,
-                                                          transform.position.z));
+        return UICamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                                       Input.mousePosition.y,
+                                                       transform.position.z));
     }
 
     void OnDrawGizmosSelected() {
