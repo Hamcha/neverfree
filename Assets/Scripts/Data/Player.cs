@@ -49,7 +49,8 @@ public class PlayerData {
     #region Saved properties
     public string name;
     public int hearts;
-    public int hairStyle;
+    public int maneStyle;
+    public Color bodyColor, maneColor;
     public List<Player.Stance> stances;
     #endregion
 
@@ -59,16 +60,22 @@ public class PlayerData {
         PlayerPrefs.SetInt("playerHearts", hearts);
         string[] stancesStr = stances.ConvertAll((x) => x.ToString()).ToArray();
         PlayerPrefs.SetString("playerStances", string.Join(",", stancesStr));
-        PlayerPrefs.SetInt("playerHairStyle", hairStyle);
+        PlayerPrefs.SetInt("playerManeStyle", maneStyle);
+        PlayerPrefs.SetString("playerBodyColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
+        PlayerPrefs.SetString("playerManeColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
         PlayerPrefs.Save();
     }
 
     public void Load() {
         name = Get("playerName", "Unnamed pony");
         hearts = Get("playerHearts", 5);
-        hairStyle = Get("playerHairStyle", 0);
+        maneStyle = Get("playerManeStyle", 0);
         string[] stancesStr = Get("playerStances", "Inspect").Split(',');
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
+        List<float> bodyColorVals = new List<string>(Get("playerBodyColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
+        bodyColor = new Color(bodyColorVals[0], bodyColorVals[1], bodyColorVals[2]);
+        List<float> maneColorVals = new List<string>(Get("playerManeColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
+        maneColor = new Color(maneColorVals[0], maneColorVals[1], maneColorVals[2]);
     }
     #endregion
 

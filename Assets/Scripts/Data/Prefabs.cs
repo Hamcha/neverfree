@@ -4,7 +4,7 @@ public class Prefabs : MonoBehaviour {
     public static Prefabs instance { get; private set; }
 
     public GameObject baseShotProjectile;
-    public Sprite[] hairStyles;
+    public Sprite[] maneStyles;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);

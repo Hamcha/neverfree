@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseShotProjectile: {fileID: 100000, guid: 7fdadbe10b3dfa5448c8c1a108d86aff, type: 2}
-  hairStyles:
+  maneStyles:
   - {fileID: 21300008, guid: 71a7242992ccdcf489f9191171d1ec4b, type: 3}
   - {fileID: 21300004, guid: 71a7242992ccdcf489f9191171d1ec4b, type: 3}
   - {fileID: 21300006, guid: 71a7242992ccdcf489f9191171d1ec4b, type: 3}

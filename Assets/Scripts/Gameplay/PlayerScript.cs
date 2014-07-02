@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour {
     public static PlayerScript instance { get; private set; }
     public static GameObject player { get { return instance != null ? instance.gameObject : null; } }
 
-    public GameObject baseSprite, hairSprite;
+    public GameObject baseSprite, maneSprite;
 
     public bool disabled = false;
 
@@ -90,7 +90,7 @@ public class PlayerScript : MonoBehaviour {
             Color baseColor = baseSprite.renderer.material.color;
             baseColor.a = Mathf.Floor(currentProtectDelay * 10f) % 2 == 1 ? 0.5f : 1f;
             baseSprite.renderer.material.color = baseColor;
-            hairSprite.renderer.material.color = baseColor;
+            maneSprite.renderer.material.color = baseColor;
             currentProtectDelay -= Time.deltaTime;
         }
     }

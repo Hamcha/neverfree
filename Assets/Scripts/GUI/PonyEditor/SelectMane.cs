@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-public class SelectHair : MonoBehaviour {
-    public int hairStyleId = 0;
+public class SelectMane : MonoBehaviour {
+    public int maneStyleId = 0;
 
     private Editor editor;
     private UIButton button;
@@ -11,7 +11,7 @@ public class SelectHair : MonoBehaviour {
         editor = Editor.instance;
 
         button.Clicked += (_) => {
-            editor.hairStyle = hairStyleId;
+            editor.maneStyle = maneStyleId;
         };
     }
 }

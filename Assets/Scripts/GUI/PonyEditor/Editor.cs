@@ -7,13 +7,17 @@ public class Editor : MonoBehaviour {
 
     public SpriteRenderer playerBase, playerMane;
 
-    public int hairStyle {
-        get { return Player.Instance.data.hairStyle; }
+    public int maneStyle {
+        get { return Player.Instance.data.maneStyle; }
         set {
-            Player.Instance.data.hairStyle = value;
+            Player.Instance.data.maneStyle = value;
             UpdateCharacter();
         }
     }
+
+    /*public Color bodyColor {
+        get { }
+    }*/
 
     public Prefabs storage;
 
@@ -26,7 +30,7 @@ public class Editor : MonoBehaviour {
     }
 
     void UpdateCharacter() {
-        playerMane.sprite = storage.hairStyles[hairStyle];
+        playerMane.sprite = storage.maneStyles[maneStyle];
     }
 
     void OnDestroy() {
