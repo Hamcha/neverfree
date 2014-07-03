@@ -253,7 +253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f4db18557d9bbe4f8ed1f180104129a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: .0196078438}
+  m_Color: {r: 1, g: 1, b: 1, a: .0784313753}
 --- !u!4 &664366070
 Transform:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ Transform:
   m_GameObject: {fileID: 664366068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -405,6 +405,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1322766929}
   - 212: {fileID: 1322766928}
+  - 95: {fileID: 1322766930}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -442,10 +443,24 @@ Transform:
   m_GameObject: {fileID: 1322766927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!95 &1322766930
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1322766927}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4813b532e5e9c4f488616910151b67db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1397578063
 GameObject:
   m_ObjectHideFlags: 0
