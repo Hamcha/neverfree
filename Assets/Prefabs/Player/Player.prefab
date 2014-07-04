@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8197b58adb81fc64fbb594919b176884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 2
+  maxSpeed: 3.5
   damping: 50
   threshold: .100000001
   stopThreshold: .200000003

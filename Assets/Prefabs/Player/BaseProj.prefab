@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe384a539a2057b439592a8e44207db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  deceleration: 6
+  speed: 8
+  deceleration: 8
   threshold: .100000001
   angle: 0
 --- !u!212 &21200000

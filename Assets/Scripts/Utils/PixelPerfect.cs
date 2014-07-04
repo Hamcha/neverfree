@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
 public class PixelPerfect : MonoBehaviour {
-    public float scale = 2f;
+    public float scale = 2;
+    public float pixelScale = 16;
     public float zoomSpeed = 0.5f;
     private float oldScale, targetScale, t;
     public bool zooming = false;
@@ -15,7 +16,7 @@ public class PixelPerfect : MonoBehaviour {
             if (t >= 1) zooming = false;
         }
 
-        scaleValue = (Screen.height / 30f / 2.0f / scale);
+        scaleValue = (Screen.height / pixelScale / 2.0f / scale);
 
         // Only update if needed
         if (camera.orthographicSize != scaleValue)
