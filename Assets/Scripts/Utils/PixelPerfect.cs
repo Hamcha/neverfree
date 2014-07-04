@@ -8,6 +8,11 @@ public class PixelPerfect : MonoBehaviour {
     public bool zooming = false;
     private float scaleValue = 0;
 
+    void Awake() {
+        // This is a shameful hack but I don't know better ways to do it ATM
+        Update();
+    }
+
     void Update() {
         // Are we zooming?
         if (zooming) {
