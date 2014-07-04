@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 3
+  pixelScale: 16
   zoomSpeed: 5
   zooming: 0
 --- !u!114 &11400004
@@ -457,8 +458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: -1, y: 1}
-  offset: {x: 12, y: 6}
-  pixelSize: 30
+  offset: {x: 13, y: 1}
+  pixelSize: 16
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,6 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 3
+  pixelScale: 16
   zoomSpeed: 5
   zooming: 0
 --- !u!114 &11400012
@@ -524,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: -1, y: -1}
   offset: {x: 10, y: 20}
-  pixelSize: 30
+  pixelSize: 16
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1

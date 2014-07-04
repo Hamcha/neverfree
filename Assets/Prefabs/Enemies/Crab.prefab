@@ -115,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialHealth: 5
   protectDelay: .5
-  kickback: 4
+  kickback: 8
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

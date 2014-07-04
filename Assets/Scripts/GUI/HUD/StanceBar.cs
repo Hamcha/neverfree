@@ -26,7 +26,7 @@ public class StanceBar : MonoBehaviour {
             GameObject stance = (GameObject)Instantiate(Stance);
             stance.transform.parent = transform;
             DockUI dock = stance.GetComponent<DockUI>();
-            dock.offset.y = 21;
+            dock.offset.y = 15;
             stance.GetComponent<Animator>().SetTrigger(Player.Instance.data.stances[i].ToString());
             stances.Add(stance);
         }
@@ -38,11 +38,11 @@ public class StanceBar : MonoBehaviour {
     public void Raise(int id) {
         // Put SelectBox over stance
         DockUI dock = Stance_SelectBox.GetComponent<DockUI>();
-        dock.offset.x = 6 + 11 * id;
-        dock.offset.y = 21;
+        dock.offset.x = 7 + 11 * id;
+        dock.offset.y = 15;
 
         // Move stances to make space for SelectBox
-        int offset = 4;
+        int offset = 5;
         for (int i = 0; i < stances.Count; i++) {
             if (i == id) offset += 2;
             stances[i].GetComponent<DockUI>().offset.x = offset;

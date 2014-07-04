@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour {
             float y = Mathf.Floor(i / 10);
             // Hex-style positioning
             float yoff = x % 2;
-            dock.offset = new Vector2(2 + 5 * x, -2 - 4 * yoff - 8 * y);
+            dock.offset = new Vector2(3 + 5 * x, -7 - 4 * yoff - 8 * y);
             hearts.Add(heart);
         }
 

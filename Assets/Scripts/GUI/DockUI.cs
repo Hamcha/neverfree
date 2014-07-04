@@ -3,7 +3,7 @@
 public class DockUI : MonoBehaviour {
     public Vector2 position;
     public Vector2 offset;
-    public float pixelSize;
+    public float pixelSize = 16;
 
     private Camera UICamera;
 

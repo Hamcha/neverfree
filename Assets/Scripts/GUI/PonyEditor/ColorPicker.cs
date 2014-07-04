@@ -27,7 +27,7 @@ public class ColorPicker : MonoBehaviour {
                 colorWheel.color = new Color(vPosition, vPosition, vPosition, 1);
             }
             Vector3 relPosition = dragController.dragHandle.transform.localPosition / radius;
-            Vector2 texPosition = new Vector2(relPosition.x / 2 + 0.5f, relPosition.y / 2 + 0.5f);
+            Vector2 texPosition = new Vector2(relPosition.x / 2f + 0.5f, relPosition.y / 2f + 0.5f);
             currentColor = texture.GetPixelBilinear(texPosition.x, texPosition.y);
             currentColor *= colorWheel.color;
             currentColor.a = 1;

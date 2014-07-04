@@ -173,7 +173,7 @@ MonoBehaviour:
   damping: 50
   threshold: .100000001
   stopThreshold: .200000003
-  damageBounceDistance: 8
+  damageBounceDistance: 14
   cursorPosition: {fileID: 0}
   protectDelay: 1
   baseSprite: {fileID: 100006}
