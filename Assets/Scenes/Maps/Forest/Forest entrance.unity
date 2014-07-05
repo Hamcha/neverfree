@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   currentType: none
-  currentStance: none
+  currentStance: Inspect
   highlighted: {fileID: 0}
 --- !u!95 &245440900
 Animator:

@@ -6,7 +6,6 @@ public class Interactive : MonoBehaviour {
 
     void FixedUpdate() {
         isPlayerClose = Vector2.Distance(transform.position, PlayerScript.player.transform.position) <= farDistance;
-        Debug.Log(isPlayerClose);
         if (isPlayerClose) Cursor.instance.CloseTo(gameObject);
         else               Cursor.instance.FarTo(gameObject);
     }
