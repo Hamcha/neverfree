@@ -47,7 +47,6 @@ public class Cursor : MonoBehaviour {
     }
 
     public void CloseTo(GameObject obj) {
-        Debug.Log("Got close");
         if (highlighted == obj) animator.SetBool("Near", true);
     }
 
