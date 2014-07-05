@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class Player : Singleton<Player> {
     #region Events
     public delegate void HealthChangedHandler(Player instance, int newHealth);

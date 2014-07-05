@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
 public class Cursor : MonoBehaviour {
-    static Cursor cursorInstance;
+    public static Cursor instance;
 
-    private Animator animator;
-    public string currentType = "none";
+    public Animator animator;
+    public string currentType = "Inspect";
+    public string currentStance = "Inspect";
 
-    Cursor() {
-        cursorInstance = this;
-    }
+    public GameObject highlighted;
 
     void Awake() {
+        instance = this;
         // Disable hardware cursor
         Screen.showCursor = false;
         animator = GetComponent<Animator>();
@@ -24,15 +24,38 @@ public class Cursor : MonoBehaviour {
         transform.position = p;
     }
 
-    static public void setCursorType(string type) {
-        // Skip if already current type
-        if (type == cursorInstance.currentType) return;
-        cursorInstance.currentType = type;
+    public void SetCursorStance(string stance) {
+        currentStance = stance;
+        animator.SetBool("Aiming", stance == "BaseShot");
+    }
 
-        if (type == "BaseShot") {
-            cursorInstance.animator.SetBool("Aiming", true);
-        } else {
-            cursorInstance.animator.SetBool("Aiming", false);
+    public void Reset() {
+        currentType = "";
+        animator.SetBool("Interactive", false);
+    }
+
+    public void Highlight(GameObject obj) {
+        highlighted = obj;
+        animator.SetBool("Interactive", true);
+    }
+
+    public void Blur(GameObject obj) {
+        if (highlighted == obj) {
+            highlighted = null;
+            Reset();
         }
+    }
+
+    public void CloseTo(GameObject obj) {
+        Debug.Log("Got close");
+        if (highlighted == obj) animator.SetBool("Near", true);
+    }
+
+    public void FarTo(GameObject obj) {
+        if (highlighted == obj) animator.SetBool("Near", false);
+    }
+
+    public void OnDestroy() {
+        if (instance == this) instance = null;
     }
 }

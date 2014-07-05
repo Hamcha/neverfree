@@ -13,15 +13,15 @@ public class Editor : MonoBehaviour {
 
     public int maneStyle {
         get { return Player.Instance.data.maneStyle; }
-        set { 
-            Player.Instance.data.maneStyle = value; 
-            UpdateCharacter(); 
+        set {
+            Player.Instance.data.maneStyle = value;
+            UpdateCharacter();
         }
     }
 
     public Color bodyColor {
         get { return Player.Instance.data.bodyColor; }
-        set { 
+        set {
             Player.Instance.data.bodyColor = value;
             UpdateCharacter();
             if (ColorChanged != null) ColorChanged(value, maneColor);
@@ -29,8 +29,8 @@ public class Editor : MonoBehaviour {
     }
     public Color maneColor {
         get { return Player.Instance.data.maneColor; }
-        set { 
-            Player.Instance.data.maneColor = value; 
+        set {
+            Player.Instance.data.maneColor = value;
             UpdateCharacter();
             if (ColorChanged != null) ColorChanged(bodyColor, value);
         }

@@ -51,7 +51,7 @@ public class StanceBar : MonoBehaviour {
         }
 
         // Make cursor check for changes
-        Cursor.setCursorType(Player.Instance.data.stances[id].ToString());
+        Cursor.instance.SetCursorStance(Player.Instance.data.stances[id].ToString());
 
         selected = id;
     }
