@@ -54,6 +54,10 @@ public class Cursor : MonoBehaviour {
         if (highlighted == obj) animator.SetBool("Near", false);
     }
 
+    public void Teleport(bool status = true) {
+        animator.SetBool("Teleport", status);
+    }
+
     public void OnDestroy() {
         if (instance == this) instance = null;
     }
