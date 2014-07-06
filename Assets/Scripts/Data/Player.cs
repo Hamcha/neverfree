@@ -53,6 +53,7 @@ public class PlayerData {
     public int maneStyle;
     public Color bodyColor, maneColor;
     public List<Player.Stance> stances;
+    public float teleportRange;
     #endregion
 
     #region Save/Load
@@ -64,6 +65,7 @@ public class PlayerData {
         PlayerPrefs.SetInt("playerManeStyle", maneStyle);
         PlayerPrefs.SetString("playerBodyColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
         PlayerPrefs.SetString("playerManeColor", maneColor.r + "," + maneColor.g + "," + maneColor.b);
+        PlayerPrefs.SetFloat("playerTeleportRange", teleportRange);
         PlayerPrefs.Save();
     }
 
@@ -77,6 +79,7 @@ public class PlayerData {
         bodyColor = new Color(bodyColorVals[0], bodyColorVals[1], bodyColorVals[2]);
         List<float> maneColorVals = new List<string>(Get("playerManeColor", "0.8,0.4,0.3").Split(',')).ConvertAll((x) => float.Parse(x));
         maneColor = new Color(maneColorVals[0], maneColorVals[1], maneColorVals[2]);
+        teleportRange = Get("playerTeleportRange", 5f);
     }
     #endregion
 

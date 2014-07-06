@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour {
     private float currentDirection;
     private float currentProtectDelay;
 
+    private RangeSprite rangeSprite;
     private Animator baseAnimator;
 
     private static KeyCode[] keys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, 
@@ -33,6 +34,7 @@ public class PlayerScript : MonoBehaviour {
         instance = this;
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
+        rangeSprite = transform.FindChild("Range").GetComponent<RangeSprite>();
         cursorPosition = Scene.gui.cursor.transform;
 
         // Load customized pony
@@ -79,6 +81,12 @@ public class PlayerScript : MonoBehaviour {
         // Shoot if we can and want to
         if (Input.GetMouseButton(0) && Stance.all[Player.Instance.stance].canShoot)
             shoot();
+        // Prepare teleportation
+        if (Input.GetMouseButton(1)) {
+            rangeSprite.ScaleTo(Player.Instance.data.teleportRange, 0.5f);
+        } else {
+            rangeSprite.Immediate(0);
+        }
 
         // Change stance using the Mouse wheel
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
