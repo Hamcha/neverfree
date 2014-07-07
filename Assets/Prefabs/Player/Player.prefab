@@ -209,6 +209,7 @@ MonoBehaviour:
   protectDelay: 1
   baseSprite: {fileID: 100006}
   maneSprite: {fileID: 100000}
+  teleporter: {fileID: 11400004}
   disabled: 0
 --- !u!114 &11400002
 MonoBehaviour:
@@ -235,6 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f925f98bb101ec4b84b4ad685f410f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: {fileID: 0}
+  teleporting: 0
+  blinkPrefab: {fileID: 100000, guid: 68a69eaa6bd4b094d9841511531ee7a2, type: 2}
+  phantomPrefab: {fileID: 100000, guid: 4fe58b4561cd3eb41af6cbb282d5ab97, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

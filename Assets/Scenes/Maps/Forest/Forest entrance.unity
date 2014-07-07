@@ -126,7 +126,7 @@ Transform:
   - {fileID: 873789367}
   - {fileID: 2140858643}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &318893418
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,7 +918,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &1809592065
 GameObject:
   m_ObjectHideFlags: 0
