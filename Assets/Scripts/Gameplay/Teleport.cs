@@ -18,6 +18,7 @@ public class Teleport : MonoBehaviour {
 
     public void TeleportPlayer(GameObject player) {
         if (!isPlayerClose) return;
+        if (BlockTeleport.blocked) return;
         Vector3 targetPosition = Cursor.instance.transform.position;
         Vector3 oldPosition = player.transform.position;
         targetPosition.z = oldPosition.z;

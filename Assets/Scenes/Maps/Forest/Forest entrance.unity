@@ -408,6 +408,7 @@ GameObject:
   - 4: {fileID: 471703373}
   - 212: {fileID: 471703372}
   - 60: {fileID: 471703374}
+  - 114: {fileID: 471703375}
   m_Layer: 0
   m_Name: Entrance.walls
   m_TagString: Walls
@@ -609,6 +610,18 @@ PolygonCollider2D:
       - {x: 11.0758705, y: -9.22211075}
       - {x: 11.1074553, y: -11.6392975}
       - {x: 9.07996178, y: -12.5177116}
+--- !u!114 &471703375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 471703371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035929b34ec270444b0d8c492beffe33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisBlocked: 0
 --- !u!1001 &807602219
 Prefab:
   m_ObjectHideFlags: 0

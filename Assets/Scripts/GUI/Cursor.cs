@@ -55,7 +55,9 @@ public class Cursor : MonoBehaviour {
     }
 
     public void Teleport(bool status = true) {
-        animator.SetBool("Teleport", status);
+        bool blocked = BlockTeleport.blocked;
+        animator.SetBool("Denied", status && blocked);
+        animator.SetBool("Teleport", status && !blocked);
     }
 
     public void OnDestroy() {
