@@ -300,6 +300,7 @@ GameObject:
   - 4: {fileID: 263482937}
   - 212: {fileID: 263482936}
   - 60: {fileID: 263482935}
+  - 114: {fileID: 263482938}
   m_Layer: 0
   m_Name: SavePlatform
   m_TagString: Untagged
@@ -371,6 +372,18 @@ Transform:
   - {fileID: 126815659}
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &263482938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 263482934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035929b34ec270444b0d8c492beffe33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisBlocked: 0
 --- !u!1 &351485505
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,6 +945,7 @@ GameObject:
   - 4: {fileID: 1938449672}
   - 212: {fileID: 1938449671}
   - 60: {fileID: 1938449673}
+  - 114: {fileID: 1938449674}
   m_Layer: 0
   m_Name: SaveRoom.walls
   m_TagString: Untagged
@@ -1018,6 +1032,18 @@ PolygonCollider2D:
       - {x: -10.0383244, y: 9.98680973}
       - {x: -9.99284458, y: -9.99284458}
       - {x: -2.08210707, y: -9.99701118}
+--- !u!114 &1938449674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938449670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035929b34ec270444b0d8c492beffe33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisBlocked: 0
 --- !u!1 &2145515136
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class BlockTeleport : MonoBehaviour {
 
-    public static bool blocked { 
+    public static bool blocked {
         get {
+            if (blockingObjects == null)
+                blockingObjects = new HashSet<BlockTeleport>();
             foreach (BlockTeleport t in blockingObjects)
                 if (t.thisBlocked) return true;
             return false;
