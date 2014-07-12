@@ -1,0 +1,15 @@
+<link rel="import" href="../components/polymer/polymer.html">
+
+<polymer-element name="x-youtube" attributes="id width height description">
+<template>
+<b>{{description}}</b> - <a href="https://www.youtube.com/watch?v={{id}}">Link</a><br />
+<iframe style="margin-top: 5px;" id="iframe" width="{{width}}" height="{{height}}" src="//www.youtube.com/embed/{{id}}" frameborder="0" allowfullscreen></iframe>
+</template>
+<script>
+Polymer("x-youtube", {
+    description: "",
+    width: 560,
+    height: 315
+});
+</script>
+</polymer-element>

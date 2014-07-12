@@ -1,0 +1,252 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/paper-item/paper-item.html" />
+<link rel="import" href="../components/core-drawer-panel/core-drawer-panel.html" />
+<link rel="import" href="../components/core-icons/core-icons.html" />
+<link rel="import" href="../components/core-icons/iconsets/communication-icons.html">
+<link rel="import" href="../components/core-icons/iconsets/social-icons.html">
+
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic'
+      rel='stylesheet' type='text/css'>
+
+<polymer-element name="game-section" attributes="title">
+<template>
+<style>
+:host { display: block; padding: 1em;}
+h3 { padding: 0; margin: 0; margin-bottom: 0.5em; text-transform: capitalize; }
+</style>
+<h3>{{title}}</h3>
+<content></content>
+</template>
+<script>
+Polymer("game-section", {
+    title: "Untitled",
+    ready: function() {
+        this.id = this.title.toLowerCase().replace(/\s/ig,"-");
+    }
+});
+</script>
+</polymer-element>
+
+<polymer-element name="game-info">
+<template>
+<style>
+ul {
+    list-style-type: none;
+    padding: 0; margin: 0;
+    column-width: 200px;
+    -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    -webkit-column-rule: 1px outset #ccc;
+    -moz-column-rule: 1px outset #ccc;
+    column-rule: 1px outset #ccc;
+}
+li { display: inline-block; width: 100%; padding-bottom: 1em;  }
+name {
+    text-transform: uppercase;
+    font-size: 0.8em; display: block;
+    margin-bottom: 5px;
+}
+value { }
+a, a:visited { color:#444; }
+</style>
+<ul id="info">
+</ul>
+</template>
+<script>
+Polymer("game-info", {
+    handlers : {
+        any : function(element) {
+            var name  = element.tagName.toLowerCase().replace(/-/ig," ");
+            var value = element.innerHTML;
+            return {name: name, value: value};
+        },
+        developer : function(element) {
+            // Convert to dictionary
+            var properties = {};
+            for (var i = 0; i < element.children.length; i++) {
+                var key = element.children[i].tagName.toLowerCase();
+                properties[key] = element.children[i].innerHTML;
+            }
+            var name     = properties["name"];
+            var email    = properties["email"];
+            var website  = properties["website"];
+            var twitter  = properties["twitter"];
+            var composed = name + (email || website || twitter ? "&nbsp;&nbsp;": "") +
+                (email ? "<a href=\"mailto:"+email+"\"><core-icon size=\"18\" icon=\"communication:email\"></core-icon></a>" : "") +
+                (website ? " <a href=\""+website+"\"><core-icon size=\"18\" icon=\"social:public\"></core-icon></a>" : "") +
+                (twitter ? " <a href=\"https://twitter.com/"+twitter+"\"><core-icon size=\"18\" icon=\"social:post-twitter\"></core-icon></a>" : "");
+            return {name: "developer", value: composed};
+        },
+        website : function(element) {
+            var link = "<a href=\"" + element.innerHTML + "\">"
+                     + element.innerHTML.replace(/https?\:\/\//ig,"")
+                     + "</a>";
+            return {name: "website", value: link};
+        }
+    },
+    domReady: function() {
+        var elements = this.children;
+        for (var i = 0; i < elements.length; i++) {
+            var key = elements[i].tagName.toLowerCase();
+            var out = typeof this.handlers[key] !== "undefined" ?
+                      this.handlers[key](elements[i]) : this.handlers.any(elements[i]);
+            this.$.info.innerHTML += "<li><name>"+out.name+"</name>\
+                                      <value>"+out.value+"</value></li>";
+        }
+    }
+});
+</script>
+</polymer-element>
+
+<polymer-element name="game-credits">
+<template>
+<style>
+ul {
+    list-style-type: none;
+    padding: 0; margin: 0;
+    column-width: 200px;
+    -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    -webkit-column-rule: 1px outset #ccc;
+    -moz-column-rule: 1px outset #ccc;
+    column-rule: 1px outset #ccc;
+}
+li { display: inline-block; width: 100%; padding-bottom: 1em;  }
+name {
+    text-transform: uppercase;
+    font-size: 0.8em; display: block;
+    margin-bottom: 5px;
+}
+a, a:visited { color:#444; }
+</style>
+<ul id="credits">
+</ul>
+</template>
+<script>
+Polymer("game-credits", {
+    domReady: function() {
+        for (var i = 0; i < this.children.length; i++) {
+            // Convert to dictionary
+            var properties = {};
+            var element = this.children[i];
+            var name     = element.getAttribute("name");
+            var role     = element.getAttribute("role");
+            var email    = element.getAttribute("email");
+            var website  = element.getAttribute("website");
+            var twitter  = element.getAttribute("twitter");
+            var composed = name + (email || website || twitter ? "&nbsp;&nbsp;": "") +
+                (email ? "<a href=\"mailto:"+email+"\"><core-icon size=\"18\" icon=\"communication:email\"></core-icon></a>" : "") +
+                (website ? " <a href=\""+website+"\"><core-icon size=\"18\" icon=\"social:public\"></core-icon></a>" : "") +
+                (twitter ? " <a href=\"https://twitter.com/"+twitter+"\"><core-icon size=\"18\" icon=\"social:post-twitter\"></core-icon></a>" : "");
+            this.$.credits.innerHTML += "<li><name>"+role+"</name>\
+                                      <value>"+composed+"</value></li>";
+        }
+    }
+});
+</script>
+</polymer-element>
+
+<polymer-element name="game-header" attributes="title description light">
+<template>
+<style>
+header {
+    padding: 1em 2em;
+    background: url(../images/header.png) center;
+}
+h1 {
+    color: #000; margin: 0; padding-top: 1em;
+    font-size: 3em; font-weight: normal;
+}
+h2 {
+    color: #000; margin: 0; padding-bottom: 1em;
+    font-size: 1.2em; font-weight: normal;
+}
+.light { color: #fff; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); }
+</style>
+<header>
+<h1 id="name">{{title}}</h1>
+<h2 id="description">{{description}}</h2>
+</header>
+</template>
+<script>
+Polymer("game-header", {
+    title: "Untitled",
+    description: "",
+    light: false,
+    lightChanged: function(oldValue, newValue) {
+        this.$.name.className = this.$.description.className = newValue ? "light" : "";
+    },
+    ready: function() {
+        this.lightChanged(null, this.light);
+    }
+});
+</script>
+</polymer-element>
+
+<polymer-element name="game-container">
+<template>
+<style>
+:host {
+    font-family: "Source Sans Pro", sans-serif;
+    padding: 0; margin: 0;
+}
+#content { background-color: #fff; }
+#sidebar { background-color: #eee; }
+paper-item { text-transform: capitalize; }
+a , a:visited { text-decoration: none; color: #555; }
+a:hover { color: #000; }
+h4 {
+    text-transform: uppercase;  padding: 1em; margin: 0;
+    font-weight: normal; font-size: 0.8em;
+}
+</style>
+<core-drawer-panel id="drawerPanel">
+<div id="sidebar" drawer>
+<h4>Table of content</h4>
+</div>
+<div id="content" main>
+    <content></content>
+</div>
+</core-drawer-panel>
+</template>
+<script>
+Polymer("game-container", {
+    domReady: function() {
+        var menu = this.$.sidebar;
+        for (var i = 0; i < this.children.length; i++) {
+            if (this.children[i].id != "") {
+                var item  = document.createElement("paper-item");
+                var icon  = (typeof this.children[i].icon !== "undefined") ?
+                            " icon=\"" + sections[i].icon + "\"" : "";
+                var title = (typeof this.children[i].title !== "undefined") ?
+                            this.children[i].title : "";
+                menu.innerHTML += "<a href=\"#"+this.children[i].id+"\"><paper-item"+icon+">"+title+"</paper-item></a>";
+            }
+        }
+    }
+});
+</script>
+</polymer-element>
+
+<polymer-element name="game-gallery" attributes="folder width">
+<template>
+<style>
+#gallery_container img { margin: 5px; height: auto; }
+</style>
+<div id="gallery_container"></div>
+</template>
+<script>
+Polymer("game-gallery", {
+    folder: "gallery",
+    width: "300px",
+    ready: function() {
+        var folder = this.folder;
+        var width = this.width;
+        this.$.gallery_container.innerHTML = Array.prototype.map.call(this.children, function (item) {
+            var url = folder+"/"+item.innerHTML;
+            return "<a href=\""+url+"\"><img width=\""+width+"\" src=\""+url+"\" /></a>";
+        }).join("");
+    }
+});
+</script>
+</polymer-element>

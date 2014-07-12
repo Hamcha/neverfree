@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+    Stuck? Check the documentation : DOC LINK HERE
+-->
+<html>
+<head>
+    <script src="components/platform/platform.js"></script>
+    <link rel="import" href="html/game-elements.html" />
+    <link rel="import" href="html/extra-elements.html" />
+    <link rel="stylesheet" href="css/screen.css" />
+    <script src="js/smooth-scroll.min.js"></script>
+    <title>Neverfree</title>
+</head>
+<body>
+<game-container>
+    <game-header title="Neverfree"
+                 description="A &ldquo;Zeldalike&rdquo; exploration game"
+                 light id="neverfree">
+    </game-header>
+    <game-section title="game info">
+    <game-info>
+        <developer>
+            <name>Hamcha</name>
+            <email>zikyky@gmail.com</email>
+            <website>https://padrepio.in</website>
+            <twitter>hamcha</twitter>
+        </developer>
+        <release-date>TBA</release-date>
+        <platforms>PC - Linux - Mac</platforms>
+        <website>https://hamcha.github.io/neverfree</website>
+    </game-info>
+    </game-section>
+
+    <game-section title="Description">
+    <p>Neverfree <i>(temporary name)</i> is a top-down exploration game where
+    you play as the last of your species: A pony.<br />
+    Following a ghost, you start adventuring into an endless forest full of
+    monsters and misteries that will uncover your past.</p>
+    <p>The game will feature various dungeouns and ways to approach and defeat
+    enemies and the character will receive upgrades throughout the game that will
+    unlock other part of the map, like in many metroidvania games</p>
+    </game-section>
+
+    <game-section title="History">
+    <p>Neverfree was initially a prototype built with Multimedia Fusion 2, although
+    given the requirements and flexibility required by the project it was soon
+    been rebuilt in Unity.</p>
+    <p>Neverfree went into hiatus for a year until I decided to pick it up again,
+    and also decided to make it open source on Github.</p>
+    </game-section>
+
+    <game-section title="Videos">
+    <x-youtube id="-gcVM5BPymk" description="Early july build"></x-youtube>
+    </game-section>
+
+    <game-section title="Images">
+    <game-gallery folder="gallery">
+        <file>shooting.png</file>
+        <file>save.png</file>
+    </game-gallery>
+    </game-section>
+
+    <game-section title="Links">
+    <p>You can play the latest uploaded build of the game at<br />
+    <big><a href="https://padrepio.in/nf">padrepio.in/nf</a></big><br />
+    <small>(requires Unity Web Player)</small></p>
+
+    <p>You can also check out the source code and assets at<br />
+    <big><a href="https://github.com/hamcha/neverfree">github.com/hamcha/neverfree</a></big></p>
+    </game-section>
+
+    <game-section title="Credits">
+    <game-credits>
+        <hamcha name="Hamcha"
+                email="zikyky@gmail.com"
+                twitter="hamcha"
+                website="https://padrepio.in"
+                role="Lead developer"></hamcha>
+    </game-credits>
+    </game-section>
+
+</game-container>
+<script>smoothScroll.init();</script>
+</body>
+</html>

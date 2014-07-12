@@ -1,0 +1,15 @@
+{
+  "name": "neverfree",
+  "version": "0.0.0",
+  "authors": [
+    "Hamcha <zikyky@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "core-elements": "Polymer/core-elements#~0.3.3",
+    "paper-elements": "Polymer/paper-elements#~0.3.3",
+    "polymer": "Polymer/polymer#~0.3.3",
+    "smooth-scroll": "https://github.com/cferdinandi/smooth-scroll.git"
+  }
+}
