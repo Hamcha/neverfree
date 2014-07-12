@@ -62,15 +62,11 @@ Polymer("game-info", {
         },
         developer : function(element) {
             // Convert to dictionary
-            var properties = {};
-            for (var i = 0; i < element.children.length; i++) {
-                var key = element.children[i].tagName.toLowerCase();
-                properties[key] = element.children[i].innerHTML;
-            }
-            var name     = properties["name"];
-            var email    = properties["email"];
-            var website  = properties["website"];
-            var twitter  = properties["twitter"];
+            var name     = element.getAttribute("name");
+            var role     = element.getAttribute("role");
+            var email    = element.getAttribute("email");
+            var website  = element.getAttribute("website");
+            var twitter  = element.getAttribute("twitter");
             var composed = name + (email || website || twitter ? "&nbsp;&nbsp;": "") +
                 (email ? "<a href=\"mailto:"+email+"\"><core-icon size=\"18\" icon=\"communication:email\"></core-icon></a>" : "") +
                 (website ? " <a href=\""+website+"\"><core-icon size=\"18\" icon=\"social:public\"></core-icon></a>" : "") +
