@@ -6,7 +6,11 @@ public class Cutscene : MonoBehaviour {
     void Awake() {
         if (trigger == null)
             trigger = GetComponent<CutsceneTrigger>();
-        trigger.CutsceneTriggered += OnTrigger;
+        trigger.CutsceneTriggered += (tr) => {
+            Scene.gui.StartCutscene();
+            OnTrigger(tr);
+            Scene.gui.StopCutscene();
+        };
     }
 
     public virtual void OnTrigger(CutsceneTrigger trigger) { }

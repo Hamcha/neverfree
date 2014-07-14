@@ -19,13 +19,13 @@ public class GUIScript : MonoBehaviour {
         if (instance == this) instance = null;
     }
 
-    void StartCutscene() {
+    public void StartCutscene() {
         letterbox.FadeIn();
         cursor.gameObject.SetActive(false);
         PlayerScript.instance.disabled = true;
     }
 
-    void StopCutscene() {
+    public void StopCutscene() {
         letterbox.FadeOut();
         cursor.gameObject.SetActive(true);
         PlayerScript.instance.disabled = false;
