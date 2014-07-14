@@ -45,6 +45,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Update() {
+        // Don't do anything if we're in a cutscene
         if (disabled) return;
 
         // Get Axis data

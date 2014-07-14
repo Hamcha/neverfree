@@ -7,6 +7,7 @@ public class GUIScript : MonoBehaviour {
     public StanceBar stanceBar;
     public Cursor cursor;
     public GUIText zoneName;
+    public Letterbox letterbox;
     public static GUIScript instance;
 
     void Awake() {
@@ -16,5 +17,17 @@ public class GUIScript : MonoBehaviour {
 
     void OnDestroy() {
         if (instance == this) instance = null;
+    }
+
+    void StartCutscene() {
+        letterbox.FadeIn();
+        cursor.gameObject.SetActive(false);
+        PlayerScript.instance.disabled = true;
+    }
+
+    void StopCutscene() {
+        letterbox.FadeOut();
+        cursor.gameObject.SetActive(true);
+        PlayerScript.instance.disabled = false;
     }
 }
