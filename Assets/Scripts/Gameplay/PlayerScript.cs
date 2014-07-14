@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour {
 
     public GameObject baseSprite, maneSprite;
     public Teleport teleporter;
+    public Animator baseAnimator;
 
     public bool disabled = false;
 
@@ -22,8 +23,6 @@ public class PlayerScript : MonoBehaviour {
     private float angle;
     private float currentDirection;
     private float currentProtectDelay;
-
-    private Animator baseAnimator;
 
     private static KeyCode[] keys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, 
                                                     KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, 

@@ -21,6 +21,8 @@ public class GUIScript : MonoBehaviour {
 
     public void StartCutscene() {
         letterbox.FadeIn();
+        // Stop player
+        PlayerScript.instance.baseAnimator.SetFloat("Speed", 0);
         cursor.gameObject.SetActive(false);
         PlayerScript.instance.disabled = true;
     }

@@ -25,21 +25,25 @@ public class Cursor : MonoBehaviour {
     }
 
     public void SetCursorStance(string stance) {
+        if (!gameObject.activeSelf) return;
         currentStance = stance;
         animator.SetBool("Aiming", stance == "BaseShot");
     }
 
     public void Reset() {
+        if (!gameObject.activeSelf) return;
         currentType = "";
         animator.SetBool("Interactive", false);
     }
 
     public void Highlight(GameObject obj) {
+        if (!gameObject.activeSelf) return;
         highlighted = obj;
         animator.SetBool("Interactive", true);
     }
 
     public void Blur(GameObject obj) {
+        if (!gameObject.activeSelf) return;
         if (highlighted == obj) {
             highlighted = null;
             Reset();
@@ -47,14 +51,17 @@ public class Cursor : MonoBehaviour {
     }
 
     public void CloseTo(GameObject obj) {
+        if (!gameObject.activeSelf) return;
         if (highlighted == obj) animator.SetBool("Near", true);
     }
 
     public void FarTo(GameObject obj) {
+        if (!gameObject.activeSelf) return;
         if (highlighted == obj) animator.SetBool("Near", false);
     }
 
     public void Teleport(bool status = true) {
+        if (!gameObject.activeSelf) return;
         bool blocked = BlockTeleport.blocked;
         animator.SetBool("Denied", status && blocked);
         animator.SetBool("Teleport", status && !blocked);
