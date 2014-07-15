@@ -4,6 +4,7 @@ public class Scene : MonoBehaviour {
     public static Scene instance { get; private set; }
 
     public string zoneName;
+    public int layer;
 
     public GameObject GUIPrefab;
     public GameObject playerPrefab;
