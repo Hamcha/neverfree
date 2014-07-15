@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 
 public class Chest : MonoBehaviour {
+    public bool randomContent = true;
+    private bool opened = false;
+
     void Awake() {
         GetComponent<Interactive>().OnInteraction += TryOpen;
     }
 
     void TryOpen(Interactive source) {
-        Debug.Log("Opening chest!");
+        if (opened) return;
+
+        opened = true;
     }
 }
