@@ -42,7 +42,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: SaveBeam_Start0
+    - name: SaveBeam Start 1
       rect:
         serializedVersion: 2
         x: 0
@@ -52,7 +52,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Start1
+    - name: SaveBeam Start 2
       rect:
         serializedVersion: 2
         x: 8
@@ -62,7 +62,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Start2
+    - name: SaveBeam Start 3
       rect:
         serializedVersion: 2
         x: 16
@@ -72,7 +72,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Start3
+    - name: SaveBeam Start 4
       rect:
         serializedVersion: 2
         x: 24
@@ -82,7 +82,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Start4
+    - name: SaveBeam Start 5
       rect:
         serializedVersion: 2
         x: 32
@@ -92,7 +92,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Loop0
+    - name: SaveBeam Loop 1
       rect:
         serializedVersion: 2
         x: 40
@@ -102,7 +102,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Loop1
+    - name: SaveBeam Loop 2
       rect:
         serializedVersion: 2
         x: 48
@@ -112,7 +112,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_Loop2
+    - name: SaveBeam Loop 3
       rect:
         serializedVersion: 2
         x: 56
@@ -122,7 +122,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_End0
+    - name: SaveBeam End 1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,7 +132,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_End1
+    - name: SaveBeam End 2
       rect:
         serializedVersion: 2
         x: 72
@@ -142,7 +142,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: SaveBeam_End2
+    - name: SaveBeam End 3
       rect:
         serializedVersion: 2
         x: 80
