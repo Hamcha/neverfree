@@ -12,5 +12,6 @@ public class Chest : MonoBehaviour {
         if (opened) return;
 
         opened = true;
+        GetComponent<Animator>().SetBool("Opened", true);
     }
 }

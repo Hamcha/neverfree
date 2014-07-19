@@ -46,6 +46,7 @@ MonoBehaviour:
   player: {fileID: 0}
   terrain: {fileID: 0}
   borders: {fileID: 0}
+  showZoneName: 1
   GUI: {fileID: 0}
   storage: {fileID: 0}
 --- !u!1001 &100100000
