@@ -649,6 +649,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: c154019dbe443924f879431212c5a6d1, type: 2}
+      propertyPath: side
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c154019dbe443924f879431212c5a6d1, type: 2}
   m_RootGameObject: {fileID: 127886454}
@@ -1883,6 +1887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLevel: Outskirts
   targetBorder: East Forest
+  side: 1
+  vertical: 0
 --- !u!61 &1167739239
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2551,3 +2557,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLevel: Save Room
   targetBorder: Entrance
+  side: 0
+  vertical: 0

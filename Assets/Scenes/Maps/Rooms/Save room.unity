@@ -788,6 +788,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLevel: _LAST_
   targetBorder: SavePoint
+  side: 1
+  vertical: 0
 --- !u!61 &1511784474
 BoxCollider2D:
   m_ObjectHideFlags: 0

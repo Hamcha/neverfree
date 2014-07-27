@@ -1,6 +1,8 @@
 fileFormatVersion: 2
 guid: dd91276ed0bbcf341ae81049d83ec8e2
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: Entrance.walls
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0

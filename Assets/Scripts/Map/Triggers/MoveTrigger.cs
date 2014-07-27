@@ -4,6 +4,7 @@ public class MoveTrigger : MonoBehaviour {
 
     public string targetLevel;
     public string targetBorder;
+    public bool side, vertical;
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Player") {
@@ -11,7 +12,7 @@ public class MoveTrigger : MonoBehaviour {
             if (targetLevel == "_LAST_")
                 targetLevel = Player.Instance.lastMap;
             Player.Instance.lastMap = Application.loadedLevelName;
-            Application.LoadLevel(targetLevel);
+            GUIScript.instance.transition.Goto(targetLevel, side, vertical);
         }
     }
 }

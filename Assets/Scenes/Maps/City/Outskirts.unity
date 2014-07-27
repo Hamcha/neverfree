@@ -100,7 +100,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 460231068}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &296721771
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLevel: Forest entrance
   targetBorder: Outskirts
+  side: 0
+  vertical: 0
 --- !u!61 &433671631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -208,8 +210,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 924059340}
   - {fileID: 36361490}
+  - {fileID: 924059340}
   - {fileID: 296721772}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -349,7 +351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 460231068}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &936810996
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class GUIScript : MonoBehaviour {
     public Cursor cursor;
     public GUIText zoneName;
     public Letterbox letterbox;
+    public Transition transition;
     public static GUIScript instance;
 
     void Awake() {
