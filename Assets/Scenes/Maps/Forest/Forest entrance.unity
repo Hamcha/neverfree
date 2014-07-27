@@ -699,7 +699,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
       propertyPath: terrain
@@ -1195,6 +1195,10 @@ Prefab:
     - target: {fileID: 400000, guid: adc320eeb8f9fce48b623574dd8c20ed, type: 2}
       propertyPath: m_RootMapOrder
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: adc320eeb8f9fce48b623574dd8c20ed, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: adc320eeb8f9fce48b623574dd8c20ed, type: 2}
