@@ -28,16 +28,16 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         if (currentProtectDelay > 0) {
-            Color baseColor = renderer.material.color;
+            Color baseColor = GetComponent<Renderer>().material.color;
             baseColor.a = Mathf.Floor(currentProtectDelay * 10f) % 2 == 1 ? 0.5f : 1f;
-            renderer.material.color = baseColor;
+            GetComponent<Renderer>().material.color = baseColor;
             currentProtectDelay -= Time.deltaTime;
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "PlayerProjectile") {
-            rigidbody2D.AddForce(collision.contacts[0].normal * kickback, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(collision.contacts[0].normal * kickback, ForceMode2D.Impulse);
             if (!isProtected) {
                 currentProtectDelay = protectDelay;
                 health--;

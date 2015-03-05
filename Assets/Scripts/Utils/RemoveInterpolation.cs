@@ -3,6 +3,6 @@ using System.Collections;
 
 public class RemoveInterpolation : MonoBehaviour {
 	void Start () {
-        renderer.material.mainTexture.filterMode = FilterMode.Point;
+        GetComponent<Renderer>().material.mainTexture.filterMode = FilterMode.Point;
 	}
 }

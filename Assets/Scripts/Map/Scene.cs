@@ -40,14 +40,14 @@ public class Scene : MonoBehaviour {
 
         // Setup tracking camera
         if (terrain != null) GUI.tracker.terrain = terrain.GetComponent<SpriteRenderer>();
-        GUI.tracker.camera.GetComponent<PixelPerfect>().Awake();
+        GUI.tracker.GetComponent<Camera>().GetComponent<PixelPerfect>().Awake();
         GUI.tracker.Clear();
         GUI.tracker.Add(player, 100f);
         GUI.tracker.InstantMove();
 
         // Setup zone name
         GUI.zoneName.text = zoneName;
-        if (showZoneName) GUI.zoneName.animation.Play();
+        if (showZoneName) GUI.zoneName.GetComponent<Animation>().Play();
         else GUI.zoneName.text = "";
 
         instance = this;

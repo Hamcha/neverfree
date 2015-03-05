@@ -103,10 +103,10 @@ public class PlayerScript : MonoBehaviour {
 
         // Invulnerable semi-transparency
         if (currentProtectDelay > 0f) {
-            Color baseColor = baseSprite.renderer.material.color;
+            Color baseColor = baseSprite.GetComponent<Renderer>().material.color;
             baseColor.a = Mathf.Floor(currentProtectDelay * 10f) % 2 == 1 ? 0.5f : 1f;
-            baseSprite.renderer.material.color = baseColor;
-            maneSprite.renderer.material.color = baseColor;
+            baseSprite.GetComponent<Renderer>().material.color = baseColor;
+            maneSprite.GetComponent<Renderer>().material.color = baseColor;
             currentProtectDelay -= Time.deltaTime;
         }
     }
@@ -114,7 +114,7 @@ public class PlayerScript : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D collision) {
         // Bouncing when hit
         if (collision.gameObject.tag == "Enemy") {
-            rigidbody2D.AddForce(collision.contacts[0].normal * damageBounceDistance, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(collision.contacts[0].normal * damageBounceDistance, ForceMode2D.Impulse);
             // Not invulnerable? Get hit!
             if (!isProtected) {
                 currentProtectDelay = protectDelay;

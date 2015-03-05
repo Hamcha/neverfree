@@ -6,13 +6,13 @@ public class PixelPerfect : MonoBehaviour {
     private float scaleValue { get { return Screen.height / pixelScale / 2.0f / scale; } }
 
     public void Awake() {
-        camera.orthographicSize = scaleValue;
+        GetComponent<Camera>().orthographicSize = scaleValue;
     }
 
     public void Update() {        
         // Only update if needed
-        if (camera.orthographicSize != scaleValue)
-            camera.orthographicSize = scaleValue;
+        if (GetComponent<Camera>().orthographicSize != scaleValue)
+            GetComponent<Camera>().orthographicSize = scaleValue;
     }
 
     public void Change(float newscale) {

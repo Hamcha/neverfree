@@ -5,9 +5,9 @@ public class SetAlpha : MonoBehaviour {
     public bool destroyOnFadeOut = false;
 
     void Update() {
-        Color newc = guiText.color;
+        Color newc = GetComponent<GUIText>().color;
         newc.a = alpha;
-        guiText.color = newc;
+        GetComponent<GUIText>().color = newc;
         if (destroyOnFadeOut && alpha <= 0) Destroy(gameObject);
     }
 }

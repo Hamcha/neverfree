@@ -38,7 +38,7 @@ public class CameraTracking : MonoBehaviour {
         if (terrain != null) {
 
             // Calculate Screen size and Map size
-            Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(camera);
+            Vector2 dimensions = CameraTracking.CalculateScreenSizeInWorldCoords(GetComponent<Camera>());
             Bounds limits = terrain.sprite.bounds;
             Vector3 top = limits.min;
             Vector3 bot = limits.max;

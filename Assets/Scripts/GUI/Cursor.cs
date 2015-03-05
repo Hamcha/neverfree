@@ -12,7 +12,7 @@ public class Cursor : MonoBehaviour {
     void Awake() {
         instance = this;
         // Disable hardware cursor
-        Screen.showCursor = false;
+        UnityEngine.Cursor.visible = false;
         animator = GetComponent<Animator>();
     }
 
