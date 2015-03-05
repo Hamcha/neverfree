@@ -3,6 +3,7 @@
 *.csproj
 *.user
 *.sln.docstates
+UnityVS*
 Thumbs.db
 ehthumbs.db
 Desktop.ini
