@@ -53,10 +53,10 @@ public class PlayerData {
     public int maneStyle;
     public Color bodyColor, maneColor;
     public List<Player.Stance> stances;
-    public Dictionary<string, string> data;
-    public float teleportRange;
-    static Dictionary<string, string> DefaultProperties = new Dictionary<string, string> {
-        {"tutorialStage","0"}
+    public Dictionary<string, object> properties;
+
+    static Dictionary<string, object> DefaultFallback = new Dictionary<string,object>{
+        {"Int32", 0}, {"Float", 0.0f}, {"String", ""}
     };
     #endregion
 
@@ -65,7 +65,6 @@ public class PlayerData {
         // Save basic player properties
         PlayerPrefs.SetString("player.Name", name);
         PlayerPrefs.SetInt("player.Hearts", hearts);
-        PlayerPrefs.SetFloat("player.TeleportRange", teleportRange);
         string[] stancesStr = stances.ConvertAll((x) => x.ToString()).ToArray();
         PlayerPrefs.SetString("player.Stances", string.Join(",", stancesStr));
 
@@ -75,9 +74,13 @@ public class PlayerData {
         PlayerPrefs.SetString("player.ManeColor", maneColor.r + "," + maneColor.g + "," + maneColor.b);
 
         // Save game properties/triggers
-        foreach (KeyValuePair<string, string> property in data) {
-            PlayerPrefs.SetString("player.data." + property.Key, property.Value);
+        foreach (KeyValuePair<string, object> property in properties) {
+            Set("player.properties." + property.Key, property.Value);
         }
+        string keys = string.Join(",", new List<string>(properties.Keys).ToArray());
+        string types = string.Join(",", new List<object>(properties.Values).ConvertAll((x) => x.GetType().Name).ToArray());
+        Set("player.propertylist", keys);
+        Set("player.propertylistTypes", types);
 
         // Save to disk
         PlayerPrefs.Save();
@@ -87,7 +90,6 @@ public class PlayerData {
         // Load basic player properties
         name = Get("player.Name", "Unnamed pony");
         hearts = Get("player.Hearts", 3);
-        teleportRange = Get("player.TeleportRange", 0);
         string[] stancesStr = Get("player.Stances", "Inspect").Split(',');
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
 
@@ -99,11 +101,13 @@ public class PlayerData {
         maneColor = new Color(maneColorVals[0], maneColorVals[1], maneColorVals[2]);
 
         // Load game properties/triggers
-        data = new Dictionary<string, string>();
-        foreach (KeyValuePair<string, string> dataProperty in DefaultProperties) {
-            data[dataProperty.Key] = Get("player.data" + dataProperty.Key, dataProperty.Value);
+        string[] proplist = Get("player.propertylist", "").Split(',');
+        string[] proplistTypes = Get("player.propertylistTypes", "").Split(',');
+        properties = new Dictionary<string, object>();
+        for (int i = 0; i < proplist.Length; i++) {
+            if (proplist[i].Length < 1) continue;
+            properties[proplist[i]] = Get("player.properties" + proplist[i], DefaultFallback[proplistTypes[i]]);
         }
-
     }
     #endregion
 
@@ -118,6 +122,49 @@ public class PlayerData {
 
     private float Get(string key, float fallback) {
         return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetFloat(key) : fallback;
+    }
+
+    private object Get(string key, object fallback) {
+        string name = fallback.GetType().Name;
+        switch (name) {
+            case "Int32":
+                return Get(key, (int)fallback);
+            case "Single":
+                return Get(key, (float)fallback); 
+            case "String":
+                return Get(key, (string)fallback); 
+            default: 
+                throw new Exception("Invalid type found for " + key + "'s fallback: " + name);
+        }
+    }
+
+    private void Set(string key, string value) {
+        PlayerPrefs.SetString(key, value);
+    }
+
+    private void Set(string key, int value) {
+        PlayerPrefs.SetInt(key, value);
+    }
+
+    private void Set(string key, float value) {
+        PlayerPrefs.SetFloat(key, value);
+    }
+
+    private void Set(string key, object value) {
+        string name = value.GetType().Name;
+        switch (name) {
+            case "Int32": 
+                Set(key, (int)value); 
+                break;
+            case "Single": 
+                Set(key, (float)value); 
+                break;
+            case "String": 
+                Set(key, (string)value); 
+                break;
+            default: 
+                throw new Exception("Invalid type found for " + key + ": " + name);
+        }
     }
     #endregion
 }
