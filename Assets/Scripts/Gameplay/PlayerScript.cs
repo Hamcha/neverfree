@@ -24,6 +24,9 @@ public class PlayerScript : MonoBehaviour {
     private float currentDirection;
     private float currentProtectDelay;
 
+    private bool canTeleport = false;
+    private float teleportRange;
+
     private static KeyCode[] keys = new KeyCode[] { KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, 
                                                     KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8, 
                                                     KeyCode.Alpha9, KeyCode.Alpha0 };
@@ -34,6 +37,11 @@ public class PlayerScript : MonoBehaviour {
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;
+
+        if (Player.Instance.data.properties.ContainsKey("teleportRange")) {
+            teleportRange = (float)Player.Instance.data.properties["teleportRange"];
+            canTeleport = teleportRange > 0;
+        }
 
         // Load customized pony
         SpriteRenderer mane = maneSprite.GetComponent<SpriteRenderer>();
@@ -81,9 +89,9 @@ public class PlayerScript : MonoBehaviour {
         if (Input.GetMouseButton(0) && Stance.all[Player.Instance.stance].canShoot)
             shoot();
         // Prepare teleportation
-        if (Input.GetMouseButton(1)) {
+        if (canTeleport && Input.GetMouseButton(1)) {
             teleporter.teleporting = true;
-            teleporter.range.ScaleTo(Player.Instance.data.teleportRange, 0.5f);
+            teleporter.range.ScaleTo(teleportRange, 0.5f);
         } else {
             if (teleporter.teleporting) teleporter.TeleportPlayer(gameObject);
             teleporter.range.Immediate(0);
