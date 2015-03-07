@@ -759,6 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e887d830eb7c54b85a23ef4c7283ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneId: 
 --- !u!58 &1066962860
 CircleCollider2D:
   m_ObjectHideFlags: 0
