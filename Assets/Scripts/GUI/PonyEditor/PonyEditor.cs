@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class Editor : MonoBehaviour {
+public class PonyEditor : MonoBehaviour {
     public delegate void ColorChangedHandler(Color bodyColor, Color maneColor);
     public event ColorChangedHandler ColorChanged;
 
-    public static Editor instance { get; private set; }
+    public static PonyEditor instance { get; private set; }
 
     public GameObject storagePrefab;
 

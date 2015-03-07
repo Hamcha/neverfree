@@ -5,12 +5,12 @@ public class SelectMane : MonoBehaviour {
 
     public SpriteRenderer body, mane;
 
-    private Editor editor;
+    private PonyEditor editor;
     private UIButton button;
 
     void Start() {
         button = GetComponent<UIButton>();
-        editor = Editor.instance;
+        editor = PonyEditor.instance;
 
         button.Clicked += (_) => {
             editor.maneStyle = maneStyleId;
