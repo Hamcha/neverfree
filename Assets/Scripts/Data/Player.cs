@@ -53,33 +53,57 @@ public class PlayerData {
     public int maneStyle;
     public Color bodyColor, maneColor;
     public List<Player.Stance> stances;
+    public Dictionary<string, string> data;
     public float teleportRange;
+    static Dictionary<string, string> DefaultProperties = new Dictionary<string, string> {
+        {"tutorialStage","0"}
+    };
     #endregion
 
     #region Save/Load
     public void Save() {
-        PlayerPrefs.SetString("playerName", name);
-        PlayerPrefs.SetInt("playerHearts", hearts);
+        // Save basic player properties
+        PlayerPrefs.SetString("player.Name", name);
+        PlayerPrefs.SetInt("player.Hearts", hearts);
+        PlayerPrefs.SetFloat("player.TeleportRange", teleportRange);
         string[] stancesStr = stances.ConvertAll((x) => x.ToString()).ToArray();
-        PlayerPrefs.SetString("playerStances", string.Join(",", stancesStr));
-        PlayerPrefs.SetInt("playerManeStyle", maneStyle);
-        PlayerPrefs.SetString("playerBodyColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
-        PlayerPrefs.SetString("playerManeColor", maneColor.r + "," + maneColor.g + "," + maneColor.b);
-        PlayerPrefs.SetFloat("playerTeleportRange", teleportRange);
+        PlayerPrefs.SetString("player.Stances", string.Join(",", stancesStr));
+
+        // Save player style
+        PlayerPrefs.SetInt("player.ManeStyle", maneStyle);
+        PlayerPrefs.SetString("player.BodyColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
+        PlayerPrefs.SetString("player.ManeColor", maneColor.r + "," + maneColor.g + "," + maneColor.b);
+
+        // Save game properties/triggers
+        foreach (KeyValuePair<string, string> property in data) {
+            PlayerPrefs.SetString("player.data." + property.Key, property.Value);
+        }
+
+        // Save to disk
         PlayerPrefs.Save();
     }
 
     public void Load() {
-        name = Get("playerName", "Unnamed pony");
-        hearts = Get("playerHearts", 5);
-        maneStyle = Get("playerManeStyle", 0);
-        string[] stancesStr = Get("playerStances", "Inspect,BaseShot").Split(',');
+        // Load basic player properties
+        name = Get("player.Name", "Unnamed pony");
+        hearts = Get("player.Hearts", 3);
+        teleportRange = Get("player.TeleportRange", 0);
+        string[] stancesStr = Get("player.Stances", "Inspect").Split(',');
         stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
-        List<float> bodyColorVals = new List<string>(Get("playerBodyColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
+
+        // Load player style
+        maneStyle = Get("player.ManeStyle", 0);
+        List<float> bodyColorVals = new List<string>(Get("player.BodyColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
         bodyColor = new Color(bodyColorVals[0], bodyColorVals[1], bodyColorVals[2]);
-        List<float> maneColorVals = new List<string>(Get("playerManeColor", "0.8,0.4,0.3").Split(',')).ConvertAll((x) => float.Parse(x));
+        List<float> maneColorVals = new List<string>(Get("player.ManeColor", "0.8,0.4,0.3").Split(',')).ConvertAll((x) => float.Parse(x));
         maneColor = new Color(maneColorVals[0], maneColorVals[1], maneColorVals[2]);
-        teleportRange = Get("playerTeleportRange", 5f);
+
+        // Load game properties/triggers
+        data = new Dictionary<string, string>();
+        foreach (KeyValuePair<string, string> dataProperty in DefaultProperties) {
+            data[dataProperty.Key] = Get("player.data" + dataProperty.Key, dataProperty.Value);
+        }
+
     }
     #endregion
 
