@@ -33,7 +33,7 @@ public class SaveTrigger : MonoBehaviour {
             // Refill player health
             Player.Instance.health = Player.Instance.data.hearts * 2;
             // Save player data
-            Player.Instance.data.Save();
+            Player.Instance.Save();
             // We're done!
             foreach (Animator beam in beams) {
                 beam.SetTrigger("Done");

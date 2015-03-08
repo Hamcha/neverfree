@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class Player : Singleton<Player> {
@@ -33,138 +35,56 @@ public class Player : Singleton<Player> {
         }
     }
     public Ability ability = Ability.Inspect;
-    public PlayerData data = new PlayerData();
+    public PlayerData data = null;
     public string transitionBorder = string.Empty;
     public string lastMap = string.Empty;
     #endregion
 
     #region Unity callbacks
     void Awake() {
-        data.Load();
+        Load();
         health = data.hearts * 2;
+    }
+    #endregion
+
+    #region Save/Load functions
+    private bool saving = false;
+    public void Save() {
+        if (saving) return;
+        saving = true;
+        XmlSerializer bf = new XmlSerializer(typeof(PlayerData));
+        FileStream file = File.Create(Application.persistentDataPath + "/playerData.sav");
+        bf.Serialize(file, data);
+        file.Close();
+        saving = false;
+    }
+
+    public void Load() {
+        if (File.Exists(Application.persistentDataPath + "/playerData.sav")) {
+            XmlSerializer bf = new XmlSerializer(typeof(PlayerData));
+            FileStream file = File.Open(Application.persistentDataPath + "/playerData.sav", FileMode.Open);
+            data = (PlayerData)bf.Deserialize(file);
+            file.Close();
+        } else {
+            data = new PlayerData();
+            data.name = "Unnamed pony";
+            data.hearts = 3;
+            data.maneStyle = 0;
+            data.bodyColor = new Color(1,1,1);
+            data.maneColor = new Color(.8f, .4f, .3f);
+            data.abilities = new List<Ability>() { Player.Ability.Inspect };
+            data.properties = new SerializableDictionary<string, object>();
+        }
     }
     #endregion
 }
 
+[Serializable]
 public class PlayerData {
-    #region Saved properties
     public string name;
     public int hearts;
     public int maneStyle;
     public Color bodyColor, maneColor;
     public List<Player.Ability> abilities;
-    public Dictionary<string, object> properties;
-
-    static Dictionary<string, object> DefaultFallback = new Dictionary<string,object>{
-        {"Int32", 0}, {"Float", 0.0f}, {"String", ""}
-    };
-    #endregion
-
-    #region Save/Load
-    public void Save() {
-        // Save basic player properties
-        PlayerPrefs.SetString("player.Name", name);
-        PlayerPrefs.SetInt("player.Hearts", hearts);
-        string[] abilityStr = abilities.ConvertAll((x) => x.ToString()).ToArray();
-        PlayerPrefs.SetString("player.Abilities", string.Join(",", abilityStr));
-
-        // Save player style
-        PlayerPrefs.SetInt("player.ManeStyle", maneStyle);
-        PlayerPrefs.SetString("player.BodyColor", bodyColor.r + "," + bodyColor.g + "," + bodyColor.b);
-        PlayerPrefs.SetString("player.ManeColor", maneColor.r + "," + maneColor.g + "," + maneColor.b);
-
-        // Save game properties/triggers
-        foreach (KeyValuePair<string, object> property in properties) {
-            Set("player.properties." + property.Key, property.Value);
-        }
-        string keys = string.Join(",", new List<string>(properties.Keys).ToArray());
-        string types = string.Join(",", new List<object>(properties.Values).ConvertAll((x) => x.GetType().Name).ToArray());
-        Set("player.propertylist", keys);
-        Set("player.propertylistTypes", types);
-
-        // Save to disk
-        PlayerPrefs.Save();
-    }
-
-    public void Load() {
-        // Load basic player properties
-        name = Get("player.Name", "Unnamed pony");
-        hearts = Get("player.Hearts", 3);
-        string[] abilitiesStr = Get("player.Abilities", "Inspect").Split(',');
-        abilities = new List<string>(abilitiesStr).ConvertAll((x) => (Player.Ability)Enum.Parse(typeof(Player.Ability), x));
-
-        // Load player style
-        maneStyle = Get("player.ManeStyle", 0);
-        List<float> bodyColorVals = new List<string>(Get("player.BodyColor", "1,1,1").Split(',')).ConvertAll((x) => float.Parse(x));
-        bodyColor = new Color(bodyColorVals[0], bodyColorVals[1], bodyColorVals[2]);
-        List<float> maneColorVals = new List<string>(Get("player.ManeColor", "0.8,0.4,0.3").Split(',')).ConvertAll((x) => float.Parse(x));
-        maneColor = new Color(maneColorVals[0], maneColorVals[1], maneColorVals[2]);
-
-        // Load game properties/triggers
-        string[] proplist = Get("player.propertylist", "").Split(',');
-        string[] proplistTypes = Get("player.propertylistTypes", "").Split(',');
-        properties = new Dictionary<string, object>();
-        for (int i = 0; i < proplist.Length; i++) {
-            if (proplist[i].Length < 1) continue;
-            properties[proplist[i]] = Get("player.properties" + proplist[i], DefaultFallback[proplistTypes[i]]);
-        }
-    }
-    #endregion
-
-    #region Utils
-    private string Get(string key, string fallback) {
-        return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetString(key) : fallback;
-    }
-
-    private int Get(string key, int fallback) {
-        return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetInt(key) : fallback;
-    }
-
-    private float Get(string key, float fallback) {
-        return PlayerPrefs.HasKey(key) ? PlayerPrefs.GetFloat(key) : fallback;
-    }
-
-    private object Get(string key, object fallback) {
-        string name = fallback.GetType().Name;
-        switch (name) {
-            case "Int32":
-                return Get(key, (int)fallback);
-            case "Single":
-                return Get(key, (float)fallback); 
-            case "String":
-                return Get(key, (string)fallback); 
-            default: 
-                throw new Exception("Invalid type found for " + key + "'s fallback: " + name);
-        }
-    }
-
-    private void Set(string key, string value) {
-        PlayerPrefs.SetString(key, value);
-    }
-
-    private void Set(string key, int value) {
-        PlayerPrefs.SetInt(key, value);
-    }
-
-    private void Set(string key, float value) {
-        PlayerPrefs.SetFloat(key, value);
-    }
-
-    private void Set(string key, object value) {
-        string name = value.GetType().Name;
-        switch (name) {
-            case "Int32": 
-                Set(key, (int)value); 
-                break;
-            case "Single": 
-                Set(key, (float)value); 
-                break;
-            case "String": 
-                Set(key, (string)value); 
-                break;
-            default: 
-                throw new Exception("Invalid type found for " + key + ": " + name);
-        }
-    }
-    #endregion
+    public SerializableDictionary<string, object> properties;
 }

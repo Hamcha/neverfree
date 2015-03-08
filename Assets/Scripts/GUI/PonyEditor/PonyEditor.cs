@@ -47,7 +47,7 @@ public class PonyEditor : MonoBehaviour {
 
         bodySelector.ColorChanged += (_, color) => bodyColor = color;
         maneSelector.ColorChanged += (_, color) => maneColor = color;
-        Player.Instance.data.Load();
+        Player.Instance.Load();
         UpdateCharacter();
     }
 
@@ -55,7 +55,7 @@ public class PonyEditor : MonoBehaviour {
         playerMane.sprite = storage.maneStyles[maneStyle];
         playerMane.color = maneColor;
         playerBase.color = bodyColor;
-        Player.Instance.data.Save();
+        Player.Instance.Save();
     }
 
     void OnDestroy() {

@@ -12,6 +12,7 @@ public class SaveEditor : MonoBehaviour {
         }
 
         //todo basic loading of save
+        
         //todo fill name/hearts/coins
         //todo highlight enabled abilities
     }
