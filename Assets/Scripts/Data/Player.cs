@@ -67,7 +67,6 @@ public class Player : Singleton<Player> {
             file.Close();
         } else {
             data = new PlayerData();
-            data.name = "Unnamed pony";
             data.hearts = 3;
             data.maneStyle = 0;
             data.bodyColor = new Color(1,1,1);
@@ -81,8 +80,8 @@ public class Player : Singleton<Player> {
 
 [Serializable]
 public class PlayerData {
-    public string name;
     public int hearts;
+    public int coins;
     public int maneStyle;
     public Color bodyColor, maneColor;
     public List<Player.Ability> abilities;
