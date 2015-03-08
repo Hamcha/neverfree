@@ -114,6 +114,65 @@ Transform:
   m_Children: []
   m_Father: {fileID: 460231068}
   m_RootOrder: 0
+--- !u!1 &212688529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100004, guid: c154019dbe443924f879431212c5a6d1, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 212688532}
+  - 61: {fileID: 212688531}
+  - 114: {fileID: 212688530}
+  m_Layer: 0
+  m_Name: SpawnIslandTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!114 &212688530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: c154019dbe443924f879431212c5a6d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212688529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ddcf896600dc0f4d944bdeabaf2b08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLevel: Spawn Island
+  targetBorder: Outskirts
+  side: 1
+  vertical: 0
+--- !u!61 &212688531
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6100000, guid: c154019dbe443924f879431212c5a6d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212688529}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 4, y: 2}
+--- !u!4 &212688532
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400004, guid: c154019dbe443924f879431212c5a6d1, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 212688529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.5900002, y: -20.6800003, z: -1.00999999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &296721771
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +258,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &460231067
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,8 +287,9 @@ Transform:
   - {fileID: 36361490}
   - {fileID: 924059340}
   - {fileID: 296721772}
+  - {fileID: 819750818}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &614129111
 Prefab:
   m_ObjectHideFlags: 0
@@ -345,6 +405,33 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 4
+--- !u!1 &819750817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 819750818}
+  m_Layer: 0
+  m_Name: Spawn Island
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &819750818
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 819750817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.4799995, y: -18.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 460231068}
   m_RootOrder: 3
 --- !u!1 &924059339
 GameObject:
@@ -490,7 +577,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1254180300
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +746,7 @@ Transform:
   - {fileID: 1254180301}
   - {fileID: 936810998}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1852382873
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!60 &1852382876
 PolygonCollider2D:
   m_ObjectHideFlags: 0
