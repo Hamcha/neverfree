@@ -938,6 +938,10 @@ Prefab:
       propertyPath: showZoneName
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: GUIPrefab
+      value: 
+      objectReference: {fileID: 145086, guid: 8d452c0420f9d0347babdf4d7783a560, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
   m_IsPrefabParent: 0
