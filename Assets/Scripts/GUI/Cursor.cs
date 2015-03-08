@@ -5,7 +5,7 @@ public class Cursor : MonoBehaviour {
 
     public Animator animator;
     public string currentType = "Inspect";
-    public string currentStance = "Inspect";
+    public string currentAbility = "Inspect";
 
     public GameObject highlighted;
 
@@ -24,10 +24,10 @@ public class Cursor : MonoBehaviour {
         transform.position = p;
     }
 
-    public void SetCursorStance(string stance) {
+    public void SetCursorAbility(string ability) {
         if (!gameObject.activeSelf) return;
-        currentStance = stance;
-        animator.SetBool("Aiming", stance == "BaseShot");
+        currentAbility = ability;
+        animator.SetBool("Aiming", ability == "BaseShot");
     }
 
     public void Reset() {

@@ -6,8 +6,12 @@ public class CutsceneTrigger : MonoBehaviour {
     public string cutsceneId;
 
     void Awake() {
-        if (Player.Instance.data.properties.ContainsKey("cutscenes." + cutsceneId))
+        if (Player.Instance.data.properties.ContainsKey("cutscenes." + cutsceneId)) {
+            Debug.Log("OHY");
+            Debug.Log(Player.Instance.data.properties["cutscenes." + cutsceneId]);
             DestroyImmediate(this);
+        }
+            
     }
 
     void OnTriggerEnter2D(Collider2D collider) {

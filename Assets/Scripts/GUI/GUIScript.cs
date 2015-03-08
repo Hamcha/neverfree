@@ -4,7 +4,7 @@ public class GUIScript : MonoBehaviour {
     public HealthBar healthBar;
     public Camera UICamera;
     public CameraTracking tracker;
-    public StanceBar stanceBar;
+    public AbilityBar abilityBar;
     public Cursor cursor;
     public GUIText zoneName;
     public Letterbox letterbox;

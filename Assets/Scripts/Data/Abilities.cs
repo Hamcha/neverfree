@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-class Stance {
-    public static Dictionary<Player.Stance, Stance> all = new Dictionary<Player.Stance, Stance> {
-        { Player.Stance.Inspect, new InspectStance() },
-        { Player.Stance.BaseShot, new BaseShotStance() }
+class Ability {
+    public static Dictionary<Player.Ability, Ability> all = new Dictionary<Player.Ability, Ability> {
+        { Player.Ability.Inspect, new InspectAbility() },
+        { Player.Ability.BaseShot, new BaseShotAbility() }
     };
     public bool canShoot = false;
     public virtual void Update() { }
 }
 
-class OffensiveStance : Stance {
+class OffensiveAbility : Ability {
     protected float fireDelay = 0.5f;
     protected float currentDelay = 0f;
 
-    public OffensiveStance() {
+    public OffensiveAbility() {
         canShoot = true;
     }
 
@@ -33,16 +33,16 @@ class OffensiveStance : Stance {
     }
 }
 
-class InspectStance : Stance {
+class InspectAbility : Ability {
     public override void Update() {
         base.Update();
     }
 }
 
-class BaseShotStance : OffensiveStance {
+class BaseShotAbility : OffensiveAbility {
     public GameObject projectile;
 
-    public BaseShotStance() {
+    public BaseShotAbility() {
         fireDelay = 0.7f;
     }
 

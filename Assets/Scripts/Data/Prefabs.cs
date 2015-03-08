@@ -11,7 +11,7 @@ public class Prefabs : MonoBehaviour {
         instance = this;
 
         // Setup projectiles
-        ((BaseShotStance)Stance.all[Player.Stance.BaseShot]).projectile = baseShotProjectile;
+        ((BaseShotAbility)Ability.all[Player.Ability.BaseShot]).projectile = baseShotProjectile;
     }
 
     void OnDestroy() {
@@ -20,7 +20,7 @@ public class Prefabs : MonoBehaviour {
 
     void Update() {
         // Update stances
-        foreach (Stance s in Stance.all.Values) {
+        foreach (Ability s in Ability.all.Values) {
             s.Update();
         }
     }

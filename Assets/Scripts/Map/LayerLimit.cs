@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
 public class LayerLimit : MonoBehaviour {
-    public bool limitStance;
-    public bool limitNotStance;
-    public Player.Stance stance;
+    public bool limitAbility;
+    public bool limitNotAbility;
+    public Player.Ability ability;
 
     void Start() {
-        if (limitStance && Player.Instance.data.stances.Contains(stance)) return;
-        if (limitNotStance && !Player.Instance.data.stances.Contains(stance)) return;
+        if (limitAbility && Player.Instance.data.abilities.Contains(ability)) return;
+        if (limitNotAbility && !Player.Instance.data.abilities.Contains(ability)) return;
         gameObject.SetActive(false);
     }
 }

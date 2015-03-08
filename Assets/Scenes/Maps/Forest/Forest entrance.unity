@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68f001818392d489836bfbeaec849a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitStance: 0
-  limitNotStance: 1
-  stance: 1
+  limitAbility: 0
+  limitNotAbility: 1
+  ability: 1
 --- !u!4 &420666381
 Transform:
   m_ObjectHideFlags: 0
@@ -380,6 +380,10 @@ Prefab:
       propertyPath: layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
+      propertyPath: GUIPrefab
+      value: 
+      objectReference: {fileID: 145086, guid: 8d452c0420f9d0347babdf4d7783a560, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2dd469414c4571944b2c41568abafd5d, type: 2}
   m_IsPrefabParent: 0
@@ -759,7 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e887d830eb7c54b85a23ef4c7283ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneId: 
+  cutsceneId: testHappen
 --- !u!58 &1066962860
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -829,9 +833,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae68f001818392d489836bfbeaec849a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitStance: 1
-  limitNotStance: 0
-  stance: 1
+  limitAbility: 1
+  limitNotAbility: 0
+  ability: 1
 --- !u!1 &1167739237
 GameObject:
   m_ObjectHideFlags: 0

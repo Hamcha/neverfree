@@ -86,7 +86,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
         // Shoot if we can and want to
-        if (Input.GetMouseButton(0) && Stance.all[Player.Instance.stance].canShoot)
+        if (Input.GetMouseButton(0) && Ability.all[Player.Instance.ability].canShoot)
             shoot();
         // Prepare teleportation
         if (canTeleport && Input.GetMouseButton(1)) {
@@ -97,15 +97,15 @@ public class PlayerScript : MonoBehaviour {
             teleporter.range.Immediate(0);
         }
 
-        // Change stance using the Mouse wheel
+        // Change ability using the Mouse wheel
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            Scene.gui.stanceBar.Next();
+            Scene.gui.abilityBar.Next();
         else if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            Scene.gui.stanceBar.Back();
-        // Change stance using the numeric keys (0,1,2,3,4..)
-        for (int i = 0; i < keys.Length && i < Scene.gui.stanceBar.stances.Count; i++) {
+            Scene.gui.abilityBar.Back();
+        // Change ability using the numeric keys (0,1,2,3,4..)
+        for (int i = 0; i < keys.Length && i < Scene.gui.abilityBar.abilities.Count; i++) {
             if (Input.GetKey(keys[i])) {
-                Scene.gui.stanceBar.Raise(i);
+                Scene.gui.abilityBar.Raise(i);
             }
         }
 
@@ -135,7 +135,7 @@ public class PlayerScript : MonoBehaviour {
         float deltaX = cursorPosition.position.x - transform.position.x;
         float deltaY = cursorPosition.position.y - transform.position.y;
         angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg;
-        ((OffensiveStance)Stance.all[Player.Instance.stance]).Shoot(transform.position, angle);
+        ((OffensiveAbility)Ability.all[Player.Instance.ability]).Shoot(transform.position, angle);
     }
 
     void OnDestroy() {

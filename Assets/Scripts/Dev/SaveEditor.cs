@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class SaveEditor : MonoBehaviour {
 
-    public GameObject[] stances;
-    private string currentStance;
+    public GameObject[] abilities;
+    private string currentAbility;
 
     public void Awake() {
-        for (int i = 0; i < stances.Length; i++) {
-            stances[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
+        for (int i = 0; i < abilities.Length; i++) {
+            abilities[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.3f);
         }
 
         //todo basic loading of save
@@ -16,19 +16,19 @@ public class SaveEditor : MonoBehaviour {
         //todo highlight enabled stances
     }
 
-    public void setCurrentStance(string stanceName) {
-        currentStance = stanceName;
+    public void setCurrentAbility(string abilityName) {
+        currentAbility = abilityName;
     }
 
-    public void changedStanceStatus(bool enabled) {
-        SetFocus(currentStance, enabled);
+    public void changedAbilityStatus(bool enabled) {
+        SetFocus(currentAbility, enabled);
         //todo generate list and put it somewhere
     }
 
     private void SetFocus(string name, bool dofocus) {
-        for (int i = 0; i < stances.Length; i++) {
-            if (stances[i].name == name) {
-                stances[i].GetComponent<Image>().color = new Color(1, 1, 1, dofocus ? 1 : 0.3f);
+        for (int i = 0; i < abilities.Length; i++) {
+            if (abilities[i].name == name) {
+                abilities[i].GetComponent<Image>().color = new Color(1, 1, 1, dofocus ? 1 : 0.3f);
                 return;
             }
         }

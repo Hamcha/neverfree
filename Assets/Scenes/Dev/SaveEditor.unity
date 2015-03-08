@@ -365,7 +365,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562539829}
-        m_MethodName: setCurrentStance
+        m_MethodName: setCurrentAbility
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -377,7 +377,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 562539829}
-        m_MethodName: changedStanceStatus
+        m_MethodName: changedAbilityStatus
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391dab5994e64e44cb46fc8807930b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stances:
+  abilities:
   - {fileID: 1861678469}
   - {fileID: 374144842}
   - {fileID: 678930433}
@@ -966,7 +966,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562539829}
-        m_MethodName: setCurrentStance
+        m_MethodName: setCurrentAbility
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -978,7 +978,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 562539829}
-        m_MethodName: changedStanceStatus
+        m_MethodName: changedAbilityStatus
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1227,7 +1227,7 @@ GameObject:
   - 222: {fileID: 1020519898}
   - 114: {fileID: 1020519897}
   m_Layer: 5
-  m_Name: Stance container
+  m_Name: Ability container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,8 +1574,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 400, y: 60}
+  m_AnchoredPosition: {x: -5, y: -5}
+  m_SizeDelta: {x: 191, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1583858571
 MonoBehaviour:
@@ -1602,7 +1602,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Available stances
+  m_Text: Abilities
 --- !u!222 &1583858572
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1795,7 +1795,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562539829}
-        m_MethodName: setCurrentStance
+        m_MethodName: setCurrentAbility
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1807,7 +1807,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 562539829}
-        m_MethodName: changedStanceStatus
+        m_MethodName: changedAbilityStatus
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

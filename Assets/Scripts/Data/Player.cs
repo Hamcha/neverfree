@@ -12,8 +12,8 @@ public class Player : Singleton<Player> {
     #endregion
 
     #region Enums
-    public enum Stance {
-        Inspect, BaseShot
+    public enum Ability {
+        Inspect, BaseShot, RainBeam
     };
     #endregion
 
@@ -32,7 +32,7 @@ public class Player : Singleton<Player> {
             if (HealthChanged != null) HealthChanged(this, _health);
         }
     }
-    public Stance stance = Stance.Inspect;
+    public Ability ability = Ability.Inspect;
     public PlayerData data = new PlayerData();
     public string transitionBorder = string.Empty;
     public string lastMap = string.Empty;
@@ -52,7 +52,7 @@ public class PlayerData {
     public int hearts;
     public int maneStyle;
     public Color bodyColor, maneColor;
-    public List<Player.Stance> stances;
+    public List<Player.Ability> abilities;
     public Dictionary<string, object> properties;
 
     static Dictionary<string, object> DefaultFallback = new Dictionary<string,object>{
@@ -65,8 +65,8 @@ public class PlayerData {
         // Save basic player properties
         PlayerPrefs.SetString("player.Name", name);
         PlayerPrefs.SetInt("player.Hearts", hearts);
-        string[] stancesStr = stances.ConvertAll((x) => x.ToString()).ToArray();
-        PlayerPrefs.SetString("player.Stances", string.Join(",", stancesStr));
+        string[] abilityStr = abilities.ConvertAll((x) => x.ToString()).ToArray();
+        PlayerPrefs.SetString("player.Abilities", string.Join(",", abilityStr));
 
         // Save player style
         PlayerPrefs.SetInt("player.ManeStyle", maneStyle);
@@ -90,8 +90,8 @@ public class PlayerData {
         // Load basic player properties
         name = Get("player.Name", "Unnamed pony");
         hearts = Get("player.Hearts", 3);
-        string[] stancesStr = Get("player.Stances", "Inspect").Split(',');
-        stances = new List<string>(stancesStr).ConvertAll((x) => (Player.Stance)Enum.Parse(typeof(Player.Stance), x));
+        string[] abilitiesStr = Get("player.Abilities", "Inspect").Split(',');
+        abilities = new List<string>(abilitiesStr).ConvertAll((x) => (Player.Ability)Enum.Parse(typeof(Player.Ability), x));
 
         // Load player style
         maneStyle = Get("player.ManeStyle", 0);
