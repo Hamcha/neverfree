@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -40,13 +41,6 @@ public class Player : Singleton<Player> {
     public string lastMap = string.Empty;
     #endregion
 
-    #region Unity callbacks
-    void Awake() {
-        Load();
-        health = data.hearts * 2;
-    }
-    #endregion
-
     #region Save/Load functions
     private bool saving = false;
     public void Save() {
@@ -65,14 +59,9 @@ public class Player : Singleton<Player> {
             FileStream file = File.Open(Application.persistentDataPath + "/playerData.sav", FileMode.Open);
             data = (PlayerData)bf.Deserialize(file);
             file.Close();
+            health = data.hearts * 2;
         } else {
-            data = new PlayerData();
-            data.hearts = 3;
-            data.maneStyle = 0;
-            data.bodyColor = new Color(1,1,1);
-            data.maneColor = new Color(.8f, .4f, .3f);
-            data.abilities = new List<Ability>() { Player.Ability.Inspect };
-            data.properties = new SerializableDictionary<string, object>();
+            throw new Exception("Saved game not found");
         }
     }
 

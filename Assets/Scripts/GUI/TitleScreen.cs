@@ -1,44 +1,49 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TitleScreen : MonoBehaviour {
 
-    public GUIText[] items;
-    public float navigationDelay = 0.5f;
-    private float delay = 0;
-    private int selected = 0;
+    public GameObject[] items;
+    private bool idle = true;
+
+    // Items
+    // 0 - Start
+    // 1 - Continue
 
     void Start () {
         if (!Player.Instance.SaveExists()) {
             Destroy(items[1]); // Destroy continue option if save doesn't exist
         }
-        foreach (GUIText item in items) {
-            item.color = new Color(1, 1, 1, 0.3f);
-        }
-        Select(0);
     }
 
-    void Update() {
-        if (delay > 0) {
-            delay -= Time.deltaTime;
-            return;
-        }
-        float movement = Input.GetAxis("Vertical");
-        if (movement != 0) {
-            if (movement < 0 && selected < items.Length - 1) {
-                Select(selected + 1);
-                delay = navigationDelay;
-            }
-            if (movement > 0 && selected > 0) {
-                Select(selected - 1);
-                delay = navigationDelay;
-            }
+    public void Accept(int option) {
+        if (!idle) return;
+        idle = false;
+        switch (option) {
+            case 0: // Start new game
+                StartCoroutine(NewGame());
+                break;
+            case 1: // Load saved game
+                StartCoroutine(ResumeGame());
+                break;
         }
     }
+    private IEnumerator NewGame() {
+        PlayerData data = new PlayerData();
+        data.hearts = 3;
+        data.maneStyle = 0;
+        data.bodyColor = new Color(1, 1, 1);
+        data.maneColor = new Color(.8f, .4f, .3f);
+        data.abilities = new List<Player.Ability>() { Player.Ability.Inspect };
+        data.properties = new SerializableDictionary<string, object>();
+        Player.Instance.data = data;
+        yield return Application.LoadLevelAdditiveAsync("Loading screen");
+        Application.LoadLevelAsync("Character editor");
+    }
 
-    private void Select(int id) {
-        items[selected].color = new Color(1, 1, 1, 0.3f);
-        items[id].color = new Color(1, 1, 1, 0.8f);
-        selected = id;
+    private IEnumerator ResumeGame() {
+        Player.Instance.Load();
+        yield return Application.LoadLevelAdditiveAsync("Loading screen");
     }
 }

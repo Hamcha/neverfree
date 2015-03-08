@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PonyEditor : MonoBehaviour {
     public delegate void ColorChangedHandler(Color bodyColor, Color maneColor);
@@ -10,6 +11,8 @@ public class PonyEditor : MonoBehaviour {
 
     public SpriteRenderer playerBase, playerMane;
     public ColorPicker bodySelector, maneSelector;
+
+    const bool devMode = false; // Make true to turn into a char editor for saved games
 
     public int maneStyle {
         get { return Player.Instance.data.maneStyle; }
@@ -47,7 +50,9 @@ public class PonyEditor : MonoBehaviour {
 
         bodySelector.ColorChanged += (_, color) => bodyColor = color;
         maneSelector.ColorChanged += (_, color) => maneColor = color;
-        Player.Instance.Load();
+        if (Application.isEditor && devMode) {
+            Player.Instance.Load();
+        }
         UpdateCharacter();
     }
 
@@ -55,10 +60,21 @@ public class PonyEditor : MonoBehaviour {
         playerMane.sprite = storage.maneStyles[maneStyle];
         playerMane.color = maneColor;
         playerBase.color = bodyColor;
-        Player.Instance.Save();
+        if (Application.isEditor && devMode) {
+            Player.Instance.Save();
+        }
     }
 
     void OnDestroy() {
         if (instance == this) instance = null;
+    }
+
+    public void StartGame() {
+        StartCoroutine(StartGameAsync());
+    }
+
+    private IEnumerator StartGameAsync() {
+        yield return Application.LoadLevelAdditiveAsync("Loading screen");
+        Application.LoadLevelAsync("Starting room");
     }
 }
