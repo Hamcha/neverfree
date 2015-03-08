@@ -19,7 +19,7 @@ public class Prefabs : MonoBehaviour {
     }
 
     void Update() {
-        // Update stances
+        // Update abilities
         foreach (Ability s in Ability.all.Values) {
             s.Update();
         }

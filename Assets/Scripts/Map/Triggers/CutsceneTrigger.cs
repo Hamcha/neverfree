@@ -7,8 +7,6 @@ public class CutsceneTrigger : MonoBehaviour {
 
     void Awake() {
         if (Player.Instance.data.properties.ContainsKey("cutscenes." + cutsceneId)) {
-            Debug.Log("OHY");
-            Debug.Log(Player.Instance.data.properties["cutscenes." + cutsceneId]);
             DestroyImmediate(this);
         }
             
