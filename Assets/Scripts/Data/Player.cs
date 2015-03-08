@@ -75,6 +75,8 @@ public class Player : Singleton<Player> {
             data.properties = new SerializableDictionary<string, object>();
         }
     }
+
+    public bool SaveExists() { return File.Exists(Application.persistentDataPath + "/playerData.sav"); }
     #endregion
 }
 
