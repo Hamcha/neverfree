@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject baseSprite, maneSprite;
     public Teleport teleporter;
     public Animator baseAnimator;
+    public GameObject startCutscene;
 
     public bool disabled = false;
 
@@ -34,6 +35,7 @@ public class PlayerScript : MonoBehaviour {
     void Start() {
         DontDestroyOnLoad(gameObject);
         instance = this;
+        Instantiate(startCutscene);
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;

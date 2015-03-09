@@ -234,6 +234,7 @@ MonoBehaviour:
   maneSprite: {fileID: 100000}
   teleporter: {fileID: 11400004}
   baseAnimator: {fileID: 0}
+  startCutscene: {fileID: 115118, guid: 11cd1e5b81830ab4a8ae537b8e396843, type: 2}
   disabled: 0
 --- !u!114 &11400002
 MonoBehaviour:
