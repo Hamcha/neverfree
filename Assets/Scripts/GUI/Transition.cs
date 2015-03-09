@@ -11,6 +11,8 @@ public class Transition : MonoBehaviour {
     Animator master;
     string moveTo;
 
+    public static bool doTransition = false;
+
     void Awake() {
         master = GetComponent<Animator>();
     }
@@ -32,6 +34,7 @@ public class Transition : MonoBehaviour {
         side = _side;
         isVertical = _vertical;
         master.SetTrigger("FadeIn");
+        Transition.doTransition = true;
     }
 
     public void FinallyMove() {
@@ -39,6 +42,7 @@ public class Transition : MonoBehaviour {
     }
 
     void OnLevelWasLoaded() {
+        if (!Transition.doTransition) return;
         master.SetTrigger("FadeOut");
     }
 }
