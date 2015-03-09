@@ -9,7 +9,7 @@ public class Cutscene : MonoBehaviour {
     void Awake() {
         if (trigger == null) trigger = GetComponent<CutsceneTrigger>();
 
-        trigger.CutsceneTriggered += (tr) => StartCoroutine(OnTriggerWrapper());
+        trigger.CutsceneTriggered += (tr, im) => StartCoroutine(OnTriggerWrapper(im));
     }
 
     public virtual void DoCutscene() { }
@@ -19,9 +19,9 @@ public class Cutscene : MonoBehaviour {
             CutsceneFinished(this);
     }
 
-    public IEnumerator OnTriggerWrapper() {
-        Scene.gui.StartCutscene();
-        yield return new WaitForSeconds(Scene.gui.letterbox.duration);
+    public IEnumerator OnTriggerWrapper(bool immediate) {
+        Scene.gui.StartCutscene(immediate);
+        if (!immediate) yield return new WaitForSeconds(Scene.gui.letterbox.duration);
         CutsceneFinished += (cut) => {
             Scene.gui.StopCutscene();
             gameObject.SetActive(false);

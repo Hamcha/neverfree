@@ -16,8 +16,11 @@ public class Letterbox : MonoBehaviour {
         top.transform.localScale = bottom.transform.localScale = targetVector;
     }
 
-    public void FadeIn() {
+    public void FadeIn(bool immediate) {
         shouldCover = true;
+        if (immediate) {
+            top.transform.localScale = bottom.transform.localScale = new Vector3(1, height, 1);
+        }
     }
 
     public void FadeOut() {

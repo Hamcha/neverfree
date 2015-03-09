@@ -2,7 +2,7 @@
 
 public class RangeSprite : MonoBehaviour {
     public Vector3 startScale = new Vector3(0, 0, 1);
-    public Vector3 targetScale = Vector3.one;
+    public Vector3 targetScale = Vector3.zero;
     public float targetTime = 1;
     public Vector3 currentScale { get { return transform.localScale; } }
 

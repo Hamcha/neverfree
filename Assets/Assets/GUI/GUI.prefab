@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98ea5f12b5184384c8ae05bf6fa008b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: .219999999
+  height: .25
   duration: .300000012
   top: {fileID: 104174}
   bottom: {fileID: 129672}
