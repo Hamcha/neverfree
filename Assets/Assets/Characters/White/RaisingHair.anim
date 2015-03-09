@@ -31,15 +31,15 @@ AnimationClip:
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-      - time: 2.0999999
+      - time: 2
         value: {x: 0, y: -.0625, z: -.100000001}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
-      - time: 2.20000005
+      - time: 2.0999999
         value: {x: 0, y: 0, z: -.100000001}
-        inSlope: {x: 0, y: .624999106, z: 0}
-        outSlope: {x: 0, y: .624999106, z: 0}
+        inSlope: {x: 0, y: .625000596, z: 0}
+        outSlope: {x: 0, y: .625000596, z: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -64,7 +64,7 @@ AnimationClip:
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 2.20000005
+    m_StopTime: 2.0999999
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -97,12 +97,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2.0999999
+      - time: 2
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2.20000005
+      - time: 2.0999999
         value: 0
         inSlope: 0
         outSlope: 0
@@ -131,15 +131,15 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 2.0999999
+      - time: 2
         value: -.0625
         inSlope: 0
         outSlope: 0
         tangentMode: 0
-      - time: 2.20000005
+      - time: 2.0999999
         value: 0
-        inSlope: .624999106
-        outSlope: .624999106
+        inSlope: .625000596
+        outSlope: .625000596
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -165,12 +165,12 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2.0999999
+      - time: 2
         value: -.100000001
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 2.20000005
+      - time: 2.0999999
         value: -.100000001
         inSlope: 0
         outSlope: 0
