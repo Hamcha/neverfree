@@ -38,8 +38,11 @@ public class Player : Singleton<Player> {
     public Ability ability = Ability.Inspect;
     public PlayerData data = null;
     public string transitionBorder = string.Empty;
-    public string lastMap = string.Empty;
     #endregion
+
+    public void Awake() {
+        if (Application.isEditor) Load();
+    }
 
     #region Save/Load functions
     private bool saving = false;
@@ -77,4 +80,5 @@ public class PlayerData {
     public Color bodyColor, maneColor;
     public List<Player.Ability> abilities;
     public SerializableDictionary<string, object> properties;
+    public string map;
 }

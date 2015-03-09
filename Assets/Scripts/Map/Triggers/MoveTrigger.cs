@@ -10,8 +10,8 @@ public class MoveTrigger : MonoBehaviour {
         if (collider.tag == "Player") {
             Player.Instance.transitionBorder = targetBorder;
             if (targetLevel == "_LAST_")
-                targetLevel = Player.Instance.lastMap;
-            Player.Instance.lastMap = Application.loadedLevelName;
+                targetLevel = Player.Instance.data.map;
+            Player.Instance.data.map = Application.loadedLevelName;
             GUIScript.instance.transition.Goto(targetLevel, side, vertical);
         }
     }

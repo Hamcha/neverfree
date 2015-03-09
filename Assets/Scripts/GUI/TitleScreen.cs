@@ -38,6 +38,7 @@ public class TitleScreen : MonoBehaviour {
         data.abilities = new List<Player.Ability>() { Player.Ability.Inspect };
         data.properties = new SerializableDictionary<string, object>();
         Player.Instance.data = data;
+        Player.Instance.health = data.hearts * 2;
         yield return Application.LoadLevelAdditiveAsync("Loading screen");
         Application.LoadLevelAsync("Character editor");
     }
@@ -45,5 +46,6 @@ public class TitleScreen : MonoBehaviour {
     private IEnumerator ResumeGame() {
         Player.Instance.Load();
         yield return Application.LoadLevelAdditiveAsync("Loading screen");
+        Application.LoadLevelAsync("Save room");
     }
 }
