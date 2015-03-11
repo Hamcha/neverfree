@@ -8,7 +8,8 @@ public class CutsceneDirector : MonoBehaviour {
     public bool immediate = false;
     public bool alwaysDo = false;
 
-    private List<Func<IEnumerator>> cutsceneEvents = new List<Func<IEnumerator>>();
+    private Dictionary<int, Func<IEnumerator>> cutsceneEvents = new Dictionary<int, Func<IEnumerator>>();
+    private List<int> eventIds = new List<int>();
 
     void Awake() {
         if (!alwaysDo && Player.Instance.data.properties.ContainsKey("cutscenes." + cutsceneId)) {
@@ -22,8 +23,10 @@ public class CutsceneDirector : MonoBehaviour {
         if (!immediate) yield return new WaitForSeconds(Scene.gui.letterbox.duration);
         
         // Cycle through all registered events
-        foreach (Func<IEnumerator> cutEvent in cutsceneEvents) {
-            yield return StartCoroutine(cutEvent());
+        eventIds.Sort();
+        foreach (int eventId in eventIds) {
+            Debug.Log("[" + cutsceneId + "] Playing #" + eventId);
+            yield return StartCoroutine(cutsceneEvents[eventId]());
         }
 
         // Register cutscene as done unless specified
@@ -34,7 +37,8 @@ public class CutsceneDirector : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    internal void Add(int order, Func<IEnumerator> cutsceneEvent) {
-        cutsceneEvents.Insert(order, cutsceneEvent);
+    public void Add(int order, Func<IEnumerator> cutsceneEvent) {
+        eventIds.Add(order);
+        cutsceneEvents.Add(order, cutsceneEvent);
     }
 }
