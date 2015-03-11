@@ -6,8 +6,12 @@ public class ShowObject : CutsceneEvent {
     public float duration;
 
     public override IEnumerator DoCutscene() {
-        Scene.gui.tracker.Add(focusOn, 10000);
+        if (focusOn != null) {
+            Scene.gui.tracker.Add(focusOn, 10000);
+        }
         yield return new WaitForSeconds(duration);
-        Scene.gui.tracker.Remove(focusOn);
+        if (focusOn != null) {
+            Scene.gui.tracker.Remove(focusOn);
+        }
     }
 }
