@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 487576}
   - 58: {fileID: 5803134}
+  - 114: {fileID: 11499874}
   - 114: {fileID: 11418356}
   - 114: {fileID: 11462392}
   m_Layer: 0
@@ -54,9 +55,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e887d830eb7c54b85a23ef4c7283ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneId: initialWake
-  immediate: 1
-  alwaysDo: 1
 --- !u!114 &11462392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +66,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2611883ba1e43646830124dbdbe96f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   duration: 2
+--- !u!114 &11499874
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 115118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9349d21a73e54a04c9093583f56ad525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneId: wakeup
+  immediate: 1
+  alwaysDo: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

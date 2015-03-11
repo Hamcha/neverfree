@@ -752,6 +752,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1066962861}
   - 58: {fileID: 1066962860}
+  - 114: {fileID: 1066962862}
   - 114: {fileID: 1066962859}
   - 114: {fileID: 1066962858}
   m_Layer: 0
@@ -772,6 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a757fd3604b054ea0bbe44607db16e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: 0
   focusOn: {fileID: 415080709}
   duration: 3
 --- !u!114 &1066962859
@@ -785,7 +787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e887d830eb7c54b85a23ef4c7283ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneId: testHappen
 --- !u!58 &1066962860
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -811,6 +812,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 420666381}
   m_RootOrder: 0
+--- !u!114 &1066962862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1066962857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9349d21a73e54a04c9093583f56ad525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cutsceneId: testid
+  immediate: 0
+  alwaysDo: 0
 --- !u!1 &1088901403
 GameObject:
   m_ObjectHideFlags: 0

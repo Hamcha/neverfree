@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-class IdleCutscene : Cutscene {
-    public float duration;
-    public override void DoCutscene() {
-        StartCoroutine(DoIdleCutscene());
-    }
+class IdleCutscene : CutsceneEvent {
+    public float duration = 3;
 
-    IEnumerator DoIdleCutscene() {
+    public override IEnumerator DoCutscene() {
         yield return new WaitForSeconds(duration);
-        Terminate();
     }
 }
