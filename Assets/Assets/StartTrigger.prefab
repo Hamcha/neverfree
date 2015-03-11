@@ -82,6 +82,7 @@ MonoBehaviour:
   cutsceneId: wakeup
   immediate: 1
   alwaysDo: 1
+  disableInEditor: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
