@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class CutsceneEvent : MonoBehaviour {
+public abstract class CutsceneEvent : MonoBehaviour {
     protected CutsceneDirector director;
     public int order;
 
