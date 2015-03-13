@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+
 class DeleteObject : CutsceneEvent {
     public GameObject toDelete = null;
 

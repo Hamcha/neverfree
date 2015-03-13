@@ -41,7 +41,7 @@ public class Player : Singleton<Player> {
     #endregion
 
     public void Awake() {
-        if (Application.isEditor) Load();
+        if (Application.isEditor && SaveExists()) Load();
     }
 
     #region Save/Load functions
@@ -79,6 +79,6 @@ public class PlayerData {
     public int maneStyle;
     public Color bodyColor, maneColor;
     public List<Player.Ability> abilities;
-    public SerializableDictionary<string, object> properties;
+    public SaveTable<object> properties;
     public string map;
 }

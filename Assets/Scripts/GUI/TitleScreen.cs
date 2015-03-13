@@ -36,7 +36,7 @@ public class TitleScreen : MonoBehaviour {
         data.bodyColor = new Color(1, 1, 1);
         data.maneColor = new Color(.8f, .4f, .3f);
         data.abilities = new List<Player.Ability>() { Player.Ability.Inspect };
-        data.properties = new SerializableDictionary<string, object>();
+        data.properties = new SaveTable<object>();
         Player.Instance.data = data;
         Player.Instance.health = data.hearts * 2;
         yield return Application.LoadLevelAdditiveAsync("Loading screen");
