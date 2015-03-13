@@ -148,4 +148,13 @@ public class PlayerScript : MonoBehaviour {
     void OnDestroy() {
         if (instance == this) instance = null;
     }
+
+    public void Turn(float rawDirection) {
+        float direction = Mathf.Sign(rawDirection); // Make it -1.0 or 1.0
+        if (currentDirection != direction) {
+            Vector3 rScale = transform.localScale;
+            rScale.x = currentDirection = direction;
+            transform.localScale = rScale;
+        }
+    }
 }
