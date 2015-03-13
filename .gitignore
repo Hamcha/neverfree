@@ -11,5 +11,5 @@ $RECYCLE.BIN/
 .DS_Store
 Library/
 Temp/
-WebBuild/
+*Build/
 obj/
