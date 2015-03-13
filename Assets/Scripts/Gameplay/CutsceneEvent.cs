@@ -7,7 +7,10 @@ public class CutsceneEvent : MonoBehaviour {
 
     void Awake() {
         director = GetComponent<CutsceneDirector>();
-        if (director == null) Debug.LogError("Cutscene director not found!");
+        if (director == null) {
+            Debug.LogError("Cutscene director not found!");
+            return;
+        }
         director.Add(order, DoCutscene);
     }
 

@@ -11,9 +11,9 @@ public class CutsceneDirector : MonoBehaviour {
     private Dictionary<int, Func<IEnumerator>> cutsceneEvents = new Dictionary<int, Func<IEnumerator>>();
     private List<int> eventIds = new List<int>();
 
-    void Start() {
+    void Awake() {
         if (!alwaysDo && Player.Instance.data.properties.ContainsKey("cutscenes." + cutsceneId)) {
-            DestroyImmediate(this);
+            DestroyImmediate(gameObject);
         }
     }
 

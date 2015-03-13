@@ -5,6 +5,7 @@ public class MoveObject : CutsceneEvent {
     public GameObject toMove;
     public Vector3 destination;
     public float duration;
+    public float delay = 0;
     public bool triggerAnimationStatus;
     public string animationTrigger;
 
@@ -21,12 +22,17 @@ public class MoveObject : CutsceneEvent {
     }
 
     public override IEnumerator DoCutscene() {
+        StartCoroutine(DelayedStart());
+        yield break;
+    }
+
+    public IEnumerator DelayedStart() {
+        yield return new WaitForSeconds(delay);
         active = true;
         startTime = Time.time;
         originalPosition = toMove.transform.position;
         if (triggerAnimationStatus) {
             toMove.GetComponent<Animator>().SetTrigger(animationTrigger);
         }
-        yield break;
     }
 }

@@ -35,7 +35,12 @@ public class PlayerScript : MonoBehaviour {
     void Start() {
         DontDestroyOnLoad(gameObject);
         instance = this;
-        Instantiate(startCutscene);
+
+        // Don't do the wakeup cutscene during development/testing
+        if (!Application.isEditor) {
+            Instantiate(startCutscene);
+        }
+
         currentDirection = 0f;
         baseAnimator = GetComponentInChildren<Animator>();
         cursorPosition = Scene.gui.cursor.transform;
