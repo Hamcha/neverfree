@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class MoveObject : CutsceneEvent {
+public class CutsceneMoveObject : CutsceneEvent {
     public GameObject toMove;
     public Vector3 destination;
     public float duration;

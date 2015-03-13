@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class ShowObject : CutsceneEvent {
+public class CutsceneShowObject : CutsceneEvent {
     public GameObject focusOn;
     public float duration;
 

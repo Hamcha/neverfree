@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-class EnableObject : CutsceneEvent {
+class CutsceneEnableObject : CutsceneEvent {
     public GameObject target = null;
 
     public override IEnumerator DoCutscene() {

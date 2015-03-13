@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-class DeleteObject : CutsceneEvent {
+class CutsceneDeleteObject : CutsceneEvent {
     public GameObject toDelete = null;
 
     public override IEnumerator DoCutscene() {
