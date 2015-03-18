@@ -25,7 +25,7 @@ public class CutsceneDirector : MonoBehaviour {
         // Cycle through all registered events
         eventIds.Sort();
         foreach (int eventId in eventIds) {
-            Debug.Log("[" + cutsceneId + "] Playing #" + eventId);
+            Debug.Log("[" + cutsceneId + "] Playing #" + eventId + " (" + cutsceneEvents[eventId].Target + ")");
             yield return StartCoroutine(cutsceneEvents[eventId]());
         }
 

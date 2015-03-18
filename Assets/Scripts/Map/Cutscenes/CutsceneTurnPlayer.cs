@@ -2,10 +2,10 @@
 using UnityEngine;
 
 class CutsceneTurnPlayer : CutsceneEvent {
-    public bool useConstantDirection;
-    public float direction;
-    public bool lookAtObject;
-    public Transform targetObject;
+    public bool useConstantDirection = false;
+    public float direction = 0;
+    public bool lookAtObject = true;
+    public Transform targetObject = null;
 
     public override IEnumerator DoCutscene() {
         if (useConstantDirection) {
