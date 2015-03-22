@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 412602}
   - 114: {fileID: 11485084}
+  - 114: {fileID: 11481070}
   m_Layer: 0
   m_Name: BaseShotFactory
   m_TagString: Untagged
@@ -28,6 +29,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11481070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ce94a1aa2f67f4da2746edd6725fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: 0
+  strength: .699999988
+  speed: 1
+  delay: 8
+  duration: 0
 --- !u!114 &11485084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -39,10 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1468dbe5a13b04eb1cef0af299fc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  template: {fileID: 145702, guid: 99a750952b0f1e647ba4bfa4ea50e609, type: 2}
+  template: {fileID: 135448, guid: 7fa3bbb2faced654392b964a94093202, type: 2}
   count: 20
   delay: 5
   interval: .100000001
+  shots: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
