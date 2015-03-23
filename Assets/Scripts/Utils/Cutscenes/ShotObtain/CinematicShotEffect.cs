@@ -6,7 +6,8 @@ public class CinematicShotEffect : MonoBehaviour {
 	public enum ShotEffectType {
 		Rotation,
 		OddOffset,
-		ChangeSpeed
+		ChangeSpeed,
+		Scale
 	}
 
 	public ShotEffectType effect;
@@ -109,6 +110,9 @@ public class CinematicShotEffect : MonoBehaviour {
 				break;
 			case ShotEffectType.ChangeSpeed:
 				animators[i].speed = Mathf.Lerp(1, strength, t);
+				break;
+			case ShotEffectType.Scale:
+				shots[i].transform.localScale = Vector3.Lerp(Vector3.one, Vector3.one * strength, t);
 				break;
 		}
 	}

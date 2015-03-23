@@ -11,6 +11,8 @@ GameObject:
   - 114: {fileID: 11485084}
   - 114: {fileID: 11481070}
   - 114: {fileID: 11427608}
+  - 114: {fileID: 11497852}
+  - 114: {fileID: 11421606}
   m_Layer: 0
   m_Name: BaseShotFactory
   m_TagString: Untagged
@@ -30,6 +32,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11421606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ce94a1aa2f67f4da2746edd6725fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: 3
+  strength: 0
+  transitionTime: .400000006
+  delay: 22
+  duration: 0
+  reset: 0
 --- !u!114 &11427608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,8 +62,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effect: 1
   strength: 2
-  transitionTime: 2
-  delay: 9
+  transitionTime: 1
+  delay: 15
   duration: 5
   reset: 0
 --- !u!114 &11481070
@@ -61,7 +80,7 @@ MonoBehaviour:
   effect: 0
   strength: 1
   transitionTime: 2
-  delay: 5
+  delay: 10
   duration: 5
   reset: 1
 --- !u!114 &11485084
@@ -77,9 +96,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template: {fileID: 135448, guid: 7fa3bbb2faced654392b964a94093202, type: 2}
   count: 20
-  delay: 2
+  delay: 6
   interval: .100000001
   shots: []
+--- !u!114 &11497852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ce94a1aa2f67f4da2746edd6725fc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: 2
+  strength: 1.5
+  transitionTime: 1
+  delay: 10
+  duration: 0
+  reset: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
