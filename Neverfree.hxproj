@@ -16,10 +16,7 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
-    <class path="D:\Development\Haxe\openfl" />
-    <class path="d:\Development\Haxe\lime" />
     <class path="Source" />
-    <class path="Export\html5\haxe" />
   </classpaths>
   <!-- Build options -->
   <build>
