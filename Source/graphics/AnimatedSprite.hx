@@ -53,7 +53,7 @@ class AnimatedSprite extends Sprite {
 		});
 	}
 
-	public function addAnimation(animationName: String, animation: Animation) {
+	public function addAnimation(animationName: String, animation: SpriteAnimation) {
 		animations[animationName] = animation;
 	}
 
