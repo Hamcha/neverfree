@@ -33,11 +33,34 @@ class Tileset {
 }
 
 class MapLayer {
-	public var tiles: Array<Int>;
-	//TODO Support different types of layers (ie. collision)
+	public var layerData: Array<Float>;
+	public var maxgid: Int;
+	public var mingid: Int;
+	public function new(tiles: Array<Int>, layerWidth: Int, layerHeight: Int, tileWidth: Int, tileHeight: Int, basegid: Int) {
+		layerData = new Array<Float>();
+		var index: Int = 0;
+		var maxgid: Int = 0;
+		var mingid: Int = 99999;
+		for (y in 0...layerHeight) {
+			for (x in 0...layerWidth) {
+				var tileId: Int = tiles[index];
 
-	public function new(argTiles: Array<Int>) {
-		tiles = argTiles;
+				// Check for mingid/maxgid
+				if (mingid > tileId) {
+					mingid = tileId;
+				}
+				if (maxgid < tileId) {
+					maxgid = tileId;
+				}
+
+				// Order is: X, Y, TileID, …
+				layerData.push(x * tileWidth);
+				layerData.push(y * tileHeight);
+				layerData.push(tileId - basegid);
+				index++;
+			}
+		}
+		trace(layerData);
 	}
 }
 
@@ -72,8 +95,14 @@ class Tilemap extends Sprite {
 	}
 
 	private function render(e: Event) {
+		// Draw all layers
 		for (layer in layers) {
-			//TODO Process tiles array into tilesheet draw command
+			// Get matching tileset
+			for (tileset in tilesets) {
+				//TODO Gid magic (?)
+				tileset.tilesheet.drawTiles(graphics, layer.layerData, false);
+				break;
+			}
 		}
 	}
 

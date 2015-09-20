@@ -12,5 +12,10 @@ class TestState extends GameState {
 		scene.addChild(new Player());
 
 		addChild(scene);
+
+		scene.addEventListener(Event.ADDED_TO_STAGE, function(e: Event){
+			scene.camera.zoom(2, 2);
+			scene.camera.moveToCoords(0, 0);
+		});
 	}
 }

@@ -11,13 +11,24 @@ class Camera {
 	}
 
 	public function moveToCoords(x: Float, y: Float) {
-		container.scrollRect.x = x;
-		container.scrollRect.y = y;
+		var baseX: Float = -container.stage.stageWidth / 2;
+		var baseY: Float = -container.stage.stageHeight / 2;
+
+		container.scrollRect.x = baseX + x;
+		container.scrollRect.y = baseY + y;
 	}
 
 	public function moveToObject(object: DisplayObject) {
-		container.scrollRect.x = object.x;
-		container.scrollRect.y = object.y;
+		var baseX: Float = -container.stage.stageWidth / 2;
+		var baseY: Float = -container.stage.stageHeight / 2;
+
+		container.scrollRect.x = baseX + object.x;
+		container.scrollRect.y = baseY + object.y;
+	}
+
+	public function zoom(scaleX: Float, scaleY: Float) {
+		container.scaleX = scaleX;
+		container.scaleY = scaleY;
 	}
 }
 
