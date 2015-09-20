@@ -1,5 +1,6 @@
 package gamestates;
 
+import assets.map.BlankMap;
 import openfl.events.Event;
 import actors.characters.Player;
 import graphics.Scene;
@@ -7,9 +8,9 @@ import graphics.Scene;
 class TestState extends GameState {
 	public override function initialize(e: Event) {
 		var scene: Scene = new Scene();
-		addChild(scene);
+		scene.addChild(new BlankMap());
+		scene.addChild(new Player());
 
-		var player: Player = new Player();
-		scene.addChild(player);
+		addChild(scene);
 	}
 }
