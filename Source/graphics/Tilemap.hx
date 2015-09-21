@@ -60,7 +60,6 @@ class MapLayer {
 				index++;
 			}
 		}
-		trace(layerData);
 	}
 }
 
