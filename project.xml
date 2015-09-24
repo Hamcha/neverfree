@@ -5,4 +5,5 @@
 	<source path="Source" />
 	<haxelib name="openfl" />
 	<assets path="Assets" rename="assets" />
+	<window fps="60" />
 </project>

@@ -2,11 +2,13 @@
 <module type="HAXE_MODULE" version="4">
   <component name="HaxeModuleSettingsStorage">
     <option name="buildConfig" value="3" />
+    <option name="excludeFromCompilation" value="true" />
     <option name="openFLPath" value="$MODULE_DIR$/project.xml" />
-    <option name="outputFolder" value="$MODULE_DIR$/out/production/Neverfree" />
+    <option name="openFLTarget" value="Windows" />
+    <option name="outputFolder" value="$MODULE_DIR$/out/production/neverfree" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/out/production/Neverfree" />
+    <output url="file://$MODULE_DIR$/out/production/neverfree" />
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Source" isTestSource="false" />
