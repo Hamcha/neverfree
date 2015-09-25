@@ -1,6 +1,6 @@
 package actors.characters;
 
-import graphics.Screen;
+import openfl.events.Event;
 import openfl.Assets;
 import graphics.AnimatedSprite;
 
@@ -16,5 +16,13 @@ class Player extends Actor {
 		sprite.playAnimation("idle");
 
 		addChild(sprite);
+
+		addEventListener(Event.ADDED_TO_STAGE, function(e: Event){
+			stage.addEventListener(Event.ENTER_FRAME, update);
+		});
+	}
+
+	private function update(e: Event) {
+
 	}
 }
