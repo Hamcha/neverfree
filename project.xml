@@ -3,6 +3,7 @@
 	<meta title="Neverfree" package="com.sample.neverfree" version="0.0.1" company="ppie" />
 	<app main="Main" path="Export" file="Neverfree" />
 	<source path="Source" />
+	<set name="html5-backend" value="openfl-bitfive" />
 	<haxelib name="openfl" />
 	<assets path="Assets" rename="assets" />
 	<window fps="60" />

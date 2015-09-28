@@ -8,7 +8,6 @@ import gamestates.TestState;
 class Game extends Sprite {
 	private var currentState: GameState;
 	private var lastFrameTime: Int;
-	private var input: Input;
 
 	static public var timeDelta: Float;
 
@@ -18,16 +17,13 @@ class Game extends Sprite {
 		// Test state (for now)
 		this.setState(new TestState());
 
-		// Set input variable
-		input = Input.instance;
-
 		// Reset variables
 		lastFrameTime = 0;
 
 		// Setup rendering event
 		addEventListener(Event.ADDED_TO_STAGE, function(e: Event){
 			stage.addEventListener(Event.ENTER_FRAME, update);
-			input.bindEvents(stage);
+			Input.instance.bindEvents(stage);
 		});
 	}
 
