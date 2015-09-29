@@ -1,7 +1,6 @@
 package graphics;
 
 import openfl.geom.Point;
-import openfl.geom.Matrix;
 import openfl.geom.Rectangle;
 import openfl.events.Event;
 import openfl.display.Sprite;
