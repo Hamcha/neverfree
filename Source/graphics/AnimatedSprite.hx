@@ -36,7 +36,7 @@ class AnimatedSprite extends Sprite {
 		// Get spritesheet frames
 		for (y in 0...tileCols) {
 			for (x in 0...tileRows) {
-				tilesheet.addTileRect(new Rectangle(x * tileWidth, y * tileHeight, (x + 1) * tileWidth, (y + 1) * tileHeight));
+				tilesheet.addTileRect(new Rectangle(x * tileWidth, y * tileHeight, tileWidth, tileHeight));
 			}
 		}
 
@@ -65,8 +65,8 @@ class AnimatedSprite extends Sprite {
 	private function render(e: Event) {
 		var timeOffset: Float = (Lib.getTimer() - animationTimeBase) / 1000;
 		var animation: SpriteAnimation = animations[currentAnimation];
-		var currentAnimationTile: Int = Math.floor(timeOffset * animation.speed) % animation.frames.length;
+		var currentAnimationTile: Int = Math.floor(timeOffset / animation.speed) % animation.frames.length;
 		this.graphics.clear();
-		tilesheet.drawTiles(graphics, [0, 0, currentAnimationTile]);
+		tilesheet.drawTiles(graphics, [0, 0, animation.frames[currentAnimationTile]]);
 	}
 }

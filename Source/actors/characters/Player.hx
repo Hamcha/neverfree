@@ -17,7 +17,7 @@ class Player extends Actor {
 
 		sprite = new AnimatedSprite(Assets.getBitmapData("assets/Characters/White/White.png"), 20, 16);
 		sprite.addAnimation("idle", new SpriteAnimation([0], 100));
-		sprite.addAnimation("walk", new SpriteAnimation([1,2,3,4,5,6], 100));
+		sprite.addAnimation("walk", new SpriteAnimation([1,2,3,4,5,6], 0.1));
 		sprite.playAnimation("idle");
 
 		addChild(sprite);
@@ -28,10 +28,18 @@ class Player extends Actor {
 	}
 
 	private function update(e: Event) {
-		move();
+		var moving: Bool = move();
+
+		// Set animation depending on status
+		if (moving == false && sprite.currentAnimation == "walk") {
+			sprite.playAnimation("idle");
+		}
+		if (moving == true && sprite.currentAnimation == "idle") {
+			sprite.playAnimation("walk");
+		}
 	}
 
-	private function move() {
+	private function move(): Bool {
 		var vertical: Float = Input.getButton("Up") ? -1 : Input.getButton("Down") ? 1 : 0;
 		var horizontal: Float = Input.getButton("Left") ? -1 : Input.getButton("Right") ? 1 : 0;
 
@@ -65,5 +73,7 @@ class Player extends Actor {
 
 		x += xSpeed * Game.timeDelta;
 		y += ySpeed * Game.timeDelta;
+
+		return vertical != 0 || horizontal != 0;
 	}
 }
