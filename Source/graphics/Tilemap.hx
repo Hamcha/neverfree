@@ -94,6 +94,7 @@ class Tilemap extends Sprite {
 	}
 
 	private function render(e: Event) {
+		this.graphics.clear();
 		// Draw all layers
 		for (layer in layers) {
 			// Get matching tileset

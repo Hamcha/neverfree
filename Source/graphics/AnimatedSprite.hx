@@ -66,6 +66,7 @@ class AnimatedSprite extends Sprite {
 		var timeOffset: Float = (Lib.getTimer() - animationTimeBase) / 1000;
 		var animation: SpriteAnimation = animations[currentAnimation];
 		var currentAnimationTile: Int = Math.floor(timeOffset * animation.speed) % animation.frames.length;
+		this.graphics.clear();
 		tilesheet.drawTiles(graphics, [0, 0, currentAnimationTile]);
 	}
 }
