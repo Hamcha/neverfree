@@ -16,7 +16,8 @@ class TestState extends GameState {
 
 		player = new Player();
 		scene.addChild(player);
-		scene.camera.moveToObject(player);
+		player.x = 75;
+		player.y = 75;
 
 		addChild(scene);
 	}

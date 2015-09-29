@@ -6,7 +6,7 @@ import graphics.AnimatedSprite;
 
 class Player extends Actor {
 	private var sprite: AnimatedSprite;
-	private var maxSpeed: Float = 20; // Max speed in any direction (px/s aka Pixels per second)
+	private var maxSpeed: Float = 30; // Max speed in any direction (px/s aka Pixels per second)
 	private var damping: Float = 10; // Damping (px/s^2)
 	private var xSpeed: Float = 0; // Current speed X (px/s)
 	private var ySpeed: Float = 0; // Current speed Y (px/s)
@@ -28,18 +28,7 @@ class Player extends Actor {
 	}
 
 	private function update(e: Event) {
-		var moving: Bool = move();
-
-		// Set animation depending on status
-		if (moving == false && sprite.currentAnimation == "walk") {
-			sprite.playAnimation("idle");
-		}
-		if (moving == true && sprite.currentAnimation == "idle") {
-			sprite.playAnimation("walk");
-		}
-	}
-
-	private function move(): Bool {
+		// Get movement
 		var vertical: Float = Input.getButton("Up") ? -1 : Input.getButton("Down") ? 1 : 0;
 		var horizontal: Float = Input.getButton("Left") ? -1 : Input.getButton("Right") ? 1 : 0;
 
@@ -74,6 +63,21 @@ class Player extends Actor {
 		x += xSpeed * Game.timeDelta;
 		y += ySpeed * Game.timeDelta;
 
-		return vertical != 0 || horizontal != 0;
+		// Set animation depending on status
+		var moving: Bool = vertical != 0 || horizontal != 0;
+		if (moving == false && sprite.currentAnimation == "walk") {
+			sprite.playAnimation("idle");
+		}
+		if (moving == true && sprite.currentAnimation == "idle") {
+			sprite.playAnimation("walk");
+		}
+
+		// Flip sprite depending on direction
+		if (sprite.flipX && horizontal > 0) {
+			sprite.flipX = false;
+		}
+		if (!sprite.flipX && horizontal < 0) {
+			sprite.flipX = true;
+		}
 	}
 }

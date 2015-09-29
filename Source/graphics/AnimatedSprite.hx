@@ -1,5 +1,7 @@
 package graphics;
 
+import openfl.geom.Point;
+import openfl.geom.Matrix;
 import openfl.geom.Rectangle;
 import openfl.events.Event;
 import openfl.display.Sprite;
@@ -25,6 +27,10 @@ class AnimatedSprite extends Sprite {
 
 	public var currentAnimation(default, null): String;
 
+	public var flipX(default, set): Bool;
+	public var flipY(default, set): Bool;
+
+	private var pivot: Point;
 	public function new(bitmap: BitmapData, tileWidth: Int, tileHeight: Int) {
 		super();
 
@@ -45,8 +51,13 @@ class AnimatedSprite extends Sprite {
 		animationTimeBase = Lib.getTimer();
 
 		// Set pivot to center (default)
-		this.x = -tileWidth/2;
-		this.y = -tileHeight/2;
+		pivot = new Point();
+		pivot.x = -tileWidth/2;
+		pivot.y = -tileHeight/2;
+
+		// Set default orientation
+		flipX = false;
+		flipY = false;
 
 		addEventListener(Event.ADDED_TO_STAGE, function(e: Event){
 			stage.addEventListener(Event.ENTER_FRAME, render);
@@ -66,7 +77,18 @@ class AnimatedSprite extends Sprite {
 		var timeOffset: Float = (Lib.getTimer() - animationTimeBase) / 1000;
 		var animation: SpriteAnimation = animations[currentAnimation];
 		var currentAnimationTile: Int = Math.floor(timeOffset / animation.speed) % animation.frames.length;
+
 		this.graphics.clear();
-		tilesheet.drawTiles(graphics, [0, 0, animation.frames[currentAnimationTile]]);
+		tilesheet.drawTiles(graphics, [pivot.x, pivot.y, animation.frames[currentAnimationTile]]);
+	}
+
+	private function set_flipX(value: Bool): Bool {
+		scaleX = value ? -1 : 1;
+		return this.flipX = value;
+	}
+
+	private function set_flipY(value: Bool): Bool {
+		scaleY = value ? -1 : 1;
+		return this.flipY = value;
 	}
 }
