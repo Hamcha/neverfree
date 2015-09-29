@@ -27,8 +27,8 @@ class AnimatedSprite extends Sprite {
 
 	public var currentAnimation(default, null): String;
 
-	public var flipX(default, set): Bool;
-	public var flipY(default, set): Bool;
+	public var flipX(get, set): Bool;
+	public var flipY(get, set): Bool;
 
 	private var pivot: Point;
 	public function new(bitmap: BitmapData, tileWidth: Int, tileHeight: Int) {
@@ -82,13 +82,21 @@ class AnimatedSprite extends Sprite {
 		tilesheet.drawTiles(graphics, [pivot.x, pivot.y, animation.frames[currentAnimationTile]]);
 	}
 
+	private function get_flipX(): Bool {
+		return scaleX < 0;
+	}
+
+	private function get_flipY(): Bool {
+		return scaleY < 0;
+	}
+
 	private function set_flipX(value: Bool): Bool {
 		scaleX = value ? -1 : 1;
-		return this.flipX = value;
+		return value;
 	}
 
 	private function set_flipY(value: Bool): Bool {
 		scaleY = value ? -1 : 1;
-		return this.flipY = value;
+		return value;
 	}
 }
