@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="16" tileheight="16" nextobjectid="1">
- <tileset firstgid="1" name="Fields" tilewidth="16" tileheight="16" tilecount="1">
-  <image source="../Tilesets/Fields.png" width="16" height="16"/>
+ <tileset firstgid="1" name="Fields" tilewidth="16" tileheight="16" tilecount="2">
+  <image source="../../Assets/Tilesets/Fields.png" width="32" height="16"/>
+ </tileset>
+ <tileset firstgid="3" name="_COL" tilewidth="16" tileheight="16" tilecount="12">
+  <image source="../../Assets/Tilesets/Collisions.png" width="64" height="48"/>
+  <tile id="0">
+   <properties>
+    <property name="ColType" value="NULL"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="ColType" value="FULL"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="ColType" value="TOPHALF"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="ColType" value="BOTTOMHALF"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="ColType" value="LEFTHALF"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="ColType" value="RIGHTHALF"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="ColType" value="TRI-DR"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="ColType" value="TRI-UL"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="ColType" value="TRI-DL"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="ColType" value="TRI-UR"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Terrain" width="10" height="10">
   <data>
+   <tile gid="0"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -17,6 +71,10 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -26,6 +84,8 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -35,7 +95,10 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -43,34 +106,47 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="1"/>
+   <tile gid="2"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
+   <tile gid="2"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -82,29 +158,110 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
+  </data>
+ </layer>
+ <layer name="_COL" width="10" height="10" opacity="0.27">
+  <data>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="3"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="4"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
   </data>
  </layer>
 </map>
