@@ -37,22 +37,22 @@
   </tile>
   <tile id="6">
    <properties>
-    <property name="ColType" value="TRI-DR"/>
+    <property name="ColType" value="TRI_DR"/>
    </properties>
   </tile>
   <tile id="7">
    <properties>
-    <property name="ColType" value="TRI-UL"/>
+    <property name="ColType" value="TRI_UL"/>
    </properties>
   </tile>
   <tile id="8">
    <properties>
-    <property name="ColType" value="TRI-DL"/>
+    <property name="ColType" value="TRI_DL"/>
    </properties>
   </tile>
   <tile id="9">
    <properties>
-    <property name="ColType" value="TRI-UR"/>
+    <property name="ColType" value="TRI_UR"/>
    </properties>
   </tile>
  </tileset>

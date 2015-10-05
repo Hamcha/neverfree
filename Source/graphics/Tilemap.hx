@@ -6,6 +6,19 @@ import openfl.display.Tilesheet;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 
+enum TileCollisionType {
+	NULL;
+	FULL;
+	TOPHALF;
+	BOTTOMHALF;
+	LEFTHALF;
+	RIGHTHALF;
+	TRI_DR;
+	TRI_DL;
+	TRI_UR;
+	TRI_UL;
+}
+
 class Tileset {
 	public var name: String;
 	public var basegid: Int;
@@ -36,7 +49,8 @@ class MapLayer {
 	public var layerData: Array<Float>;
 	public var maxgid: Int;
 	public var mingid: Int;
-	public function new(tiles: Array<Int>, layerWidth: Int, layerHeight: Int, tileWidth: Int, tileHeight: Int, basegid: Int) {
+
+	public function new(tiles: Array<Int>, layerWidth: Int, layerHeight: Int, tileWidth: Int, tileHeight: Int) {
 		layerData = new Array<Float>();
 		var index: Int = 0;
 		var maxgid: Int = 0;
@@ -56,10 +70,40 @@ class MapLayer {
 				// Order is: X, Y, TileID, …
 				layerData.push(x * tileWidth);
 				layerData.push(y * tileHeight);
-				layerData.push(tileId - basegid);
+				layerData.push(tileId);
 				index++;
 			}
 		}
+	}
+
+	public function forTileset(tileset: Tileset): Array<Float> {
+		var subLayerData: Array<Float> = new Array<Float>();
+		for (i in 0...layerData.length*3) {
+			var gid: Int = Math.floor(layerData[i*3+2]);
+			if (gid >= tileset.basegid && gid <= tileset.endgid) {
+				subLayerData.push(layerData[i*3]);
+				subLayerData.push(layerData[i*3+1]);
+				subLayerData.push(gid - tileset.basegid);
+			}
+		}
+
+		return subLayerData;
+	}
+}
+
+class CollisionLayer {
+	public var layerData: Array<TileCollisionType>;
+	public var width: Int;
+	public var height: Int;
+	public var tileWidth: Int;
+	public var tileHeight: Int;
+
+	public function new(collisionIDs: Array<TileCollisionType>, width: Int, height: Int, tileWidth: Int, tileHeight: Int) {
+		layerData = collisionIDs;
+		this.width = width;
+		this.height = height;
+		this.tileWidth = tileWidth;
+		this.tileHeight = tileHeight;
 	}
 }
 
@@ -71,6 +115,7 @@ class Tilemap extends Sprite {
 
 	public var tilesets: Array<Tileset>;
 	public var layers: Array<MapLayer>;
+	public var collision: CollisionLayer;
 
 	public function new(
 			argName: String,
@@ -97,11 +142,8 @@ class Tilemap extends Sprite {
 		this.graphics.clear();
 		// Draw all layers
 		for (layer in layers) {
-			// Get matching tileset
 			for (tileset in tilesets) {
-				//TODO Gid magic (?)
-				tileset.tilesheet.drawTiles(graphics, layer.layerData, false);
-				break;
+				tileset.tilesheet.drawTiles(graphics, layer.forTileset(tileset), false);
 			}
 		}
 	}

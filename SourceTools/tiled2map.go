@@ -119,6 +119,11 @@ func generateClass(name string, xmlmap XMLTiledMap) string {
 		xmlmap.TileWidth,
 		xmlmap.TileHeight)
 
+	// Prepare collision tileset data
+	collisionOffset := 0
+	collisionLength := 0
+	collisionValues := make(map[int]string)
+
 	// Export tilesets
 	tilesets := make([]string, len(xmlmap.Tilesets))
 	for i, tileset := range xmlmap.Tilesets {
@@ -126,6 +131,22 @@ func generateClass(name string, xmlmap XMLTiledMap) string {
 		switch tileset.Name {
 		case "_COL":
 			// Parse collision tileset
+			collisionOffset = tileset.FirstGID
+			for _, tile := range tileset.Tiles {
+				// Get collision type property
+				found := false
+				colType := ""
+				for _, property := range tile.Properties {
+					if property.Name == "ColType" {
+						found = true
+						colType = property.Value
+					}
+				}
+				if found {
+					collisionValues[tile.ID] = colType
+				}
+			}
+			collisionLength = len(collisionValues)
 		default:
 			tilesets[i] = fmt.Sprintf(
 				"\t\ttilesets.push(new Tileset(\"%s\", Assets.getBitmapData(\"%s\"), %d, %d, %d));",
@@ -140,18 +161,47 @@ func generateClass(name string, xmlmap XMLTiledMap) string {
 	// Export layers
 	layers := make([]string, len(xmlmap.Layers))
 	for i, layer := range xmlmap.Layers {
-		tileIds := make([]string, len(layer.Data.Tiles))
-		for tid, tile := range layer.Data.Tiles {
-			tileIds[tid] = strconv.Itoa(tile.GID)
-		}
-
 		// Check for layer type
 		switch layer.Name {
 		case "_COL":
-			// Parse collision layer
-		default:
+			// Parse collision layer ids to collision type values
+			collisionIds := make([]string, len(layer.Data.Tiles))
+			for tid, tile := range layer.Data.Tiles {
+				// An empty space is always not a null spot
+				if tile.GID == 0 {
+					collisionIds[tid] = "TileCollisionType.NULL"
+					continue
+				}
+
+				// Filter out invalid values (not collider tileset)
+				if tile.GID < collisionOffset || tile.GID > collisionOffset+collisionLength {
+					collisionIds[tid] = "TileCollisionType.NULL"
+					continue
+				}
+
+				colType, ok := collisionValues[tile.GID-collisionOffset]
+				if ok {
+					collisionIds[tid] = "TileCollisionType." + colType
+				} else {
+					fmt.Fprintf(os.Stderr, "Woops, weird collision ID: %d\n", tile.GID-collisionOffset)
+				}
+			}
+
 			layers[i] = fmt.Sprintf(
-				"\t\tlayers.push(new MapLayer([%s], %d, %d, %d, %d, 1));",
+				"\t\tcollision = new CollisionLayer([%s], %d, %d, %d, %d);",
+				strings.Join(collisionIds, ",\n\t\t\t"),
+				layer.Width,
+				layer.Height,
+				xmlmap.TileWidth,
+				xmlmap.TileHeight)
+		default:
+			tileIds := make([]string, len(layer.Data.Tiles))
+			for tid, tile := range layer.Data.Tiles {
+				tileIds[tid] = strconv.Itoa(tile.GID)
+			}
+
+			layers[i] = fmt.Sprintf(
+				"\t\tlayers.push(new MapLayer([%s], %d, %d, %d, %d));",
 				strings.Join(tileIds, ","),
 				layer.Width,
 				layer.Height,
@@ -166,8 +216,8 @@ func generateClass(name string, xmlmap XMLTiledMap) string {
 		"class " + name + " extends Tilemap {\n" +
 		"\tpublic function new() {\n" +
 		constructor +
-		strings.Join(tilesets, "\n") +
-		strings.Join(layers, "\n") +
+		strings.Join(tilesets, "\n") + "\n" +
+		strings.Join(layers, "\n") + "\n" +
 		"\t}\n}\n"
 }
 
