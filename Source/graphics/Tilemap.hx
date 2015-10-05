@@ -1,5 +1,7 @@
 package graphics;
 
+import openfl.geom.Point;
+import physics.ICollidable;
 import openfl.events.Event;
 import openfl.geom.Rectangle;
 import openfl.display.Tilesheet;
@@ -107,7 +109,7 @@ class CollisionLayer {
 	}
 }
 
-class Tilemap extends Sprite {
+class Tilemap extends Sprite implements ICollidable {
 	private var tilewidth: Int;
 	private var tileheight: Int;
 	private var mapwidth: Int;
@@ -154,5 +156,24 @@ class Tilemap extends Sprite {
 
 	public function mapHeight(): Float {
 		return mapheight * tileheight;
+	}
+
+	public function collides(point: Point): Bool {
+		var tileX: Int = Math.floor(point.x / tilewidth);
+		var tileY: Int = Math.floor(point.y / tileheight);
+		var tileId: Int = tileY * mapwidth + tileX;
+
+		var tileCollisionType: TileCollisionType = collision.layerData[tileId];
+
+		var offsetX: Float = (point.x - tileX * tilewidth) / tilewidth;
+		var offsetY: Float = (point.y - tileY * tileheight) / tileheight;
+		switch (tileCollisionType) {
+			case TileCollisionType.NULL:
+				return false;
+			case TileCollisionType.FULL:
+				return true;
+			default:
+				return false;
+		}
 	}
 }
