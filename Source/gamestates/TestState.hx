@@ -1,6 +1,5 @@
 package gamestates;
 
-import openfl.geom.Point;
 import graphics.Tilemap;
 import assets.map.TestPlane;
 import openfl.events.Event;
@@ -29,7 +28,7 @@ class TestState extends GameState {
 
 	public override function update(e: Event) {
 		scene.camera.moveToObject(player);
-		if (map.collides(new Point(player.x, player.y))) {
+		if (map.collides(player).collided) {
 			trace("TEST");
 		}
 	}

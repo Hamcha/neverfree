@@ -1,7 +1,7 @@
 package graphics;
 
-import openfl.geom.Point;
-import physics.ICollidable;
+import physics.TileCollider;
+import physics.CollisionData;
 import openfl.events.Event;
 import openfl.geom.Rectangle;
 import openfl.display.Tilesheet;
@@ -109,7 +109,7 @@ class CollisionLayer {
 	}
 }
 
-class Tilemap extends Sprite implements ICollidable {
+class Tilemap extends Sprite {
 	private var tilewidth: Int;
 	private var tileheight: Int;
 	private var mapwidth: Int;
@@ -158,22 +158,21 @@ class Tilemap extends Sprite implements ICollidable {
 		return mapheight * tileheight;
 	}
 
-	public function collides(point: Point): Bool {
-		var tileX: Int = Math.floor(point.x / tilewidth);
-		var tileY: Int = Math.floor(point.y / tileheight);
+	public function collides(actor: Actor): CollisionData {
+		if (actor.collider == null) {
+			return new CollisionData(null);
+		}
+
+		var tileX: Int = Math.floor(actor.x / tilewidth);
+		var tileY: Int = Math.floor(actor.y / tileheight);
 		var tileId: Int = tileY * mapwidth + tileX;
 
 		var tileCollisionType: TileCollisionType = collision.layerData[tileId];
+		var collider: TileCollider = new TileCollider(tileCollisionType);
 
-		var offsetX: Float = (point.x - tileX * tilewidth) / tilewidth;
-		var offsetY: Float = (point.y - tileY * tileheight) / tileheight;
-		switch (tileCollisionType) {
-			case TileCollisionType.NULL:
-				return false;
-			case TileCollisionType.FULL:
-				return true;
-			default:
-				return false;
-		}
+		var offsetX: Float = (actor.x - tileX * tilewidth) / tilewidth;
+		var offsetY: Float = (actor.y - tileY * tileheight) / tileheight;
+
+		return actor.collides(collider);
 	}
 }

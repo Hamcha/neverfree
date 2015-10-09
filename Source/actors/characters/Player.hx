@@ -1,5 +1,6 @@
 package actors.characters;
 
+import physics.CircleCollider;
 import openfl.events.Event;
 import openfl.Assets;
 import graphics.AnimatedSprite;
@@ -19,6 +20,8 @@ class Player extends Actor {
 		sprite.addAnimation("idle", new SpriteAnimation([0], 100));
 		sprite.addAnimation("walk", new SpriteAnimation([1,2,3,4,5,6], 0.1));
 		sprite.playAnimation("idle");
+
+		collider = new CircleCollider(20);
 
 		addChild(sprite);
 

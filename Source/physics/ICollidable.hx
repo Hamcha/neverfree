@@ -1,7 +1,6 @@
 package physics;
 
-import openfl.geom.Point;
-
 interface ICollidable {
-	public function collides(point: Point): Bool;
+	public function collides(collider: Collider): CollisionData;
+	public function getCollider(): Collider;
 }

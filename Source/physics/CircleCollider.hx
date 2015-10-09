@@ -1,15 +1,10 @@
 package physics;
 
-import openfl.geom.Point;
+import differ.shapes.Shape;
+import differ.shapes.Circle;
 
-class CircleCollider implements ICollidable {
-	public var size: Float;
-
-	public function new(size: Float) {
-		this.size = size;
-	}
-
-	public function collides(point: Point): Bool {
-		return point.length <= size;
+class CircleCollider extends Collider {
+	public function new(radius: Float) {
+		shape = new Circle(0, 0, radius);
 	}
 }

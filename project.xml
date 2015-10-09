@@ -5,6 +5,7 @@
 	<source path="Source" />
 	<set name="html5-backend" value="openfl-bitfive" />
 	<haxelib name="openfl" />
+	<haxelib name="differ" />
 	<assets path="Assets" rename="assets" />
 	<window fps="60" />
 </project>
