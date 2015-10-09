@@ -15,11 +15,8 @@ class Actor extends Sprite implements ICollidable {
 	}
 
 	public function collides(collider: Collider): CollisionData {
-		if (this.collider == null || collider == null) {
-			return new CollisionData(null);
-		}
 		updateCollider();
-		return new CollisionData(this.collider.shape.test(collider.shape));
+		return collider.test(collider);
 	}
 
 	public function getCollider(): Collider {

@@ -168,10 +168,8 @@ class Tilemap extends Sprite {
 		var tileId: Int = tileY * mapwidth + tileX;
 
 		var tileCollisionType: TileCollisionType = collision.layerData[tileId];
-		var collider: TileCollider = new TileCollider(tileCollisionType);
-
-		var offsetX: Float = (actor.x - tileX * tilewidth) / tilewidth;
-		var offsetY: Float = (actor.y - tileY * tileheight) / tileheight;
+		var collider: TileCollider = new TileCollider(tileCollisionType, tilewidth, tileheight);
+		collider.setOffset(tileX, tileY);
 
 		return actor.collides(collider);
 	}
