@@ -212,6 +212,7 @@ func generateClass(name string, xmlmap XMLTiledMap) string {
 
 	return "package assets.map;\n\n" +
 		"import openfl.Assets;\n" +
+		"import physics.TileCollider.TileCollisionType;\n" +
 		"import graphics.Tilemap;\n\n" +
 		"class " + name + " extends Tilemap {\n" +
 		"\tpublic function new() {\n" +
