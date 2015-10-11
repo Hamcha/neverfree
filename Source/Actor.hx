@@ -1,5 +1,6 @@
 package;
 
+import graphics.Scene;
 import physics.Collider;
 import physics.CollisionData;
 import physics.NullCollider;
@@ -8,6 +9,7 @@ import openfl.display.Sprite;
 
 class Actor extends Sprite implements ICollidable {
 	public var collider: Collider;
+	public var scene: Scene;
 
 	public function new() {
 		collider = new NullCollider();

@@ -6,10 +6,10 @@ import openfl.Lib;
 import gamestates.TestState;
 
 class Game extends Sprite {
-	private var currentState: GameState;
 	private var lastFrameTime: Int;
 
 	static public var timeDelta: Float;
+	static public var currentState: GameState;
 
 	public function new() {
 		super();

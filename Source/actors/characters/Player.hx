@@ -1,5 +1,6 @@
 package actors.characters;
 
+import physics.CollisionData.Collision;
 import physics.CircleCollider;
 import openfl.events.Event;
 import openfl.Assets;
@@ -81,6 +82,13 @@ class Player extends Actor {
 		}
 		if (!sprite.flipX && horizontal < 0) {
 			sprite.flipX = true;
+		}
+
+		// Check for collisions
+		var collisions: Array<Collision> = scene.collides(this, "map");
+		for (collision in collisions) {
+			trace("Collision!");
+			trace(collision.second);
 		}
 	}
 }

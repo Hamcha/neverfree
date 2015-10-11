@@ -15,11 +15,11 @@ class TestState extends GameState {
 		map = new TestPlane();
 
 		scene = new Scene();
-		scene.addChild(map);
+		scene.add(map);
 		scene.camera.zoom(2, 2);
 
 		player = new Player();
-		scene.addChild(player);
+		scene.add(player);
 		player.x = 75;
 		player.y = 75;
 
@@ -28,8 +28,5 @@ class TestState extends GameState {
 
 	public override function update(e: Event) {
 		scene.camera.moveToObject(player);
-		if (map.collides(player).collided) {
-			trace("TEST");
-		}
 	}
 }

@@ -8,18 +8,6 @@ import openfl.display.Tilesheet;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
 
-enum TileCollisionType {
-	NULL;
-	FULL;
-	TOPHALF;
-	BOTTOMHALF;
-	LEFTHALF;
-	RIGHTHALF;
-	TRI_DR;
-	TRI_DL;
-	TRI_UR;
-	TRI_UL;
-}
 
 class Tileset {
 	public var name: String;
@@ -109,15 +97,16 @@ class CollisionLayer {
 	}
 }
 
-class Tilemap extends Sprite {
+class Tilemap extends Actor {
 	private var tilewidth: Int;
 	private var tileheight: Int;
 	private var mapwidth: Int;
 	private var mapheight: Int;
+	private var tilecollider: TileCollider;
 
 	public var tilesets: Array<Tileset>;
 	public var layers: Array<MapLayer>;
-	public var collision: CollisionLayer;
+	public var collision(get, set): CollisionLayer;
 
 	public function new(
 			argName: String,
@@ -158,19 +147,12 @@ class Tilemap extends Sprite {
 		return mapheight * tileheight;
 	}
 
-	public function collides(actor: Actor): CollisionData {
-		if (actor.collider == null) {
-			return new CollisionData(null);
-		}
+	private function set_collision(layer: CollisionLayer): CollisionLayer {
+		collider = tilecollider = new TileCollider(layer, mapwidth);
+		return layer;
+	}
 
-		var tileX: Int = Math.floor(actor.x / tilewidth);
-		var tileY: Int = Math.floor(actor.y / tileheight);
-		var tileId: Int = tileY * mapwidth + tileX;
-
-		var tileCollisionType: TileCollisionType = collision.layerData[tileId];
-		var collider: TileCollider = new TileCollider(tileCollisionType, tilewidth, tileheight);
-		collider.setOffset(tileX, tileY);
-
-		return actor.collides(collider);
+	private function get_collision(): CollisionLayer {
+		return tilecollider.layer;
 	}
 }

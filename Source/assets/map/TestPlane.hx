@@ -1,5 +1,6 @@
 package assets.map;
 
+import physics.TileCollider.TileCollisionType;
 import openfl.Assets;
 import graphics.Tilemap;
 
