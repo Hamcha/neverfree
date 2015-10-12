@@ -1,6 +1,7 @@
 package physics;
 
 class NullCollider extends Collider {
+	public function new() {}
 	public override function test(collider: Collider): CollisionData {
 		return new CollisionData(null);
 	}

@@ -21,7 +21,6 @@ class TileCollider extends Collider {
 	private var mapWidth: Int;
 
 	public function new(layer: CollisionLayer, mapWidth: Int) {
-		super();
 		this.layer = layer;
 		this.mapWidth = mapWidth;
 	}
