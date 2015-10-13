@@ -15,11 +15,11 @@ class TestState extends GameState {
 		map = new TestPlane();
 
 		scene = new Scene();
-		scene.add(map);
+		scene.addChild(map);
 		scene.camera.zoom(2, 2);
 
 		player = new Player();
-		scene.add(player);
+		scene.addActor(player);
 		player.x = 75;
 		player.y = 75;
 

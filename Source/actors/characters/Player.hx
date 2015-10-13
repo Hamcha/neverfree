@@ -22,7 +22,7 @@ class Player extends Actor {
 		sprite.addAnimation("walk", new SpriteAnimation([1,2,3,4,5,6], 0.1));
 		sprite.playAnimation("idle");
 
-		collider = new CircleCollider(20);
+		collider = new CircleCollider(100);
 
 		addChild(sprite);
 
@@ -88,7 +88,7 @@ class Player extends Actor {
 		var collisions: Array<Collision> = scene.collides(this, "map");
 		for (collision in collisions) {
 			trace("Collision!");
-			trace(collision.second);
+			trace(collision.second.getCollider());
 		}
 	}
 }

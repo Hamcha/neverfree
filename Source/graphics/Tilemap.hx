@@ -1,5 +1,7 @@
 package graphics;
 
+import physics.Collider;
+import physics.ICollidable;
 import physics.TileCollider;
 import physics.CollisionData;
 import openfl.events.Event;
@@ -97,7 +99,7 @@ class CollisionLayer {
 	}
 }
 
-class Tilemap extends Actor {
+class Tilemap extends Sprite implements ICollidable {
 	private var tilewidth: Int;
 	private var tileheight: Int;
 	private var mapwidth: Int;
@@ -148,11 +150,22 @@ class Tilemap extends Actor {
 	}
 
 	private function set_collision(layer: CollisionLayer): CollisionLayer {
-		collider = tilecollider = new TileCollider(layer, mapwidth);
+		tilecollider = new TileCollider(layer, mapwidth);
 		return layer;
 	}
 
 	private function get_collision(): CollisionLayer {
 		return tilecollider.layer;
+	}
+
+	public function collides(collider: Collider): CollisionData {
+		if (tilecollider != null) {
+			return tilecollider.test(collider);
+		}
+		return new CollisionData(null);
+	}
+
+	public function getCollider(): Collider {
+		return tilecollider;
 	}
 }

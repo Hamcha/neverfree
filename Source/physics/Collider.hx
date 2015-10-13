@@ -3,7 +3,7 @@ package physics;
 import differ.shapes.Shape;
 
 class Collider {
-	public var shape(default, null): Shape;
+	public var shape(default, null): Shape = null;
 
 	public function setOffset(x: Float, y: Float) {
 		if (shape == null) {
