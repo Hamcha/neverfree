@@ -22,7 +22,7 @@ class Player extends Actor {
 		sprite.addAnimation("walk", new SpriteAnimation([1,2,3,4,5,6], 0.1));
 		sprite.playAnimation("idle");
 
-		collider = new CircleCollider(100);
+		collider = new CircleCollider(5);
 
 		addChild(sprite);
 
@@ -43,7 +43,7 @@ class Player extends Actor {
 			} else {
 				ySpeed -= ySpeed * damping * Game.timeDelta;
 			}
-		} {
+		} else {
 			ySpeed = vertical * maxSpeed;
 		}
 

@@ -1,5 +1,7 @@
 package;
 
+import openfl.events.Event;
+import utils.DebugShapeDrawer;
 import graphics.Scene;
 import physics.Collider;
 import physics.CollisionData;
@@ -12,8 +14,8 @@ class Actor extends Sprite implements ICollidable {
 	public var scene: Scene;
 
 	public function new() {
-		collider = new NullCollider();
 		super();
+		collider = new NullCollider();
 	}
 
 	public function collides(collider: Collider): CollisionData {

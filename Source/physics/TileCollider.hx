@@ -34,16 +34,21 @@ class TileCollider extends Collider {
 		var tileY: Int = Math.floor(collider.shape.y / layer.tileHeight);
 		var tileId: Int = tileY * mapWidth + tileX;
 
+		if (tileId < 0 || tileId >= layer.layerData.length) {
+			return new CollisionData(null);
+		}
+
 		var tileCollisionType: TileCollisionType = layer.layerData[tileId];
 		trace(tileCollisionType);
 		switch(tileCollisionType) {
 			case TileCollisionType.FULL:
 				shape = Polygon.rectangle(0, 0, layer.tileWidth, layer.tileHeight, false);
 			case TileCollisionType.NULL:
+				shape = null;
 			default:
 				return new CollisionData(null);
 		}
-		setOffset(tileX, tileY);
+		setOffset(tileX * layer.tileWidth, tileY * layer.tileHeight);
 
 		return collider.test(this);
 	}
