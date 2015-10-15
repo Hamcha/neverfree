@@ -87,8 +87,9 @@ class Player extends Actor {
 		// Check for collisions
 		var collisions: Array<Collision> = scene.collides(this, "map");
 		for (collision in collisions) {
-			trace("Collision!");
-			trace(collision.second.getCollider());
+			var separation = collision.data.collision.separation;
+			this.x += separation.x;
+			this.y += separation.y;
 		}
 	}
 }

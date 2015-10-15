@@ -1,9 +1,9 @@
 package graphics;
 
+import openfl.display.DisplayObject;
 import physics.Collider;
 import utils.DebugShapeDrawer;
 import openfl.events.Event;
-import flash.display.DisplayObject;
 import physics.ICollidable;
 import physics.CollisionData;
 import openfl.display.Sprite;

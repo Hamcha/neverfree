@@ -32,14 +32,38 @@ class TileCollider extends Collider {
 
 		var tileX: Int = Math.floor(collider.shape.x / layer.tileWidth);
 		var tileY: Int = Math.floor(collider.shape.y / layer.tileHeight);
-		var tileId: Int = tileY * mapWidth + tileX;
+
+		// Check current tile and neighbourgs
+		var tiles: Array<Array<Int>> = [
+			[tileX, tileY],
+			[tileX, tileY-1],
+			[tileX-1, tileY],
+			[tileX-1, tileY-1],
+			[tileX+1, tileY+1],
+			[tileX+1, tileY-1],
+			[tileX-1, tileY+1],
+			[tileX+1, tileY],
+			[tileX, tileY+1]
+		];
+
+		for (tile in tiles) {
+			var cdata = checkTileCollision(collider, tile[0], tile[1]);
+			if (cdata.collided) {
+				return cdata;
+			}
+		}
+
+		return new CollisionData(null);
+	}
+
+	private function checkTileCollision(collider: Collider, x: Int, y: Int): CollisionData {
+		var tileId: Int = y * mapWidth + x;
 
 		if (tileId < 0 || tileId >= layer.layerData.length) {
 			return new CollisionData(null);
 		}
 
 		var tileCollisionType: TileCollisionType = layer.layerData[tileId];
-		trace(tileCollisionType);
 		switch(tileCollisionType) {
 			case TileCollisionType.FULL:
 				shape = Polygon.rectangle(0, 0, layer.tileWidth, layer.tileHeight, false);
@@ -48,7 +72,7 @@ class TileCollider extends Collider {
 			default:
 				return new CollisionData(null);
 		}
-		setOffset(tileX * layer.tileWidth, tileY * layer.tileHeight);
+		setOffset(x * layer.tileWidth, y * layer.tileHeight);
 
 		return collider.test(this);
 	}
