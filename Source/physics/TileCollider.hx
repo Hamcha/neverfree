@@ -46,14 +46,22 @@ class TileCollider extends Collider {
 			[tileX, tileY+1]
 		];
 
+		var collision: CollisionData = null;
 		for (tile in tiles) {
 			var cdata = checkTileCollision(collider, tile[0], tile[1]);
 			if (cdata.collided) {
-				return cdata;
+				if (collision == null) {
+					collision = cdata;
+				} else {
+					collision.Combine(cdata);
+				}
 			}
 		}
 
-		return new CollisionData(null);
+		if (collision == null) {
+			return new CollisionData(null);
+		}
+		return collision;
 	}
 
 	private function checkTileCollision(collider: Collider, x: Int, y: Int): CollisionData {
@@ -72,7 +80,7 @@ class TileCollider extends Collider {
 			default:
 				return new CollisionData(null);
 		}
-		setOffset(x * layer.tileWidth, y * layer.tileHeight);
+		setPosition(x * layer.tileWidth, y * layer.tileHeight);
 
 		return collider.test(this);
 	}

@@ -6,6 +6,6 @@ class NullCollider extends Collider {
 		return new CollisionData(null);
 	}
 
-	public override function setOffset(x: Float, y: Float): Void {}
+	public override function setPosition(x: Float, y: Float): Void {}
 	public override function setRotation(rot: Float): Void {}
 }

@@ -29,7 +29,7 @@ class Actor extends Sprite implements ICollidable {
 	}
 
 	private function updateCollider() {
-		collider.setOffset(x, y);
+		collider.setPosition(x, y);
 		collider.setRotation(rotation);
 	}
 }

@@ -1,16 +1,22 @@
 package physics;
 
+import openfl.geom.Point;
 import differ.shapes.Shape;
 
 class Collider {
 	public var shape(default, null): Shape = null;
+	public var offset: Point = new Point(0, 0);
 
 	public function setOffset(x: Float, y: Float) {
+		offset = new Point(x, y);
+	}
+
+	public function setPosition(x: Float, y: Float) {
 		if (shape == null) {
 			return;
 		}
-		shape.x = x;
-		shape.y = y;
+		shape.x = x + offset.x;
+		shape.y = y + offset.y;
 	}
 
 	public function setRotation(rotation: Float) {

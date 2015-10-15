@@ -23,6 +23,7 @@ class Player extends Actor {
 		sprite.playAnimation("idle");
 
 		collider = new CircleCollider(5);
+		collider.setOffset(0, 5);
 
 		addChild(sprite);
 

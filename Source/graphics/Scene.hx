@@ -2,11 +2,13 @@ package graphics;
 
 import openfl.display.DisplayObject;
 import physics.Collider;
-import utils.DebugShapeDrawer;
 import openfl.events.Event;
 import physics.ICollidable;
 import physics.CollisionData;
 import openfl.display.Sprite;
+#if DEBUG_SHAPES
+import utils.DebugShapeDrawer;
+#end
 
 class Scene extends Sprite {
 	public var camera: Camera;
@@ -15,6 +17,7 @@ class Scene extends Sprite {
 		super();
 		camera = new Camera(this);
 
+#if DEBUG_SHAPES
 		// Collision debugger code
 		var debugSprite: Sprite = new Sprite();
 		var debugDrawer: DebugShapeDrawer = new DebugShapeDrawer(debugSprite.graphics);
@@ -34,6 +37,7 @@ class Scene extends Sprite {
 				}
 			}
 		});
+#end
 	}
 
 	public function collides(actor: Actor, category: String): Array<Collision> {

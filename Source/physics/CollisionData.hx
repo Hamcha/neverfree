@@ -22,6 +22,14 @@ class CollisionData {
 		this.collision = collision;
 	}
 
+	public function Combine(data: CollisionData) {
+		if (!data.collided) {
+			return;
+		}
+
+		collision.separation = collision.separation.add(data.collision.separation);
+	}
+
 	public function get_collided(): Bool {
 		return collision != null;
 	}
