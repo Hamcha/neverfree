@@ -4,8 +4,7 @@
     <option name="buildConfig" value="3" />
     <option name="excludeFromCompilation" value="true" />
     <option name="openFLPath" value="$MODULE_DIR$/project.xml" />
-    <option name="openFLTarget" value="Windows" />
-    <option name="outputFolder" value="$MODULE_DIR$/out/production/neverfree" />
+    <option name="outputFolder" value="$MODULE_DIR$/out/production/Neverfree" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/out/production/neverfree" />
@@ -17,5 +16,18 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="OpenFL 3.3.3" level="project" />
+    <orderEntry type="module-library">
+      <library name="haxelib|E:/HaxeToolkit/haxe/lib/openfl/3,3,6">
+        <CLASSES>
+          <root url="file://E:/HaxeToolkit/haxe/lib/openfl/3,3,6" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://E:/HaxeToolkit/haxe/lib/openfl/3,3,6" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Differ 1.2.0" level="project" />
+    <orderEntry type="library" name="nfengine" level="project" />
   </component>
 </module>

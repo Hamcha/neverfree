@@ -1,10 +1,11 @@
 package gamestates;
 
-import graphics.Tilemap;
+import nf.GameState;
+import nf.graphics.Tilemap;
+import nf.graphics.Scene;
 import assets.map.TestPlane;
-import openfl.events.Event;
 import actors.characters.Player;
-import graphics.Scene;
+import openfl.events.Event;
 
 class TestState extends GameState {
 	private var map: Tilemap;

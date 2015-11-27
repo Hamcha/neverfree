@@ -1,8 +1,8 @@
 package assets.map;
 
-import physics.TileCollider.TileCollisionType;
+import nf.physics.TileCollider.TileCollisionType;
+import nf.graphics.Tilemap;
 import openfl.Assets;
-import graphics.Tilemap;
 
 class TestPlane extends Tilemap {
 	public function new() {

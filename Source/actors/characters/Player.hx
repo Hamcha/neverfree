@@ -1,10 +1,13 @@
 package actors.characters;
 
-import physics.CollisionData.Collision;
-import physics.CircleCollider;
+import nf.Game;
+import nf.Actor;
+import nf.Input;
+import nf.graphics.AnimatedSprite;
+import nf.physics.CollisionData.Collision;
+import nf.physics.CircleCollider;
 import openfl.events.Event;
 import openfl.Assets;
-import graphics.AnimatedSprite;
 
 class Player extends Actor {
 	private var sprite: AnimatedSprite;

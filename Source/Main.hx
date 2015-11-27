@@ -11,7 +11,7 @@ class Main extends Sprite {
 	}
 
 	public function added(e: Event) {
-		var game: Game = new Game();
+		var game: NFGame = new NFGame();
 		addChild(game);
 		addChild(new FPS());
 	}
